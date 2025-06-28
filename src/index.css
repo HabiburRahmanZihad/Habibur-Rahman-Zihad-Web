@@ -1,0 +1,101 @@
+/* ============================
+    Import Google Fonts
+============================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+/* ============================
+    Import Tailwind CSS Core
+============================ */
+@import "tailwindcss";
+
+/* ============================
+    DaisyUI Theme Configuration
+============================ */
+@plugin "daisyui" {
+    themes: light --default, dark;
+}
+
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+
+    --color-primary: #DAA520;
+    /* Goldenrod – rich, energetic, modern */
+    --color-secondary: #B88B58;
+    /* Muted bronze – elegant contrast */
+    --color-accent: #6C6C6C;
+    /* Lighter gray for outlines/icons — easier on the eyes */
+    --color-neutral: #1F1F1F;
+    /* Charcoal – strong text contrast */
+    --color-base-100: #FFFFFF;
+    /* Clean white background */
+    --color-base-200: #F8F8F8;
+    /* Soft light gray for cards */
+    --color-base-300: #E2E2E2;
+    /* Subtle border/hover background */
+    --color-highlight: #F9B934;
+    /* Slightly deeper tone for hover button backgrounds or links */
+    --color-info: #FFF3C4;
+    /* Soft buttery yellow – informative, readable */
+    --color-content: #121212;
+    /* Slightly deeper than #141414 for text readability on white */
+    --color-success: #4CAF50;
+    /* Green for success */
+    --color-error: #EF4444;
+    /* Red for errors */
+}
+
+
+/* 🌙 Dark Theme */
+@plugin "daisyui/theme" {
+    name: "dark";
+
+    --color-primary: #FFC107;
+    /* Primary buttons, section titles, highlights, links */
+    --color-secondary: #A6713D;
+    /* Secondary buttons, tech badges, timeline markers */
+    --color-accent: #E8C46C;
+    /* Subtler tone than #FFEC9E — easier on dark backgrounds */
+
+    --color-neutral: ##E5E7EB;
+    /* Text color, nav links, input labels, card headers */
+    --color-base-100: #0E0E0E;
+    /* Full-page background */
+    --color-base-200: #1A1A1A;
+    /* Card backgrounds, section backgrounds */
+    --color-base-300: #2B2B2B;
+    /* Dividers, input backgrounds, hover backgrounds */
+    --color-highlight: #FFCA63;
+    /* Hover effects, active icon glow, focus rings */
+    --color-info: #FFE082;
+    /* Info badges, alert components */
+    --color-content: #F1F1F1;
+    /* Main readable content on dark background */
+    --color-success: #4CAF50;
+    /* Green for success */
+    --color-error: #EF4444;
+    /* Red for errors */
+}
+
+
+
+/* ============================
+    Global Styling
+============================ */
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+
+.grotesk {
+    font-family: 'Space Grotesk', sans-serif;
+}
