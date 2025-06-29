@@ -1,150 +1,87 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import {
-    FaGithub,
-    FaLinkedin,
-    FaTwitter,
-    FaInstagram,
-    FaEnvelope,
-    FaHeart,
-    FaArrowUp
+    FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaFacebook,
 } from 'react-icons/fa';
+import { Link } from 'react-router';
+import Logo from '../../assets/AllPic/logo/withBorder.png';
 
 const Footer = () => {
-    const currentYear = new Date().getFullYear();
-
     const socialLinks = [
-        {
-            name: 'GitHub',
-            icon: FaGithub,
-            url: 'https://github.com/yourusername',
-            color: 'hover:text-gray-900 dark:hover:text-white'
-        },
-        {
-            name: 'LinkedIn',
-            icon: FaLinkedin,
-            url: 'https://linkedin.com/in/yourusername',
-            color: 'hover:text-blue-600'
-        },
-        {
-            name: 'Twitter',
-            icon: FaTwitter,
-            url: 'https://twitter.com/yourusername',
-            color: 'hover:text-blue-400'
-        },
-        {
-            name: 'Instagram',
-            icon: FaInstagram,
-            url: 'https://instagram.com/yourusername',
-            color: 'hover:text-pink-500'
-        },
-        {
-            name: 'Email',
-            icon: FaEnvelope,
-            url: 'mailto:your.email@example.com',
-            color: 'hover:text-red-500'
-        }
+        { name: 'GitHub', icon: FaGithub, url: 'https://github.com/HabiburRahmanZihad' },
+        { name: 'LinkedIn', icon: FaLinkedin, url: 'https://linkedin.com/in/habiburrahmanxihad' },
+        { name: 'Twitter', icon: FaTwitter, url: 'https://x.com/xihad_xihad' },
+        { name: 'Email', icon: FaEnvelope, url: 'mailto:e241024@ugrad.iiuc.ac.bd' },
+        { name: 'Facebook', icon: FaFacebook, url: 'https://www.facebook.com/habiburrahmanzihad.zihad' },
     ];
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
-
     return (
-        <footer className="bg-base-200 text-base-content">
-            <div className="max-w-7xl mx-auto px-4 py-12">
-                {/* Main Footer Content */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Brand Section */}
-                    <div className="space-y-4">
-                        <h3 className="text-2xl font-bold text-primary grotesk">
-                            Habibur Rahman
-                        </h3>
-                        <p className="text-base-content/70 max-w-md">
-                            Full Stack Developer passionate about creating beautiful,
-                            functional web applications that make a difference.
-                        </p>
-                        <div className="flex space-x-4">
-                            {socialLinks.map((social) => {
-                                const IconComponent = social.icon;
-                                return (
-                                    <motion.a
-                                        key={social.name}
-                                        href={social.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={`text-xl text-base-content/60 transition-colors duration-300 ${social.color}`}
-                                        whileHover={{ scale: 1.2 }}
-                                        whileTap={{ scale: 0.9 }}
-                                        aria-label={social.name}
-                                    >
-                                        <IconComponent />
-                                    </motion.a>
-                                );
-                            })}
-                        </div>
-                    </div>
+        <footer className="bg-gradient-to-br from-base-200 to-base-100 text-content py-12 px-4 sm:px-8 border-t border-base-300">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-                    {/* Quick Links */}
-                    <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-primary">Quick Links</h4>
-                        <ul className="space-y-2">
-                            {['Home', 'About', 'Projects', 'Contact'].map((link) => (
-                                <li key={link}>
-                                    <a
-                                        href={`/${link.toLowerCase()}`}
-                                        className="text-base-content/70 hover:text-primary transition-colors duration-300"
-                                    >
-                                        {link}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Contact Info */}
-                    <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-primary">Get In Touch</h4>
-                        <div className="space-y-2">
-                            <p className="text-base-content/70">
-                                <span className="font-medium">Email:</span> your.email@example.com
-                            </p>
-                            <p className="text-base-content/70">
-                                <span className="font-medium">Location:</span> Your City, Country
-                            </p>
-                            <p className="text-base-content/70">
-                                <span className="font-medium">Status:</span>
-                                <span className="text-green-500 ml-1">Available for work</span>
-                            </p>
-                        </div>
-                    </div>
+                {/* Branding */}
+                <div className="text-center sm:text-left">
+                    <img src={Logo} alt="Logo" className="w-20 sm:w-24 mx-auto sm:mx-0 mb-4 rounded-lg shadow" />
+                    <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-2 grotesk">
+                        Habibur Rahman
+                    </h3>
+                    <p className="text-base-content/80 text-sm leading-relaxed">
+                        Full Stack Developer building accessible, performant, and visually engaging web applications that solve real problems.
+                    </p>
                 </div>
 
-                {/* Divider */}
-                <div className="divider my-8"></div>
-
-                {/* Bottom Footer */}
-                <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <div className="flex items-center space-x-2 text-base-content/60">
-                        <span>© {currentYear} Habibur Rahman. Made with</span>
-                        <FaHeart className="text-red-500" />
-                        <span>using React & Tailwind CSS</span>
-                    </div>
-
-                    {/* Back to Top Button */}
-                    <motion.button
-                        onClick={scrollToTop}
-                        className="btn btn-circle btn-primary btn-sm"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        aria-label="Back to top"
-                    >
-                        <FaArrowUp />
-                    </motion.button>
+                {/* Quick Links */}
+                <div className="text-center sm:text-left">
+                    <h4 className="text-xl font-semibold text-primary  mb-4">Quick Links</h4>
+                    <ul className="text-base-content/80 text-sm font-medium grid grid-cols-2 gap-3 justify-center sm:justify-start">
+                        {[
+                            { name: 'Home', path: '/' },
+                            { name: 'About', path: '/about' },
+                            { name: 'Projects', path: '/projects' },
+                            { name: 'Contact', path: '/contact' },
+                        ].map(({ name, path }) => (
+                            <li key={name}>
+                                <Link
+                                    to={path}
+                                    className="hover:text-secondary transition-colors duration-300"
+                                >
+                                    {name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
+
+                {/* Contact & Socials */}
+                <div className="text-center sm:text-left">
+                    <h4 className="text-xl font-semibold text-primary mb-4">Connect With Me</h4>
+                    <ul className="text-base-content/80 text-sm space-y-2 mb-4">
+                        <li>📍 Chattogram, Bangladesh</li>
+                        <li>📧 e241024@ugrad.iiuc.ac.bd</li>
+                        <li>📞 +880 1329-453598</li>
+                    </ul>
+                    <div className="flex justify-center sm:justify-start gap-4 mt-2">
+                        {socialLinks.map(({ name, icon: Icon, url }) => (
+                            <motion.a
+                                key={name}
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={name}
+                                title={name}
+                                className="text-xl text-base-content/70 hover:text-primary transition-colors"
+                                whileHover={{ scale: 1.2 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Icon />
+                            </motion.a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* Bottom Line */}
+            <div className="mt-12 text-center text-sm text-base-content/60 border-t border-base-300 pt-6">
+                © {new Date().getFullYear()} Habibur Rahman. All rights reserved.
             </div>
         </footer>
     );

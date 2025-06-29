@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FaHome, FaArrowLeft, FaRocket, FaCode, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
@@ -371,10 +370,10 @@ const Error = () => {
                                     className="text-3xl mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
                                     style={{ color: '#DAA520' }}
                                 />
-                                <h3 className="font-semibold text-neutral group-hover:text-primary transition-colors duration-300">
+                                <h3 className="font-semibold text-primary transition-colors duration-300">
                                     About Me
                                 </h3>
-                                <p className="text-sm text-neutral/60 mt-1">
+                                <p className="text-sm text-black mt-1">
                                     My story & skills
                                 </p>
                             </motion.div>
@@ -395,10 +394,10 @@ const Error = () => {
                                     className="text-3xl mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
                                     style={{ color: '#B88B58' }}
                                 />
-                                <h3 className="font-semibold text-neutral group-hover:text-primary transition-colors duration-300">
+                                <h3 className="font-semibold text-primary transition-colors duration-300">
                                     Projects
                                 </h3>
-                                <p className="text-sm text-neutral/60 mt-1">
+                                <p className="text-sm text-black mt-1">
                                     My work & creations
                                 </p>
                             </motion.div>
@@ -419,10 +418,10 @@ const Error = () => {
                                     className="text-3xl mx-auto mb-3 group-hover:scale-110 transition-transform duration-300"
                                     style={{ color: '#6C6C6C' }}
                                 />
-                                <h3 className="font-semibold text-neutral group-hover:text-primary transition-colors duration-300">
+                                <h3 className="font-semibold text-primary transition-colors duration-300">
                                     Contact
                                 </h3>
-                                <p className="text-sm text-neutral/60 mt-1">
+                                <p className="text-sm text-black mt-1">
                                     Let's connect
                                 </p>
                             </motion.div>

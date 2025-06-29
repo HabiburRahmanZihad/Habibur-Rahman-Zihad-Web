@@ -4,9 +4,12 @@ import Button from '../../Components/Buttons/Button';
 import PhotoContest from '../../assets/AllPic/Certificate/PhotoContest.jpg';
 import CyberSecurity from '../../assets/AllPic/Certificate/cyber.jpg';
 import facebookMarketing from '../../assets/AllPic/Certificate/10.jpg';
-import profileImage from '../../assets/MinePic/photo2.jpg'; // Update with your actual image path
-import { Link } from 'react-router';
+import profileImage from '../../assets/MinePic/photo2.jpg';
+import { Link, useLocation } from 'react-router';
+
 const About = () => {
+    const location = useLocation(); // ✅ for key to reset animations
+
     const timeline = [
         {
             year: '2024 - Present',
@@ -39,9 +42,7 @@ const About = () => {
 
     const achievements = [
         { image: CyberSecurity, title: 'Cyber Security & Ethical Hacking', year: '2021', Platform: 'Ghoori Learning', ShortSummary: 'Completed a comprehensive course on Cyber Security and Ethical Hacking, gaining skills in protecting systems and networks.' },
-
         { image: PhotoContest, title: 'Fundamentals rules of PhotoGraphy', year: '2024', Platform: 'IIUCPS', ShortSummary: 'Participated in a photography contest and won recognition for outstanding skills.' },
-
         { image: facebookMarketing, title: 'Facebook Marketing', year: '2021', Platform: '10 Minute School', ShortSummary: 'Completed a course on Facebook Marketing, learning strategies for effective social media advertising.' }
     ];
 
@@ -50,7 +51,13 @@ const About = () => {
             {/* Hero Section */}
             <section className="pb-20 pt-10 md:pt-14 lg:pt-20 bg-gradient-to-br from-base-100 to-base-200">
                 <div className="max-w-6xl mx-auto px-4">
-                    <div className="flex flex-col-reverse lg:flex-row gap-12 items-center">
+                    <motion.div
+                        key={location.pathname} // ✅ triggers animation reset on route change
+                        className="flex flex-col-reverse lg:flex-row gap-12 items-center"
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
                         {/* Text Content */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
@@ -62,16 +69,15 @@ const About = () => {
                                 About Me
                             </h1>
                             <p className="text-lg sm:text-xl text-base-content/70 mb-6 leading-relaxed">
-                                Hi, I’m Habibur Rahman — but most people know me as <span className="font-semibold text-primary">'ZIHAD'</span>. I’m a passionate and curious web developer who’s been learning and building for about a year now.
+                                Hi, I'm Habibur Rahman — but most people know me as <span className="font-semibold text-primary">'ZIHAD'</span>. I'm a passionate and curious web developer who's been learning and building for about a year now.
                             </p>
                             <p className="text-base sm:text-lg text-base-content/60 mb-8 leading-relaxed">
-                                My journey into web development started with a simple question: "How does the internet work?" Since then, I’ve been diving into front-end and back-end development, creating projects that help me learn and grow. I love solving problems, experimenting with new technologies, and turning ideas into functional, user-friendly websites.
+                                My journey into web development started with a simple question: "How does the internet work?" Since then, I've been diving into front-end and back-end development, creating projects that help me learn and grow. I love solving problems, experimenting with new technologies, and turning ideas into functional, user-friendly websites.
                             </p>
                             <Link to="/contact">
                                 <Button variant="primary" size="lg" icon={FaHeart} iconPosition="right">
-                                    Let’s Collaborate
+                                    Let's Collaborate
                                 </Button>
-
                             </Link>
                         </motion.div>
 
@@ -92,9 +98,7 @@ const About = () => {
                                 <div className="absolute -z-10 top-[-20px] right-[-20px] w-28 h-28 bg-primary/30 rounded-full blur-2xl"></div>
                             </div>
                         </motion.div>
-
-
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -214,7 +218,7 @@ const About = () => {
                         <p className="mt-6 text-lg text-base-content/70 leading-relaxed">
                             My programming journey began out of simple curiosity. I remember opening up a basic HTML file just to see what would happen if I changed a line of code.
                             That tiny spark quickly grew into something bigger — I started watching tutorials, building little websites, and experimenting late into the night.
-                            What started as a hobby turned into a passion, and now I’m focused on building full-stack applications that are clean, useful, and user-friendly.
+                            What started as a hobby turned into a passion, and now I'm focused on building full-stack applications that are clean, useful, and user-friendly.
                         </p>
                     </div>
                     <motion.div
@@ -223,7 +227,7 @@ const About = () => {
                         transition={{ type: 'spring', stiffness: 120 }}
                     >
                         <p className="text-lg text-base-content/80">
-                            “Most developers start by being curious. The difference is — some of us just never stop being curious.”
+                            "Most developers start by being curious. The difference is — some of us just never stop being curious."
                         </p>
                     </motion.div>
                 </motion.div>
@@ -245,7 +249,7 @@ const About = () => {
                         <p className="text-base-content/70 text-lg leading-relaxed">
                             I get excited about projects where I can take an idea and turn it into something real — especially if it helps people or solves a specific problem.
                             I enjoy crafting smooth, responsive interfaces that just make sense, and I love the behind-the-scenes logic that makes everything run reliably.
-                            Clean code, clear design, and useful outcomes — that’s what I aim for in every project.
+                            Clean code, clear design, and useful outcomes — that's what I aim for in every project.
                         </p>
                     </motion.div>
 
@@ -275,8 +279,8 @@ const About = () => {
                             <span className="text-4xl">🌍</span> Beyond the Code
                         </h2>
                         <p className="mt-6 text-lg text-base-content/70 leading-relaxed">
-                            Life isn’t just about code — and I wouldn’t have it any other way. I’m someone who believes that the best ideas often come from outside the screen.
-                            Whether I’m out exploring new places, snapping photos, sharing what I’ve learned with others, or diving into a plate of biriyani, I try to bring curiosity and creativity into everything I do.
+                            Life isn't just about code — and I wouldn't have it any other way. I'm someone who believes that the best ideas often come from outside the screen.
+                            Whether I'm out exploring new places, snapping photos, sharing what I've learned with others, or diving into a plate of biriyani, I try to bring curiosity and creativity into everything I do.
                         </p>
                     </div>
 
@@ -287,7 +291,7 @@ const About = () => {
                         <ul className="list-disc pl-5 text-base-content/70 space-y-3 text-lg">
                             <li>✈️ I love to travel — discovering new cultures helps me think with a broader perspective</li>
                             <li>📚 Lifelong learner — I'm always exploring new tech, ideas, and skills</li>
-                            <li>🎓 Teaching and mentoring gives me joy — I believe knowledge grows when it’s shared</li>
+                            <li>🎓 Teaching and mentoring gives me joy — I believe knowledge grows when it's shared</li>
                             <li>📸 Photography is my creative outlet — especially candid, everyday moments</li>
                             <li>🍛 Big fan of biriyani — enough said.</li>
                         </ul>
@@ -309,7 +313,7 @@ const About = () => {
                             Learning & Certifications
                         </h2>
                         <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-                            Here are some of the certified programs I’ve completed to expand my skills beyond just coding — including marketing, design, and strategic thinking.
+                            Here are some of the certified programs I've completed to expand my skills beyond just coding — including marketing, design, and strategic thinking.
                         </p>
                     </motion.div>
 
@@ -339,14 +343,15 @@ const About = () => {
                                 whileHover="hover"
                                 whileTap={{ scale: 0.98 }}
                                 variants={{
-                                    hidden: { opacity: 0, y: 60, rotateX: -15, scale: 0.9, },
+                                    hidden: { opacity: 0, y: 60, rotateX: -15, scale: 0.9 },
                                     visible: {
                                         opacity: 1, y: 0, rotateX: 0, scale: 1,
-                                        transition: { type: 'spring', damping: 20, stiffness: 100, duration: 0.8, },
+                                        transition: { type: 'spring', damping: 20, stiffness: 100, duration: 0.8 }
                                     },
                                     hover: {
-                                        y: -10, scale: 1.02, rotateY: 5, transition: { type: 'spring', damping: 20, stiffness: 300, },
-                                    },
+                                        y: -10, scale: 1.02, rotateY: 5,
+                                        transition: { type: 'spring', damping: 20, stiffness: 300 }
+                                    }
                                 }}
                                 className="max-w-sm w-full mx-auto cursor-pointer h-full"
                                 style={{ perspective: '1000px' }}
@@ -361,7 +366,7 @@ const About = () => {
                                             className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full"
                                             whileHover={{
                                                 translateX: '200%',
-                                                transition: { duration: 0.6, ease: 'easeInOut' },
+                                                transition: { duration: 0.6, ease: 'easeInOut' }
                                             }}
                                         />
 
@@ -370,18 +375,22 @@ const About = () => {
                                             src={achievement.image}
                                             alt={achievement.title}
                                             className="h-[200px] w-full rounded-xl mb-4 object-cover border border-secondary shadow-lg"
-                                            whileHover={{ scale: 1.05, brightness: 1.1, transition: { duration: 0.3 }, }}
+                                            whileHover={{
+                                                scale: 1.05, brightness: 1.1,
+                                                transition: { duration: 0.3 }
+                                            }}
                                         />
 
                                         {/* Title */}
-                                        <h3
+                                        <motion.h3
                                             className="text-xl font-bold text-neutral mb-2 group-hover:text-primary transition-colors duration-300"
                                             initial={{ opacity: 0, x: -20 }}
-                                            whileinview={{ opacity: 1, x: 0 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.2 + 0.3, duration: 0.5 }}
+                                            viewport={{ once: true }}
                                         >
                                             {achievement.title}
-                                        </h3>
+                                        </motion.h3>
 
                                         {/* Year & Platform */}
                                         <motion.div
@@ -389,6 +398,7 @@ const About = () => {
                                             initial={{ opacity: 0, x: -20 }}
                                             whileInView={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.2 + 0.4, duration: 0.5 }}
+                                            viewport={{ once: true }}
                                         >
                                             <motion.span
                                                 className="text-secondary font-medium"
@@ -408,6 +418,7 @@ const About = () => {
                                             initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
                                             transition={{ delay: index * 0.2 + 0.5, duration: 0.5 }}
+                                            viewport={{ once: true }}
                                         >
                                             {achievement.ShortSummary}
                                         </motion.p>
@@ -418,9 +429,18 @@ const About = () => {
                                             initial={{ opacity: 0, scale: 0, rotate: -45 }}
                                             whileInView={{
                                                 opacity: 1, scale: 1, rotate: 0,
-                                                transition: { delay: index * 0.2 + 0.6, duration: 0.5, type: 'spring', damping: 15, },
+                                                transition: {
+                                                    delay: index * 0.2 + 0.6,
+                                                    duration: 0.5,
+                                                    type: 'spring',
+                                                    damping: 15
+                                                }
                                             }}
-                                            whileHover={{ scale: 1.1, rotate: 5, backgroundColor: 'rgba(218, 165, 32, 0.2)', }}
+                                            whileHover={{
+                                                scale: 1.1, rotate: 5,
+                                                backgroundColor: 'rgba(218, 165, 32, 0.2)'
+                                            }}
+                                            viewport={{ once: true }}
                                         >
                                             <FaAward className="inline mr-1" />
                                             Certified
@@ -429,7 +449,6 @@ const About = () => {
                                 </div>
                             </motion.div>
                         ))}
-
                     </motion.div>
                 </div>
             </section>

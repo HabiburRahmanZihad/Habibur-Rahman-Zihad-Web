@@ -1,24 +1,54 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-    FaEnvelope,
-    FaPhone,
-    FaMapMarkerAlt,
-    FaLinkedin,
-    FaGithub,
-    FaTwitter,
-    FaPaperPlane,
-    FaCheckCircle
+    FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin,
+    FaGithub, FaTwitter, FaPaperPlane, FaCheckCircle, FaFacebook
 } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';
 import Swal from 'sweetalert2';
+import { Link, useLocation } from 'react-router';
+
+// Animation Variants
+const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (delay = 0) => ({
+        opacity: 1,
+        y: 0,
+        transition: { delay, duration: 0.8, ease: 'easeOut' }
+    })
+};
+
+const fadeInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.8, ease: 'easeOut' }
+    }
+};
+
+const fadeInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.8, ease: 'easeOut' }
+    }
+};
+
+const staggerContainer = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+};
 
 const Contact = () => {
+    const location = useLocation(); // ✅ detect path change
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+        name: '', email: '', subject: '', message: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -26,61 +56,40 @@ const Contact = () => {
         {
             icon: FaEnvelope,
             title: 'Email',
-            value: 'habibur.rahman@example.com',
-            link: 'mailto:habibur.rahman@example.com'
+            value: 'Habibur Rahman Zihad\'s mail',
+            link: 'mailto:e241024@ugrad.iiuc.ac.bd'
         },
         {
             icon: FaPhone,
             title: 'Phone',
-            value: '+880 123 456 789',
-            link: 'tel:+880123456789'
+            value: 'Habibur Rahman Zihad\'s phone',
+            link: 'tel:+8801329453598'
         },
         {
             icon: FaMapMarkerAlt,
             title: 'Location',
-            value: 'Dhaka, Bangladesh',
-            link: 'https://maps.google.com/?q=Dhaka,Bangladesh'
+            value: 'Chattogram, Bangladesh',
+            link: 'https://maps.google.com/?q=Chattogram,Bangladesh'
         }
     ];
 
     const socialLinks = [
-        {
-            icon: FaLinkedin,
-            name: 'LinkedIn',
-            url: 'https://linkedin.com/in/habibur-rahman',
-            color: 'text-secondary'
-        },
-        {
-            icon: FaGithub,
-            name: 'GitHub',
-            url: 'https://github.com/habibur-rahman',
-            color: 'text-secondary'
-        },
-        {
-            icon: FaTwitter,
-            name: 'Twitter',
-            url: 'https://twitter.com/habibur_rahman',
-            color: 'text-secondary'
-        }
+        { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanxihad' },
+        { icon: FaGithub, name: 'GitHub', url: 'https://github.com/HabiburRahmanZihad' },
+        { icon: FaTwitter, name: 'Twitter', url: 'https://x.com/xihad_xihad' },
+        { icon: FaFacebook, name: 'Facebook', url: 'https://www.facebook.com/habiburrahmanzihad.zihad' }
     ];
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-
-        // Simulate form submission
         setTimeout(() => {
             setIsSubmitting(false);
-
-            // Show success alert
             Swal.fire({
                 title: 'Message Sent!',
                 text: 'Thank you for reaching out. I\'ll get back to you soon!',
@@ -88,30 +97,28 @@ const Contact = () => {
                 confirmButtonText: 'Great!',
                 confirmButtonColor: '#DAA520'
             });
-
-            // Reset form
-            setFormData({
-                name: '',
-                email: '',
-                subject: '',
-                message: ''
-            });
+            setFormData({ name: '', email: '', subject: '', message: '' });
         }, 2000);
     };
 
     return (
-        <div className="min-h-screen bg-base-100">
+        <motion.div
+            key={location.pathname} // ✅ triggers re-render animation
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="min-h-screen bg-base-100"
+        >
             {/* Hero Section */}
             <section className="py-20 bg-gradient-to-br from-base-100 to-base-200">
                 <div className="max-w-6xl mx-auto px-4 text-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        variants={fadeInUp}
+                        initial="hidden"
+                        animate="visible"
+                        className="space-y-4"
                     >
-                        <h1 className="text-5xl md:text-6xl font-bold text-primary grotesk mb-6">
-                            Get In Touch
-                        </h1>
+                        <h1 className="text-5xl md:text-6xl font-bold text-primary grotesk mb-6">Get In Touch</h1>
                         <p className="text-xl text-base-content/70 max-w-3xl mx-auto">
                             I'm always open to discussing new opportunities, creative projects,
                             or potential collaborations. Let's create something amazing together!
@@ -120,238 +127,126 @@ const Contact = () => {
                 </div>
             </section>
 
-            {/* Contact Content */}
+            {/* Contact Info + Form */}
             <section className="py-20 bg-base-100">
-                <div className="max-w-6xl mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                        {/* Contact Information */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className="text-3xl font-bold text-primary grotesk mb-8">
-                                Let's Start a Conversation
-                            </h2>
-                            <p className="text-lg text-base-content/70 mb-8 leading-relaxed">
-                                Whether you have a project in mind, want to collaborate, or just
-                                want to say hello, I'd love to hear from you. Choose the method
-                                that works best for you.
-                            </p>
+                <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    {/* Left Column */}
+                    <motion.div
+                        variants={fadeInLeft}
+                        initial="hidden"
+                        animate="visible" // ✅ changed from whileInView
+                    >
+                        <h2 className="text-3xl font-bold text-primary grotesk mb-8">Let's Start a Conversation</h2>
+                        <p className="text-lg text-base-content/70 mb-8">
+                            Whether you have a project in mind, want to collaborate, or just want to say hello — I'd love to hear from you.
+                        </p>
 
-                            {/* Contact Info Cards */}
-                            <div className="space-y-6 mb-10">
-                                {contactInfo.map((info, index) => {
-                                    const IconComponent = info.icon;
-                                    return (
-                                        <motion.a
-                                            key={index}
-                                            href={info.link}
-                                            target={info.link.startsWith('http') ? '_blank' : undefined}
-                                            rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: index * 0.1, duration: 0.6 }}
-                                            viewport={{ once: true }}
-                                            className="flex items-center p-6 bg-base-200 rounded-xl hover:bg-base-300 transition-colors duration-300 group"
+                        <motion.div
+                            variants={staggerContainer}
+                            initial="hidden"
+                            animate="visible" // ✅ changed from whileInView
+                        >
+                            {contactInfo.map((info, index) => {
+                                const Icon = info.icon;
+                                return (
+                                    <Link to={info.link} key={index} className="block" target='_blank' rel='noopener noreferrer'>
+                                        <motion.div
+                                            variants={fadeInUp}
+                                            custom={index * 0.1}
+                                            className="flex items-center p-6 mb-4 bg-base-200 rounded-xl hover:bg-base-300 transition-all duration-300 group"
                                         >
                                             <div className="p-4 bg-primary text-white rounded-lg mr-4 group-hover:scale-110 transition-transform duration-300">
-                                                <IconComponent className="text-xl" />
+                                                <Icon className="text-xl" />
                                             </div>
                                             <div>
-                                                <h3 className="font-semibold text-lg text-primary">
-                                                    {info.title}
-                                                </h3>
-                                                <p className="text-base-content/70">
-                                                    {info.value}
-                                                </p>
+                                                <h3 className="font-semibold text-lg text-primary">{info.title}</h3>
+                                                <p className="text-base-content/70">{info.value}</p>
                                             </div>
-                                        </motion.a>
+                                        </motion.div>
+                                    </Link>
+                                );
+                            })}
+                        </motion.div>
+
+                        <div className="mt-6">
+                            <h3 className="text-xl font-bold text-primary grotesk mb-4">Follow Me</h3>
+                            <div className="flex space-x-4">
+                                {socialLinks.map((social, index) => {
+                                    const Icon = social.icon;
+                                    return (
+                                        <Link to={social.url} key={index} target="_blank" rel="noopener noreferrer">
+                                            <motion.div
+                                                key={index}
+                                                className="p-3 bg-base-200 rounded-lg hover:bg-primary hover:text-white transition-all duration-300"
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 0.95 }}
+                                            >
+                                                <Icon className="text-xl" />
+                                            </motion.div>
+                                        </Link>
                                     );
                                 })}
                             </div>
-
-                            {/* Social Links */}
-                            <div>
-                                <h3 className="text-xl font-bold text-primary grotesk mb-4">
-                                    Follow Me
-                                </h3>
-                                <div className="flex space-x-4">
-                                    {socialLinks.map((social, index) => {
-                                        const IconComponent = social.icon;
-                                        return (
-                                            <motion.a
-                                                key={index}
-                                                href={social.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={`p-3 bg-base-200 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 ${social.color}`}
-                                                whileHover={{ scale: 1.1 }}
-                                                whileTap={{ scale: 0.9 }}
-                                                aria-label={social.name}
-                                            >
-                                                <IconComponent className="text-xl" />
-                                            </motion.a>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Contact Form */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="bg-base-200 p-8 rounded-2xl shadow-xl">
-                                <h2 className="text-3xl font-bold text-primary grotesk mb-6">
-                                    Send Me a Message
-                                </h2>
-
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    {/* Name Input */}
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text font-medium">Name</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleInputChange}
-                                            placeholder="Your full name"
-                                            className="input input-bordered w-full bg-base-100"
-                                            required
-                                        />
-                                    </div>
-
-                                    {/* Email Input */}
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text font-medium">Email</span>
-                                        </label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleInputChange}
-                                            placeholder="your.email@example.com"
-                                            className="input input-bordered w-full bg-base-100"
-                                            required
-                                        />
-                                    </div>
-
-                                    {/* Subject Input */}
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text font-medium">Subject</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name="subject"
-                                            value={formData.subject}
-                                            onChange={handleInputChange}
-                                            placeholder="What's this about?"
-                                            className="input input-bordered w-full bg-base-100"
-                                            required
-                                        />
-                                    </div>
-
-                                    {/* Message Textarea */}
-                                    <div className="form-control">
-                                        <label className="label">
-                                            <span className="label-text font-medium">Message</span>
-                                        </label>
-                                        <textarea
-                                            name="message"
-                                            value={formData.message}
-                                            onChange={handleInputChange}
-                                            placeholder="Tell me about your project or idea..."
-                                            className="textarea textarea-bordered h-32 w-full bg-base-100 resize-none"
-                                            required
-                                        />
-                                    </div>
-
-                                    {/* Submit Button */}
-                                    <Button
-                                        type="submit"
-                                        variant="primary"
-                                        size="lg"
-                                        disabled={isSubmitting}
-                                        icon={isSubmitting ? FaCheckCircle : FaPaperPlane}
-                                        iconPosition="right"
-                                        className="w-full"
-                                    >
-                                        {isSubmitting ? 'Sending...' : 'Send Message'}
-                                    </Button>
-                                </form>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section className="py-20 bg-base-200">
-                <div className="max-w-4xl mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">
-                            Quick Answers
-                        </h2>
-                        <p className="text-xl text-base-content/70">
-                            Here are some frequently asked questions.
-                        </p>
+                        </div>
                     </motion.div>
 
-                    <div className="space-y-4">
-                        {[
-                            {
-                                question: "What's your typical response time?",
-                                answer: "I usually respond to emails within 24 hours during weekdays."
-                            },
-                            {
-                                question: "Do you work on weekends?",
-                                answer: "I'm available for urgent matters, but prefer to plan non-urgent work during weekdays."
-                            },
-                            {
-                                question: "What type of projects do you take on?",
-                                answer: "I work on web applications, mobile apps, UI/UX design, and consulting projects."
-                            },
-                            {
-                                question: "Do you offer maintenance services?",
-                                answer: "Yes, I provide ongoing maintenance and support for projects I've developed."
-                            }
-                        ].map((faq, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1, duration: 0.6 }}
-                                viewport={{ once: true }}
-                                className="collapse collapse-plus bg-base-100"
-                            >
-                                <input type="radio" name="faq-accordion" />
-                                <div className="collapse-title text-lg font-medium text-primary">
-                                    {faq.question}
+                    {/* Right Column: Form */}
+                    <motion.div
+                        variants={fadeInRight}
+                        initial="hidden"
+                        animate="visible" // ✅ changed from whileInView
+                    >
+                        <div className="bg-base-200 p-8 rounded-2xl shadow-xl">
+                            <h2 className="text-3xl font-bold text-primary grotesk mb-6">Send Me a Message</h2>
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                {['name', 'email', 'subject'].map((field, i) => (
+                                    <div className="form-control" key={field}>
+                                        <label className="label">
+                                            <span className="label-text font-medium">{field[0].toUpperCase() + field.slice(1)}</span>
+                                        </label>
+                                        <input
+                                            type={field === 'email' ? 'email' : 'text'}
+                                            name={field}
+                                            value={formData[field]}
+                                            onChange={handleInputChange}
+                                            placeholder={`Enter your ${field}`}
+                                            className="input input-bordered w-full bg-base-100"
+                                            required
+                                        />
+                                    </div>
+                                ))}
+
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text font-medium">Message</span>
+                                    </label>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleInputChange}
+                                        placeholder="Your message here..."
+                                        className="textarea textarea-bordered h-32 w-full bg-base-100 resize-none"
+                                        required
+                                    />
                                 </div>
-                                <div className="collapse-content">
-                                    <p className="text-base-content/70">{faq.answer}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+
+                                <Button
+                                    type="submit"
+                                    variant="primary"
+                                    size="lg"
+                                    disabled={isSubmitting}
+                                    icon={isSubmitting ? FaCheckCircle : FaPaperPlane}
+                                    iconPosition="right"
+                                    className="w-full"
+                                >
+                                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                                </Button>
+                            </form>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
-        </div>
+        </motion.div>
     );
 };
 
