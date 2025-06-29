@@ -99,3 +99,24 @@ h6 {
 .grotesk {
     font-family: 'Space Grotesk', sans-serif;
 }
+
+
+@layer utilities {
+    .animate-wowPulse {
+        animation: wowPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes wowPulse {
+
+        0%,
+        100% {
+            box-shadow: 0 10px 40px -10px theme('colors.primary.DEFAULT'), 0 0 0 0 rgba(0, 0, 0, 0);
+            transform: scale(1);
+        }
+
+        50% {
+            box-shadow: 0 10px 60px -10px theme('colors.primary.DEFAULT'), 0 0 20px theme('colors.primary.DEFAULT');
+            transform: scale(1.02);
+        }
+    }
+}

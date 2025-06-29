@@ -4,7 +4,7 @@ import Button from '../../Components/Buttons/Button';
 import PhotoContest from '../../assets/AllPic/Certificate/PhotoContest.jpg';
 import CyberSecurity from '../../assets/AllPic/Certificate/cyber.jpg';
 import facebookMarketing from '../../assets/AllPic/Certificate/10.jpg';
-import profileImage from '../../assets/MinePic/mainphoto.jpg'; // Update with your actual image path
+import profileImage from '../../assets/MinePic/photo2.jpg'; // Update with your actual image path
 import { Link } from 'react-router';
 const About = () => {
     const timeline = [
@@ -18,15 +18,8 @@ const About = () => {
         {
             year: '2021',
             title: 'HSC / Alim',
-            company: 'Baitush Sharaf Madrasha',
+            institute: 'Baitush Sharaf Madrasha',
             description: 'Completed Higher Secondary Certificate (HSC) with a focus on Science.',
-            icon: FaGraduationCap
-        },
-        {
-            year: '2019',
-            title: 'SSC / Dakhil',
-            company: 'Baitush Sharaf Madrasha',
-            description: 'Completed Secondary School Certificate (SSC) with a focus on Science.',
             icon: FaGraduationCap
         }
     ];
@@ -55,48 +48,52 @@ const About = () => {
     return (
         <div className="min-h-screen bg-base-100">
             {/* Hero Section */}
-            <section className="py-20 bg-gradient-to-br from-base-100 to-base-200">
+            <section className="pb-20 pt-10 md:pt-14 lg:pt-20 bg-gradient-to-br from-base-100 to-base-200">
                 <div className="max-w-6xl mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div className="flex flex-col-reverse lg:flex-row gap-12 items-center">
                         {/* Text Content */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
+                            className="w-full lg:w-1/2"
                         >
-                            <h1 className="text-5xl md:text-6xl font-bold text-primary grotesk mb-6">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary grotesk mb-6">
                                 About Me
                             </h1>
-                            <p className="text-xl text-base-content/70 mb-6 leading-relaxed">
-                                I'm a passionate Full Stack Developer with over 3 years of experience
-                                creating digital solutions that bridge the gap between design and technology.
+                            <p className="text-lg sm:text-xl text-base-content/70 mb-6 leading-relaxed">
+                                Hi, I’m Habibur Rahman — but most people know me as <span className="font-semibold text-primary">'ZIHAD'</span>. I’m a passionate and curious web developer who’s been learning and building for about a year now.
                             </p>
-                            <p className="text-lg text-base-content/60 mb-8 leading-relaxed">
-                                My journey started with a curiosity about how websites work, and it has
-                                evolved into a deep passion for creating applications that solve real-world
-                                problems. I believe in writing clean, maintainable code and creating
-                                user experiences that delight and inspire.
+                            <p className="text-base sm:text-lg text-base-content/60 mb-8 leading-relaxed">
+                                My journey into web development started with a simple question: "How does the internet work?" Since then, I’ve been diving into front-end and back-end development, creating projects that help me learn and grow. I love solving problems, experimenting with new technologies, and turning ideas into functional, user-friendly websites.
                             </p>
-
                             <Link to="/contact">
                                 <Button variant="primary" size="lg" icon={FaHeart} iconPosition="right">
-                                    Let's Work Together
+                                    Let’s Collaborate
                                 </Button>
-                            </Link>
 
+                            </Link>
                         </motion.div>
 
-                        {/* Image */}
+                        {/* Image with animation */}
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="flex justify-center"
+                            initial={{ opacity: 0, scale: 0.8, y: 40 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ type: "spring", stiffness: 100, damping: 10, duration: 0.8, delay: 0.4 }}
+                            className="w-full lg:w-1/2 flex justify-center"
                         >
-                            <div className="relative">
-                                <img src={profileImage} alt="Profile of Habibur Rahman" />
+                            <div className="relative rounded-xl overflow-hidden border-4 border-primary/30 shadow-[0_10px_40px_-10px] shadow-primary animate-wowPulse">
+                                <img
+                                    src={profileImage}
+                                    alt="Habibur Rahman — Web Developer"
+                                    className="object-cover w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-[400px] rounded-xl transition-transform duration-300 hover:scale-105"
+                                />
+                                {/* Optional glowing orb */}
+                                <div className="absolute -z-10 top-[-20px] right-[-20px] w-28 h-28 bg-primary/30 rounded-full blur-2xl"></div>
                             </div>
                         </motion.div>
+
+
                     </div>
                 </div>
             </section>
@@ -151,14 +148,15 @@ const About = () => {
             {/* My Education Section */}
             <section className="py-20 bg-base-200">
                 <div className="max-w-4xl mx-auto px-4">
+                    {/* Heading Animation */}
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">
+                        <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4 animate-glow">
                             My Learning Journey
                         </h2>
                         <p className="text-xl text-base-content/70">
@@ -166,38 +164,33 @@ const About = () => {
                         </p>
                     </motion.div>
 
+                    {/* Timeline Items */}
                     <div className="space-y-8">
                         {timeline.map((item, index) => {
                             const IconComponent = item.icon;
                             return (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: index * 0.2, duration: 0.6 }}
+                                    initial={{ opacity: 0, rotateY: 90 }}
+                                    whileInView={{ opacity: 1, rotateY: 0 }}
+                                    transition={{ delay: index * 0.2, duration: 0.6, ease: "easeOut" }}
                                     viewport={{ once: true }}
                                     className={`flex items-center gap-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
                                         }`}
                                 >
-                                    {/* Content */}
-                                    <div className="flex-1 bg-base-100 p-6 rounded-xl shadow-lg">
+                                    {/* Content Box */}
+                                    <div className="flex-1 bg-base-100 p-6 rounded-xl shadow-lg transition-transform hover:scale-[1.02] hover:shadow-xl">
                                         <div className="flex items-center gap-3 mb-3">
-                                            <IconComponent className="text-primary text-xl" />
-                                            <span className="badge badge-primary">{item.year}</span>
+                                            <IconComponent className="text-primary text-2xl animate-pop" />
+                                            <span className="badge badge-primary text-black">{item.year}</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-primary mb-2">
-                                            {item.title}
-                                        </h3>
-                                        <p className="text-secondary font-medium mb-2">
-                                            {item.institute}
-                                        </p>
-                                        <p className="text-base-content/70">
-                                            {item.description}
-                                        </p>
+                                        <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
+                                        <p className="text-secondary font-medium mb-2">{item.institute}</p>
+                                        <p className="text-base-content/70">{item.description}</p>
                                     </div>
 
-                                    {/* Timeline Connector */}
-                                    <div className="w-4 h-4 bg-primary rounded-full flex-shrink-0" />
+                                    {/* Timeline Dot */}
+                                    <div className="w-4 h-4 bg-primary rounded-full flex-shrink-0 animate-ping-once" />
                                 </motion.div>
                             );
                         })}
