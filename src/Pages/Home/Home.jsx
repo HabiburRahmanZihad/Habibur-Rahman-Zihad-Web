@@ -172,22 +172,40 @@ const Home = () => {
 
                 <div className="max-w-6xl mx-auto px-4">
 
-                    <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
+                    <div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">What I Do Best</h2>
                         <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
                             I work with modern web stacks, crafting top‑tier frontend, backend, and design solutions that delight users and scale with purpose.
                         </p>
-                    </motion.div>
+                    </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {skills.map((skill, idx) => (
-                            <motion.div key={idx} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.2, duration: 0.6 }} viewport={{ once: true }}>
+                            <motion.div
+                                className="transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl"
+                                key={idx}
+                                initial={{ opacity: 0, scale: 0.8, y: 40 }}
+                                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                                transition={{
+                                    delay: idx * 0.2,
+                                    duration: 0.6,
+                                    type: 'spring',
+                                    stiffness: 120,
+                                    damping: 15,
+                                }}
+                                viewport={{ once: false, amount: 0.3 }}
+                            >
                                 <SkillCard {...skill} />
                             </motion.div>
                         ))}
                     </div>
 
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }} viewport={{ once: true }} className="text-center mt-12">
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }} viewport={{ once: false, amount: 0.3 }} className="text-center mt-12">
                         <Button variant="primary" size="lg" href="/about" icon={FaArrowRight} iconPosition="right">
                             Learn More About Me
                         </Button>
