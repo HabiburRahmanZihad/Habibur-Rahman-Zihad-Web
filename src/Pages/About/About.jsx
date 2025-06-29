@@ -377,7 +377,7 @@ const About = () => {
                                         <h3
                                             className="text-xl font-bold text-neutral mb-2 group-hover:text-primary transition-colors duration-300"
                                             initial={{ opacity: 0, x: -20 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
+                                            whileinview={{ opacity: 1, x: 0 }}
                                             transition={{ delay: index * 0.2 + 0.3, duration: 0.5 }}
                                         >
                                             {achievement.title}
