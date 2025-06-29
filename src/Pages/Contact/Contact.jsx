@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
     FaEnvelope,
@@ -48,19 +48,19 @@ const Contact = () => {
             icon: FaLinkedin,
             name: 'LinkedIn',
             url: 'https://linkedin.com/in/habibur-rahman',
-            color: 'text-blue-600'
+            color: 'text-secondary'
         },
         {
             icon: FaGithub,
             name: 'GitHub',
             url: 'https://github.com/habibur-rahman',
-            color: 'text-gray-800 dark:text-white'
+            color: 'text-secondary'
         },
         {
             icon: FaTwitter,
             name: 'Twitter',
             url: 'https://twitter.com/habibur_rahman',
-            color: 'text-blue-400'
+            color: 'text-secondary'
         }
     ];
 

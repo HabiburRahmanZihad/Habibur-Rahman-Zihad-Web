@@ -1,10 +1,35 @@
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { FaDownload, FaArrowRight, FaCode, FaRocket, FaHeart, FaEye } from 'react-icons/fa';
+import { FaArrowRight, FaCode, FaRocket, FaHeart, FaEye } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';
 import { SkillCard } from '../../Components/Cards/Card';
 import profileImage from '../../assets/MinePic/mainphoto.jpg'; // Update with your actual image path
 import { Link } from 'react-router';
+import { FaLinkedin, FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
+
+
+const socialLinks = [
+    {
+        icon: FaLinkedin,
+        name: 'LinkedIn',
+        url: 'https://linkedin.com/in/habiburrahmanxihad',
+    },
+    {
+        icon: FaGithub,
+        name: 'GitHub',
+        url: 'https://github.com/HabiburRahmanZihad',
+    },
+    {
+        icon: FaTwitter,
+        name: 'Twitter',
+        url: 'https://x.com/xihad_xihad',
+    },
+    {
+        icon: FaFacebook,
+        name: 'Facebook',
+        url: 'https://www.facebook.com/habiburrahmanzihad.zihad',
+    }
+];
 
 const Home = () => {
     const skills = [
@@ -88,24 +113,53 @@ const Home = () => {
                             </motion.div>
                         </div>
 
-                        {/* Right: Profile Image */}
+                        {/* Right: Profile Image and Social Links */}
                         <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
+                            transition={{ delay: 0.2, duration: 0.5, type: 'spring', stiffness: 100 }}
                             className="flex justify-center w-full"
                         >
-                            <div
-                                className="w-50 h-50 md:w-72 md:h-72 lg:w-96 lg:h-96 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden shadow-lg"
-                                style={{
-                                    boxShadow: '0 0 20px 5px var(--tw-ring-color)'
-                                }}
-                            >
-                                <img
-                                    src={profileImage}
-                                    alt="Profile picture of Habibur Rahman"
-                                    className="w-full h-full object-cover"
-                                />
+                            <div className="text-center">
+                                {/* Profile Image Container */}
+                                <div
+                                    className="w-48 h-48 md:w-72 md:h-72 lg:w-[400px] lg:h-[400px] rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden shadow-lg mx-auto"
+                                    style={{
+                                        boxShadow: '0 0 20px 5px var(--tw-ring-color)',
+                                    }}
+                                >
+                                    <img
+                                        src={profileImage}
+                                        alt="Profile picture of Habibur Rahman"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+
+                                {/* Social Links */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.8, duration: 0.6 }}
+                                    className="flex flex-wrap justify-center gap-3 mt-6"
+                                >
+                                    {socialLinks.map((social, index) => {
+                                        const IconComponent = social.icon;
+                                        return (
+                                            <motion.a
+                                                key={index}
+                                                href={social.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="p-3 rounded-lg bg-primary text-white hover:bg-base-200 hover:text-secondary transition-all duration-300"
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 0.95 }}
+                                                aria-label={social.name}
+                                            >
+                                                <IconComponent className="text-2xl" />
+                                            </motion.a>
+                                        );
+                                    })}
+                                </motion.div>
                             </div>
                         </motion.div>
 
@@ -118,7 +172,7 @@ const Home = () => {
 
                 <div className="max-w-6xl mx-auto px-4">
 
-                    <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
+                    <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">What I Do Best</h2>
                         <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
                             I work with modern web stacks, crafting top‑tier frontend, backend, and design solutions that delight users and scale with purpose.
@@ -133,7 +187,7 @@ const Home = () => {
                         ))}
                     </div>
 
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.6 }} viewport={{ once: true }} className="text-center mt-12">
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }} viewport={{ once: true }} className="text-center mt-12">
                         <Button variant="primary" size="lg" href="/about" icon={FaArrowRight} iconPosition="right">
                             Learn More About Me
                         </Button>
