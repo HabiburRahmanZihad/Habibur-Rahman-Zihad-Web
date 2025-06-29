@@ -173,10 +173,6 @@ const Home = () => {
                 <div className="max-w-6xl mx-auto px-4">
 
                     <div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
                         className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">What I Do Best</h2>
                         <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
