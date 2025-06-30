@@ -183,9 +183,11 @@ const Home = () => {
                         transition={{ delay: 0.5, duration: 0.6 }}
                         className="text-center mt-12"
                     >
-                        <Button variant="primary" size="lg" href="/about" icon={FaArrowRight} iconPosition="right">
-                            Learn More About Me
-                        </Button>
+                        <Link to="/about">
+                            <Button variant="primary" size="lg"  icon={FaArrowRight} iconPosition="right">
+                                Learn More About Me
+                            </Button>
+                        </Link>
                     </motion.div>
                 </div>
             </section>
