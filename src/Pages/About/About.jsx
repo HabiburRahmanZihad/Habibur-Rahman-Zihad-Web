@@ -28,9 +28,6 @@ const About = () => {
         }
     ];
 
-
-
-
     return (
         <div className="min-h-screen bg-base-100">
             {/* Hero Section */}
@@ -174,8 +171,11 @@ const About = () => {
                 </motion.div>
             </section>
 
+            {/* Beyond Tech */}
+            <BeyondCode></BeyondCode>
+
             {/* Work I Love */}
-            <section className="py-20 bg-base-200 border-t border-base-300">
+            <section className="py-20 bg-base-100 border-t border-base-300">
                 <motion.div
                     className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
                     initial={{ opacity: 0, y: 50 }}
@@ -205,9 +205,6 @@ const About = () => {
                     </div>
                 </motion.div>
             </section>
-
-            {/* Beyond Tech */}
-            <BeyondCode></BeyondCode>
 
             {/* Certifications Section */}
             <Certifications></Certifications>

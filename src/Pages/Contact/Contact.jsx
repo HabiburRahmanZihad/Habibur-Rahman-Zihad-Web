@@ -46,7 +46,7 @@ const staggerContainer = {
 };
 
 const Contact = () => {
-    const location = useLocation(); // ✅ detect path change
+    const location = useLocation(); 
     const [formData, setFormData] = useState({
         name: '', email: '', subject: '', message: ''
     });

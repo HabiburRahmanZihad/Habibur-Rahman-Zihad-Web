@@ -3,7 +3,7 @@ import PhotoGrid from "./PhotoGrid";
 
 const BeyondCode = () => {
     return (
-        <section className="py-20 bg-base-100 border-t border-base-300">
+        <section className="py-20 bg-base-200 border-t border-base-300">
             <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
                 {/* Text Content */}
                 <motion.div
