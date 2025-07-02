@@ -8,7 +8,7 @@ import { Link, useLocation } from 'react-router';
 import { FaLinkedin, FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
 
 const socialLinks = [
-    { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanxihad' },
+    { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanzihad' },
     { icon: FaGithub, name: 'GitHub', url: 'https://github.com/HabiburRahmanZihad' },
     { icon: FaTwitter, name: 'Twitter', url: 'https://x.com/xihad_xihad' },
     { icon: FaFacebook, name: 'Facebook', url: 'https://www.facebook.com/habiburrahmanzihad.zihad' },
@@ -184,7 +184,7 @@ const Home = () => {
                         className="text-center mt-12"
                     >
                         <Link to="/about">
-                            <Button variant="primary" size="lg"  icon={FaArrowRight} iconPosition="right">
+                            <Button variant="primary" size="lg" icon={FaArrowRight} iconPosition="right">
                                 Learn More About Me
                             </Button>
                         </Link>

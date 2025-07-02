@@ -46,7 +46,7 @@ const staggerContainer = {
 };
 
 const Contact = () => {
-    const location = useLocation(); 
+    const location = useLocation();
     const [formData, setFormData] = useState({
         name: '', email: '', subject: '', message: ''
     });
@@ -74,7 +74,7 @@ const Contact = () => {
     ];
 
     const socialLinks = [
-        { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanxihad' },
+        { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanzihad' },
         { icon: FaGithub, name: 'GitHub', url: 'https://github.com/HabiburRahmanZihad' },
         { icon: FaTwitter, name: 'Twitter', url: 'https://x.com/xihad_xihad' },
         { icon: FaFacebook, name: 'Facebook', url: 'https://www.facebook.com/habiburrahmanzihad.zihad' }

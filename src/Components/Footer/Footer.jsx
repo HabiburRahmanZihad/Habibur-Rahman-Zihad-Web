@@ -8,7 +8,7 @@ import Logo from '../../assets/AllPic/logo/withBorder.png';
 const Footer = () => {
     const socialLinks = [
         { name: 'GitHub', icon: FaGithub, url: 'https://github.com/HabiburRahmanZihad' },
-        { name: 'LinkedIn', icon: FaLinkedin, url: 'https://linkedin.com/in/habiburrahmanxihad' },
+        { name: 'LinkedIn', icon: FaLinkedin, url: 'https://linkedin.com/in/habiburrahmanzihad' },
         { name: 'Twitter', icon: FaTwitter, url: 'https://x.com/xihad_xihad' },
         { name: 'Email', icon: FaEnvelope, url: 'mailto:e241024@ugrad.iiuc.ac.bd' },
         { name: 'Facebook', icon: FaFacebook, url: 'https://www.facebook.com/habiburrahmanzihad.zihad' },
