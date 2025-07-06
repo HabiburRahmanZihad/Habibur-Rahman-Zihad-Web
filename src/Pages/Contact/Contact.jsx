@@ -7,6 +7,7 @@ import {
 import Button from '../../Components/Buttons/Button';
 import Swal from 'sweetalert2';
 import { Link, useLocation } from 'react-router';
+import emailjs from 'emailjs-com';
 
 // Animation Variants
 const fadeInUp = {
@@ -85,11 +86,26 @@ const Contact = () => {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setTimeout(() => {
-            setIsSubmitting(false);
+
+        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+
+        const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message
+        };
+
+        try {
+            await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
             Swal.fire({
                 title: 'Message Sent!',
                 text: 'Thank you for reaching out. I\'ll get back to you soon!',
@@ -98,7 +114,18 @@ const Contact = () => {
                 confirmButtonColor: '#DAA520'
             });
             setFormData({ name: '', email: '', subject: '', message: '' });
-        }, 2000);
+        } catch (error) {
+            console.error('EmailJS Error:', error);
+            Swal.fire({
+                title: 'Oops!',
+                text: 'Something went wrong. Please try again later.',
+                icon: 'error',
+                confirmButtonText: 'Okay',
+                confirmButtonColor: '#DAA520'
+            });
+        }
+
+        setIsSubmitting(false);
     };
 
     return (
