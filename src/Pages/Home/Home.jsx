@@ -91,7 +91,7 @@ const Home = () => {
                                     </Button>
                                 </Link>
 
-                                <Link to="https://drive.google.com/file/d/19FY0dpDUj-DAyO-KBZYvi5sM6SGo_4Hl/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                                <Link to="https://drive.google.com/file/d/1jDoOzrpglC9fRyDeByYiyU5ibUcno6Pt/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                                     <Button variant="outline" size="lg" icon={FaEye} iconPosition="left" className="btn w-full sm:w-auto">
                                         View Resume
                                     </Button>
