@@ -52,7 +52,7 @@ const Home = () => {
                                 transition={{ delay: 0.6, duration: 0.6 }}
                                 className="text-xl sm:text-2xl md:text-3xl text-base-content/80 mb-6"
                             >
-                                <span className="font-medium">A passionate </span>
+                                <span className="font-medium">Passionate </span>
                                 <span className="text-primary font-bold">
                                     <Typewriter
                                         words={[
@@ -91,7 +91,7 @@ const Home = () => {
                                     </Button>
                                 </Link>
 
-                                <Link to="https://drive.google.com/file/d/1jDoOzrpglC9fRyDeByYiyU5ibUcno6Pt/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                                <Link to="https://drive.google.com/file/d/1hPsE9UOpTrl7TBTZbNetXxYqlJDnlmpy/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                                     <Button variant="outline" size="lg" icon={FaEye} iconPosition="left" className="btn w-full sm:w-auto">
                                         View Resume
                                     </Button>
