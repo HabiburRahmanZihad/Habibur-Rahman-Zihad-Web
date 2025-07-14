@@ -43,17 +43,20 @@ const Navbar = () => {
             </div>
 
             {/* Center - Desktop Navigation Links */}
-            <div className="navbar-center hidden lg:flex">
-                <div className="flex gap-3">
-                    <NavLink to="/" className={navLinkClass}>Home</NavLink>
-                    <NavLink to="/about" className={navLinkClass}>About</NavLink>
-                    <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
-                    <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
-                </div>
-            </div>
+
 
             {/* Right - Theme Toggle & Mobile Menu Button */}
             <div className="navbar-end flex items-center gap-2">
+                <div className="hidden lg:flex">
+                    <div className="flex gap-3">
+                        <NavLink to="/" className={navLinkClass}>Home</NavLink>
+                        <NavLink to="/about" className={navLinkClass}>About</NavLink>
+                        <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
+                        <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
+                    </div>
+                </div>
+
+
                 {/* Theme Button */}
                 <button
                     onClick={toggleTheme}
