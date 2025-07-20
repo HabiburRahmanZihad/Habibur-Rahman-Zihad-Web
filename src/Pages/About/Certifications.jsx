@@ -5,10 +5,14 @@ import { FaAward } from 'react-icons/fa';
 import PhotoContest from '../../assets/AllPic/Certificate/PhotoContest.jpg';
 import CyberSecurity from '../../assets/AllPic/Certificate/cyber.jpg';
 import facebookMarketing from '../../assets/AllPic/Certificate/10.jpg';
+import Communication from '../../assets/AllPic/Certificate/COMMUNICATIONHACKS.png';
+import Presentation from '../../assets/AllPic/Certificate/Presentation&PublicSpeaking.png';
 
 const achievements = [
-    { image: CyberSecurity, title: 'Cyber Security & Ethical Hacking', year: '2021', Platform: 'Ghoori Learning', ShortSummary: 'Completed a comprehensive course on Cyber Security and Ethical Hacking, gaining skills in protecting systems and networks.' },
+    { image: Communication, title: 'Communication Hacks', year: '2025', Platform: '10 Minute School', ShortSummary: 'Completed a course on communication strategies and techniques.' },
     { image: PhotoContest, title: 'Fundamentals rules of PhotoGraphy', year: '2024', Platform: 'IIUCPS', ShortSummary: 'Participated in a photography contest and won recognition for outstanding skills.' },
+    { image: Presentation, title: 'Presentation & Public Speaking', year: '2023', Platform: '10 Minute School', ShortSummary: 'Completed a comprehensive course on Presentation & Public Speaking, gaining skills in effective communication and audience engagement.' },
+    { image: CyberSecurity, title: 'Cyber Security & Ethical Hacking', year: '2021', Platform: 'Ghoori Learning', ShortSummary: 'Completed a comprehensive course on Cyber Security and Ethical Hacking, gaining skills in protecting systems and networks.' },
     { image: facebookMarketing, title: 'Facebook Marketing', year: '2021', Platform: '10 Minute School', ShortSummary: 'Completed a course on Facebook Marketing, learning strategies for effective social media advertising.' }
 ];
 
