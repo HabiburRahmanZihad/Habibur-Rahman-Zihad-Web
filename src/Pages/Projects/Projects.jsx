@@ -3,6 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';
 import { Link, useLocation } from 'react-router';
 import ReadRackImg from '../../assets/AllPic/Projects/ReadRack.png';
+import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
 import SnapTaskerImg from '../../assets/AllPic/Projects/SnapTasker.png';
 import JobNestImg from '../../assets/AllPic/Projects/JobNestWeb.png';
 import ProjectCard from './ProjectCard';
@@ -11,6 +12,17 @@ const Projects = () => {
     const location = useLocation(); // ✅ new: detect route
 
     const projects = [
+        {
+            id: 4,
+            title: 'TazaRate',
+            description: 'TazaRate is a local market price tracking platform for vendors, admins, and everyday users. It provides live product prices, trend charts, vendor submissions, admin moderation, and ad management — all in one fast and user-friendly web app',
+            image: TazaRate,
+            technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'Firebase', 'DaisyUI', 'Vite'],
+            duration: '12 days',
+            liveUrl: 'https://tazarate-web.web.app',
+            githubUrl: 'https://github.com/HabiburRahmanZihad/TazaRate',
+            youtube_Video: 'https://youtu.be/tRiTHMfSQL4',
+        },
         {
             id: 1,
             title: 'ReadRack',

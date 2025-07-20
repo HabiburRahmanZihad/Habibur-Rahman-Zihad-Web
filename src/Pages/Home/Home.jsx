@@ -113,7 +113,7 @@ const Home = () => {
                                         boxShadow: '0 0 20px 5px var(--tw-ring-color)',
                                     }}
                                 >
-                                    <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+                                    <img src={profileImage} alt="Profile" className="w-full  object-cover" />
                                 </div>
 
                                 {/* Social Links */}
