@@ -7,8 +7,12 @@ import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
 import SnapTaskerImg from '../../assets/AllPic/Projects/SnapTasker.png';
 import JobNestImg from '../../assets/AllPic/Projects/JobNestWeb.png';
 import ProjectCard from './ProjectCard';
+import { useEffect } from 'react';
 
 const Projects = () => {
+    useEffect(() => {
+        document.title = 'Projects | Habibur Rahman Zihad';
+    }, []);
     const location = useLocation(); // ✅ new: detect route
 
     const projects = [
