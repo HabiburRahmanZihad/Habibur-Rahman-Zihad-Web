@@ -92,6 +92,7 @@ const Navbar = () => {
                             <NavLink to="/about" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>About</NavLink>
                             <NavLink to="/projects" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>Projects</NavLink>
                             <NavLink to="/contact" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
+                            <NavLink to="/blogs" className={navLinkClass} onClick={() => setIsMenuOpen(false)}>Blogs</NavLink>
                         </div>
                     </motion.div>
                 )}
