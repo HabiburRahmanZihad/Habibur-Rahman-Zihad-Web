@@ -7,8 +7,12 @@ import { Link, useLocation } from 'react-router';
 import BeyondCode from './BeyondCode';
 import Certifications from './Certifications';
 import Skills from './Skills';
+import { useEffect } from 'react';
 
 const About = () => {
+    useEffect(() => {
+        document.title = 'About | Habibur Rahman Zihad';
+    }, []);
     const location = useLocation();
 
     const timeline = [
