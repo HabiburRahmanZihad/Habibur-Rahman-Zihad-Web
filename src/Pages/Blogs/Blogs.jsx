@@ -300,8 +300,6 @@ const Blogs = () => {
                                 </a>
                             </div>
                         </motion.div>
-
-
                     ))}
                 </div>
             </section>
