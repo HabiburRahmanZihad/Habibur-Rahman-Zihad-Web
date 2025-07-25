@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
     FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin,
@@ -47,6 +47,11 @@ const staggerContainer = {
 };
 
 const Contact = () => {
+
+    useEffect(() => {
+        document.title = 'Contact | Habibur Rahman Zihad';
+    }, []);
+
     const location = useLocation();
     const [formData, setFormData] = useState({
         name: '', email: '', subject: '', message: ''
