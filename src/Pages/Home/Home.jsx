@@ -6,6 +6,7 @@ import { SkillCard } from '../../Components/Cards/Card';
 import profileImage from '../../assets/MinePic/mainphoto.jpg';
 import { Link, useLocation } from 'react-router';
 import { FaLinkedin, FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { useEffect } from 'react';
 
 const socialLinks = [
     { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanzihad' },
@@ -16,6 +17,13 @@ const socialLinks = [
 
 const Home = () => {
     const location = useLocation(); // ✅ for key
+
+
+
+        useEffect(() => {
+            document.title = 'Home | Habibur Rahman Zihad';
+        }, []);
+
 
     const skills = [
         { icon: FaCode, title: 'Frontend Development', description: 'React • Vue • Tailwind CSS', level: 92 },
