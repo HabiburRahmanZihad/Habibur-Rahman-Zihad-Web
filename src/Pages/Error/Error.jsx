@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { FaHome, FaArrowLeft, FaRocket, FaCode, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const Error = () => {
+
+    useEffect(() => {
+        document.title = 'Error | Habibur Rahman Zihad';
+    }, []);
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-base-100 via-base-200 to-base-100 flex items-center justify-center px-4 overflow-hidden relative">
             {/* Golden particle effects */}
