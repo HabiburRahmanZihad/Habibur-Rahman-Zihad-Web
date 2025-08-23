@@ -16,7 +16,7 @@ const Footer = () => {
 
     return (
         <footer className="bg-gradient-to-br from-base-200 to-base-100 text-content py-12 px-4 sm:px-8 border-t border-base-300">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
                 {/* Branding */}
                 <div className="text-center sm:text-left">

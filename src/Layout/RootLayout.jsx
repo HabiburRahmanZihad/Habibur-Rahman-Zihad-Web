@@ -8,7 +8,7 @@ const Root = () => {
 
 
     return (
-        <div className='container mx-auto'>
+        <div>
             <ScrollToTop />
 
             <Navbar></Navbar>
@@ -18,7 +18,7 @@ const Root = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className='min-h-[calc(100vh-381px)]'
+                className='min-h-[calc(100vh-381px)] container mx-auto'
             >
                 <Outlet />
             </motion.div>
