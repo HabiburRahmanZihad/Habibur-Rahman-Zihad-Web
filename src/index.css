@@ -17,7 +17,6 @@
 
 @plugin "daisyui/theme" {
     name: "light";
-    default: true;
 
     --color-primary: #DAA520;
     /* Goldenrod – rich, energetic, modern */
@@ -49,7 +48,8 @@
 /* 🌙 Dark Theme */
 @plugin "daisyui/theme" {
     name: "dark";
-
+    default: true;
+    
     --color-primary: #FFC107;
     /* Primary buttons, section titles, highlights, links */
     --color-secondary: #A6713D;

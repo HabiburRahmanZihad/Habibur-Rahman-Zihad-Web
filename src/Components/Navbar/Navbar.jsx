@@ -5,7 +5,7 @@ import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 import BrandLogo from '../../assets/AllPic/logo/withBorder.png';
 
 const Navbar = () => {
-    const [theme, setTheme] = useState('light'); // Light/dark theme state
+    const [theme, setTheme] = useState('dark'); // Light/dark theme state
     const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu toggle
 
     // Update the HTML root with theme attribute
@@ -15,7 +15,7 @@ const Navbar = () => {
 
     // Toggle theme between light and dark
     const toggleTheme = () => {
-        setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+        setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
     };
 
     // Reusable NavLink style
@@ -24,10 +24,7 @@ const Navbar = () => {
         }`;
 
     return (
-        <motion.nav
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+        <nav
             className=" sticky top-0 z-50 bg-white/30 backdrop-blur-md border-b border-white/20 shadow-md"
         >
             <div className="navbar container mx-auto">
@@ -100,7 +97,7 @@ const Navbar = () => {
                     )}
                 </AnimatePresence>
             </div>
-        </motion.nav>
+        </nav>
     );
 };
 
