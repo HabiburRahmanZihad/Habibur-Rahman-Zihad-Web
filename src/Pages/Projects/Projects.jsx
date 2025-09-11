@@ -47,7 +47,7 @@ const Projects = () => {
             duration: '15 days',
             liveUrl: 'https://gradify-web.web.app',
             githubUrl: 'https://github.com/HabiburRahmanZihad/GradiFy',
-            youtube_Video: 'https://youtu.be/miO5nPX536o',
+            youtube_Video: 'https://www.youtube.com/watch?v=miO5nPX536o',
         },
         {
             id: 2,
