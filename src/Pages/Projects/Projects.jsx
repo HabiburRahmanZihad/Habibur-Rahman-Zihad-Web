@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router';
 import ReadRackImg from '../../assets/AllPic/Projects/ReadRack.png';
 import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
 import SnapTaskerImg from '../../assets/AllPic/Projects/SnapTasker.png';
-import JobNestImg from '../../assets/AllPic/Projects/JobNestWeb.png';
+import GradifyImg from '../../assets/AllPic/Projects/GradifyWeb.png';
 import ProjectCard from './ProjectCard';
 import { useEffect } from 'react';
 
@@ -22,7 +22,7 @@ const Projects = () => {
             description: 'TazaRate is a local market price tracking platform for vendors, admins, and everyday users. It provides live product prices, trend charts, vendor submissions, admin moderation, and ad management — all in one fast and user-friendly web app',
             image: TazaRate,
             technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'Firebase', 'DaisyUI', 'Vite'],
-            duration: '12 days',
+            duration: '20 days',
             liveUrl: 'https://tazarate-web.web.app',
             githubUrl: 'https://github.com/HabiburRahmanZihad/TazaRate',
             youtube_Video: 'https://youtu.be/tRiTHMfSQL4',
@@ -33,10 +33,21 @@ const Projects = () => {
             description: 'Digital library management system with advanced book search, user profiles, authentication, and a review/rating system.',
             image: ReadRackImg,
             technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'Firebase', 'DaisyUI', 'Vite'],
-            duration: '8 days',
+            duration: '12 days',
             liveUrl: 'https://readrack-web.web.app',
             githubUrl: 'https://github.com/HabiburRahmanZihad/ReadRack',
             youtube_Video: 'https://youtu.be/39602JBF34w',
+        },
+        {
+            id: 3,
+            title: 'Gradify',
+            description: 'GradiFy is an all-in-one student management system designed to help students organize their academic life, track expenses, manage schedules, and prepare for exams efficiently.',
+            image: GradifyImg,
+            technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'Firebase', 'DaisyUI', 'Vite'],
+            duration: '15 days',
+            liveUrl: 'https://gradify-web.web.app',
+            githubUrl: 'https://github.com/HabiburRahmanZihad/GradiFy',
+            youtube_Video: 'https://youtu.be/miO5nPX536o',
         },
         {
             id: 2,
@@ -48,17 +59,6 @@ const Projects = () => {
             liveUrl: 'https://snaptask-web.web.app',
             githubUrl: 'https://github.com/HabiburRahmanZihad/SnapTasker',
             youtube_Video: 'https://youtu.be/j5WxlTvR9pg',
-        },
-        {
-            id: 3,
-            title: 'Job Nest Web',
-            description: 'A job portal system with advanced search, user profiles, resume uploads, and job alert notifications.',
-            image: JobNestImg,
-            technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'Firebase', 'DaisyUI', 'Vite'],
-            duration: '5 days',
-            liveUrl: 'https://job-nest-web.web.app',
-            githubUrl: 'https://github.com/HabiburRahmanZihad/Job-Nest-Web',
-            youtube_Video: 'https://youtu.be/6f7UYlPuv-Y',
         },
     ];
 
