@@ -9,9 +9,18 @@ import facebookMarketing from '../../assets/AllPic/Certificate/10.jpg';
 import Communication from '../../assets/AllPic/Certificate/COMMUNICATIONHACKS.png';
 import Presentation from '../../assets/AllPic/Certificate/Presentation&PublicSpeaking.png';
 import EMAILWRITING from '../../assets/AllPic/Certificate/EMAIL WRITING.png';
+import CCECONTEST from '../../assets/AllPic/Certificate/CCe-Contest.jpg';
 
 const achievements = [
     { image: WEBDEVCERT, title: 'Complete Web Development Course', year: '2025', Platform: 'Programming Hero', ShortSummary: 'Successfully completed the Complete Web Development Course with Excellence, mastering HTML, CSS, JavaScript, React, and real-world projects.' },
+    {
+        image: CCECONTEST,
+        title: 'CCE Inter Semester Programming Contest-3',
+        year: '2025',
+        Platform: 'CCE Club, IIUC',
+        ShortSummary: 'Participated in the CCE Inter Semester Programming Contest-3, enhancing problem-solving skills and coding expertise through competitive programming.'
+    },
+
     { image: Communication, title: 'Communication Hacks', year: '2025', Platform: '10 Minute School', ShortSummary: 'Completed a course on communication strategies and techniques.' },
     { image: PhotoContest, title: 'Fundamentals rules of PhotoGraphy', year: '2024', Platform: 'IIUCPS', ShortSummary: 'Participated in a photography contest and won recognition for outstanding skills.' },
     { image: Presentation, title: 'Presentation & Public Speaking', year: '2023', Platform: '10 Minute School', ShortSummary: 'Completed a comprehensive course on Presentation & Public Speaking, gaining skills in effective communication and audience engagement.' },
