@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaHeart, FaArrowRight } from 'react-icons/fa';
+import { FaGraduationCap, FaHeart } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';
 
 import profileImage from '../../assets/MinePic/photo2.jpg';
@@ -76,7 +76,8 @@ const About = () => {
                         >
                             <div className="relative rounded-xl overflow-hidden border-4 border-primary/30 shadow-[0_10px_40px_-10px] shadow-primary animate-wowPulse">
                                 <img
-                                    src={profileImage}
+                                    // src={profileImage}
+                                    src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113496/photo2_shl6f1.jpg'
                                     alt="Habibur Rahman — Web Developer"
                                     className="object-cover w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-[400px] rounded-xl transition-transform duration-300 hover:scale-105"
                                 />

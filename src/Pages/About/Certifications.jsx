@@ -2,31 +2,16 @@ import { motion } from 'framer-motion';
 import { FaAward } from 'react-icons/fa';
 
 
-import WEBDEVCERT from '../../assets/AllPic/Certificate/pg-hero-certificate.png';
-import PhotoContest from '../../assets/AllPic/Certificate/PhotoContest.jpg';
-import CyberSecurity from '../../assets/AllPic/Certificate/cyber.jpg';
-import facebookMarketing from '../../assets/AllPic/Certificate/10.jpg';
-import Communication from '../../assets/AllPic/Certificate/COMMUNICATIONHACKS.png';
-import Presentation from '../../assets/AllPic/Certificate/Presentation&PublicSpeaking.png';
-import EMAILWRITING from '../../assets/AllPic/Certificate/EMAIL WRITING.png';
-import CCECONTEST from '../../assets/AllPic/Certificate/CCe-Contest.jpg';
 
 const achievements = [
-    { image: WEBDEVCERT, title: 'Complete Web Development Course', year: '2025', Platform: 'Programming Hero', ShortSummary: 'Successfully completed the Complete Web Development Course with Excellence, mastering HTML, CSS, JavaScript, React, and real-world projects.' },
-    {
-        image: CCECONTEST,
-        title: 'CCE Inter Semester Programming Contest-3',
-        year: '2025',
-        Platform: 'CCE Club, IIUC',
-        ShortSummary: 'Participated in the CCE Inter Semester Programming Contest-3, enhancing problem-solving skills and coding expertise through competitive programming.'
-    },
-
-    { image: Communication, title: 'Communication Hacks', year: '2025', Platform: '10 Minute School', ShortSummary: 'Completed a course on communication strategies and techniques.' },
-    { image: PhotoContest, title: 'Fundamentals rules of PhotoGraphy', year: '2024', Platform: 'IIUCPS', ShortSummary: 'Participated in a photography contest and won recognition for outstanding skills.' },
-    { image: Presentation, title: 'Presentation & Public Speaking', year: '2023', Platform: '10 Minute School', ShortSummary: 'Completed a comprehensive course on Presentation & Public Speaking, gaining skills in effective communication and audience engagement.' },
-    { image: CyberSecurity, title: 'Cyber Security & Ethical Hacking', year: '2021', Platform: 'Ghoori Learning', ShortSummary: 'Completed a comprehensive course on Cyber Security and Ethical Hacking, gaining skills in protecting systems and networks.' },
-    { image: facebookMarketing, title: 'Facebook Marketing', year: '2021', Platform: '10 Minute School', ShortSummary: 'Completed a course on Facebook Marketing, learning strategies for effective social media advertising.' },
-    { image: EMAILWRITING, title: 'Email Writing', year: '2025', Platform: '10 Minute School', ShortSummary: 'Completed a course on Email Writing, mastering the art of professional communication through email.' }
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113803/pg-hero-certificate_vbiln3.png', title: 'Complete Web Development Course', year: '2025', Platform: 'Programming Hero', ShortSummary: 'Successfully completed the Complete Web Development Course with Excellence, mastering HTML, CSS, JavaScript, React, and real-world projects.' },
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113802/CCe-Contest_ilts7n.jpg',title: 'CCE Inter Semester Programming Contest-3',year: '2025',Platform: 'CCE Club, IIUC',ShortSummary: 'Participated in the CCE Inter Semester Programming Contest-3, enhancing problem-solving skills and coding expertise through competitive programming.'},
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113803/COMMUNICATIONHACKS_atpsfd.png', title: 'Communication Hacks', year: '2025', Platform: '10 Minute School', ShortSummary: 'Completed a course on communication strategies and techniques.' },
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113804/PhotoContest_lteajz.jpg', title: 'Fundamentals rules of PhotoGraphy', year: '2024', Platform: 'IIUCPS', ShortSummary: 'Participated in a photography contest and won recognition for outstanding skills.' },
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113810/Presentation_PublicSpeaking_s5zyxp.png', title: 'Presentation & Public Speaking', year: '2023', Platform: '10 Minute School', ShortSummary: 'Completed a comprehensive course on Presentation & Public Speaking, gaining skills in effective communication and audience engagement.' },
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113802/cyber_xxgrcu.jpg', title: 'Cyber Security & Ethical Hacking', year: '2021', Platform: 'Ghoori Learning', ShortSummary: 'Completed a comprehensive course on Cyber Security and Ethical Hacking, gaining skills in protecting systems and networks.' },
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113802/10_qcmdsy.jpg', title: 'Facebook Marketing', year: '2021', Platform: '10 Minute School', ShortSummary: 'Completed a course on Facebook Marketing, learning strategies for effective social media advertising.' },
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113803/EMAIL_WRITING_tasy7q.png', title: 'Email Writing', year: '2025', Platform: '10 Minute School', ShortSummary: 'Completed a course on Email Writing, mastering the art of professional communication through email.' }
 ];
 
 const Certifications = () => {
