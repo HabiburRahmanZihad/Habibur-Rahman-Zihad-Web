@@ -122,7 +122,7 @@ const Home = () => {
                                     }}
                                 >
                                     {/* <img src={profileImage} alt="Profile" className="w-full  object-cover" /> */}
-                                    <img src='https://scontent.fdac160-1.fna.fbcdn.net/v/t39.30808-6/542757019_2579726205718594_8097103200413464814_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ZlJ7oSH_wGUQ7kNvwEUEHKG&_nc_oc=AdlLazgsRfWph7oidELKafZiYpR65BxkxA-dgao6IwGNN2RdZioLWIL8PfoZVcgyhGs&_nc_zt=23&_nc_ht=scontent.fdac160-1.fna&_nc_gid=z4WxntLHNrsx-1hZkMfLIg&oh=00_Afa6qmMfveI6UAZJ6rrJ3XhH7hj6B-oku-NM2hF3kcoaMw&oe=68D095D3' alt="Profile" className="w-full  object-cover" />
+                                    <img src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758785330/IMG-20241101-WA0192_vyojiv.jpg' alt="Profile" className="w-full  object-cover" />
                                 </div>
 
                                 {/* Social Links */}
