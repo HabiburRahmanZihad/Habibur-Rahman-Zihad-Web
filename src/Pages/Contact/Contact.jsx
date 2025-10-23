@@ -66,12 +66,6 @@ const Contact = () => {
             link: 'mailto:e241024@ugrad.iiuc.ac.bd'
         },
         {
-            icon: FaPhone,
-            title: 'Phone',
-            value: 'Habibur Rahman Zihad\'s phone',
-            link: 'tel:+8801329453598'
-        },
-        {
             icon: FaMapMarkerAlt,
             title: 'Location',
             value: 'Chattogram, Bangladesh',

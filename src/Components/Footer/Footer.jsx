@@ -57,7 +57,7 @@ const Footer = () => {
                     <ul className="text-base-content/80 text-sm space-y-2 mb-4">
                         <li>📍 Chattogram, Bangladesh</li>
                         <li>📧 e241024@ugrad.iiuc.ac.bd</li>
-                        <li>📞 +880 1329-453598</li>
+
                     </ul>
                     <div className="flex justify-center sm:justify-start gap-4 mt-2">
                         {socialLinks.map(({ name, icon: Icon, url }) => (

@@ -49,7 +49,7 @@
 @plugin "daisyui/theme" {
     name: "dark";
     default: true;
-    
+
     --color-primary: #FFC107;
     /* Primary buttons, section titles, highlights, links */
     --color-secondary: #A6713D;
@@ -118,4 +118,8 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(45deg, var(--tw-gradient-stops));
     border-radius: 1rem;
     padding: 2px;
+}
+
+html {
+    scroll-behavior: smooth;
 }

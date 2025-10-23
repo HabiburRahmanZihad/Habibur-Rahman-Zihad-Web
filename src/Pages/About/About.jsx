@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaHeart } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';
-
-import profileImage from '../../assets/MinePic/photo2.jpg';
 import { Link, useLocation } from 'react-router';
 import BeyondCode from './BeyondCode';
 import Certifications from './Certifications';
@@ -34,8 +32,8 @@ const About = () => {
 
     return (
         <div className="min-h-screen bg-base-100">
-            {/* Hero Section */}
-            <section className="pb-20 pt-10 md:pt-14 lg:pt-20 bg-gradient-to-br from-base-100 to-base-200">
+            {/* Hero Section - Details */}
+            <section id="details" className="pb-20 pt-10 md:pt-14 lg:pt-20 bg-gradient-to-br from-base-100 to-base-200">
                 <div className="max-w-6xl mx-auto px-4">
                     <motion.div
                         key={location.pathname}
@@ -76,10 +74,9 @@ const About = () => {
                         >
                             <div className="relative rounded-xl overflow-hidden border-4 border-primary/30 shadow-[0_10px_40px_-10px] shadow-primary animate-wowPulse">
                                 <img
-                                    // src={profileImage}
                                     src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113496/photo2_shl6f1.jpg'
                                     alt="Habibur Rahman — Web Developer"
-                                    className="object-cover w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-[400px] rounded-xl transition-transform duration-300 hover:scale-105"
+                                    className="object-cover w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-[400px] rounded-md transition-transform duration-300 hover:scale-105"
                                 />
                                 {/* Optional glowing orb */}
                                 <div className="absolute -z-10 top-[-20px] right-[-20px] w-28 h-28 bg-primary/30 rounded-full blur-2xl"></div>
@@ -90,10 +87,12 @@ const About = () => {
             </section>
 
             {/* Skills Section */}
-            <Skills></Skills>
+            <div id="tech-skills">
+                <Skills></Skills>
+            </div>
 
-            {/* My Education Section */}
-            <section className="py-20 bg-base-200">
+            {/* My Education Section - Learning Journey */}
+            <section id="learning-journey" className="py-20 bg-base-200">
                 <div className="max-w-4xl mx-auto px-4">
                     {/* Heading Animation */}
                     <motion.div
@@ -145,8 +144,8 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Life in Code */}
-            <section className="py-20 bg-base-100 border-t border-base-300">
+            {/* Life in Code - How I Start */}
+            <section id="how-start" className="py-20 bg-base-100 border-t border-base-300">
                 <motion.div
                     className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
                     initial={{ opacity: 0, y: 50 }}
@@ -179,8 +178,8 @@ const About = () => {
             {/* Beyond Tech */}
             <BeyondCode></BeyondCode>
 
-            {/* Work I Love */}
-            <section className="py-20 bg-base-100 border-t border-base-300">
+            {/* Work I Love - What I Love */}
+            <section id="what-love" className="py-20 bg-base-100 border-t border-base-300">
                 <motion.div
                     className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
                     initial={{ opacity: 0, y: 50 }}
@@ -212,7 +211,9 @@ const About = () => {
             </section>
 
             {/* Certifications Section */}
-            <Certifications></Certifications>
+            <div id="certifications">
+                <Certifications></Certifications>
+            </div>
         </div>
     );
 };
