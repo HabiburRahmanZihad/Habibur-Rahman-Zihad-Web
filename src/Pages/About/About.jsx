@@ -176,10 +176,12 @@ const About = () => {
             </section>
 
             {/* Beyond Tech */}
-            <BeyondCode></BeyondCode>
+            <section id="what-love">
+                <BeyondCode></BeyondCode>
+            </section>
 
             {/* Work I Love - What I Love */}
-            <section id="what-love" className="py-20 bg-base-100 border-t border-base-300">
+            <section className="py-20 bg-base-100 border-t border-base-300">
                 <motion.div
                     className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
                     initial={{ opacity: 0, y: 50 }}
