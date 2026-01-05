@@ -65,8 +65,11 @@ const Projects = () => {
     return (
         <div className="min-h-screen bg-base-100">
             {/* Hero Section */}
-            <section className="py-10 md:py-14 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-base-100 to-base-200">
-                <div className="max-w-7xl mx-auto text-center">
+            <section className="py-10 md:py-14 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-base-100 to-base-200 relative overflow-hidden">
+                <div className="absolute inset-0 gradient-mesh"></div>
+                <div className="orb orb-1"></div>
+                <div className="orb orb-2"></div>
+                <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
                     <motion.div
                         key={location.pathname} // ✅ force re-render on route change
                         initial={{ opacity: 0, y: 50 }}
