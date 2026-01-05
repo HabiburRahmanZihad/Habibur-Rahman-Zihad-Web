@@ -3,7 +3,6 @@ import { Typewriter } from 'react-simple-typewriter';
 import { FaArrowRight, FaCode, FaRocket, FaHeart, FaEye } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';
 import { SkillCard } from '../../Components/Cards/Card';
-import profileImage from '../../assets/MinePic/mainphoto.jpg';
 import { Link, useLocation } from 'react-router';
 import { FaLinkedin, FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
 import { useEffect } from 'react';
@@ -20,9 +19,9 @@ const Home = () => {
 
 
 
-        useEffect(() => {
-            document.title = 'Home | Habibur Rahman Zihad';
-        }, []);
+    useEffect(() => {
+        document.title = 'Home | Habibur Rahman Zihad';
+    }, []);
 
 
     const skills = [
@@ -45,13 +44,23 @@ const Home = () => {
                     >
                         {/* Left Text */}
                         <div className="text-center lg:text-left max-w-2xl w-full">
+                            <motion.span
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2, duration: 0.6 }}
+                                className="inline-block px-4 py-2 rounded-full glass-card text-sm font-medium text-primary mb-6"
+                            >
+                                ✨ Welcome to my portfolio
+                            </motion.span>
+
                             <motion.h1
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4, duration: 0.6 }}
-                                className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary grotesk mb-6"
+                                className="text-4xl md:text-6xl lg:text-7xl font-bold grotesk mb-6"
                             >
-                                Hello, I’m <span className="text-secondary">Habibur Rahman</span>
+                                <span className="text-primary">Hello, I'm</span>{' '}
+                                <span className="gradient-text glow-text text-primary">Habibur Rahman</span>
                             </motion.h1>
 
                             <motion.div
@@ -82,9 +91,9 @@ const Home = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.8, duration: 0.6 }}
-                                className="text-base md:text-lg text-base-content/70 mb-10 leading-relaxed"
+                                className="text-base md:text-lg text-base-content/70 mb-10 leading-relaxed glass-card p-4 rounded-xl"
                             >
-                                “I blend logic and creativity to build web apps that work like machines and feel like magic.”
+                                "I blend logic and creativity to build web apps that work like machines and feel like magic."
                             </motion.p>
 
                             <motion.div
@@ -94,13 +103,13 @@ const Home = () => {
                                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                             >
                                 <Link to="/projects">
-                                    <Button variant="primary" size="lg" icon={FaArrowRight} iconPosition="right" className="btn w-full sm:w-auto">
+                                    <Button variant="primary" size="lg" icon={FaArrowRight} iconPosition="right" className="btn w-full sm:w-auto btn-premium glow">
                                         View My Work
                                     </Button>
                                 </Link>
 
                                 <Link to="https://drive.google.com/file/d/1sOZMoUF9WEzITXZadlfNlYvSajeJ7AkL/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                                    <Button variant="outline" size="lg" icon={FaEye} iconPosition="left" className="btn w-full sm:w-auto">
+                                    <Button variant="outline" size="lg" icon={FaEye} iconPosition="left" className="btn w-full sm:w-auto border-gradient">
                                         View Resume
                                     </Button>
                                 </Link>
