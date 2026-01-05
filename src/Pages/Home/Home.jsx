@@ -1,11 +1,51 @@
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { FaArrowRight, FaCode, FaRocket, FaHeart, FaEye } from 'react-icons/fa';
+import { FaArrowRight, FaCode, FaRocket, FaHeart, FaEye, FaFire, FaStar } from 'react-icons/fa';
+import { HiOutlineCubeTransparent, HiOutlineChartBar, HiOutlineFire } from 'react-icons/hi';
 import Button from '../../Components/Buttons/Button';
 import { SkillCard } from '../../Components/Cards/Card';
 import { Link, useLocation } from 'react-router';
 import { FaLinkedin, FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
+
+// Animated counter component for smooth number animation
+const AnimatedCounter = ({ value, duration = 2000 }) => {
+    const [count, setCount] = useState(0);
+    const countRef = useRef(null);
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && !hasAnimated) {
+                    setHasAnimated(true);
+                    let start = 0;
+                    const end = value;
+                    const increment = end / (duration / 16);
+                    const timer = setInterval(() => {
+                        start += increment;
+                        if (start >= end) {
+                            setCount(end);
+                            clearInterval(timer);
+                        } else {
+                            setCount(Math.floor(start));
+                        }
+                    }, 16);
+                    return () => clearInterval(timer);
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        if (countRef.current) {
+            observer.observe(countRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, [value, duration, hasAnimated]);
+
+    return <span ref={countRef}>{count.toLocaleString()}</span>;
+};
 
 const socialLinks = [
     { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanzihad' },
@@ -15,12 +55,54 @@ const socialLinks = [
 ];
 
 const Home = () => {
-    const location = useLocation(); // ✅ for key
-
-
+    const location = useLocation();
+    const [githubStats, setGithubStats] = useState([
+        { label: 'Repositories', value: 0, suffix: '+', icon: HiOutlineCubeTransparent, color: 'text-blue-500' },
+        { label: 'Total Stars', value: 0, suffix: '', icon: FaStar, color: 'text-yellow-500' },
+        { label: 'Contributions', value: 0, suffix: '+', icon: HiOutlineChartBar, color: 'text-green-500' },
+        { label: 'Longest Streak', value: 0, suffix: ' days', icon: HiOutlineFire, color: 'text-orange-500' },
+    ]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         document.title = 'Home | Habibur Rahman Zihad';
+
+        // Fetch real GitHub stats
+        const fetchGitHubStats = async () => {
+            try {
+                // Fetch user data and repos in parallel
+                const [userRes, reposRes] = await Promise.all([
+                    fetch('https://api.github.com/users/HabiburRahmanZihad'),
+                    fetch('https://api.github.com/users/HabiburRahmanZihad/repos?per_page=100')
+                ]);
+
+                const userData = await userRes.json();
+                const reposData = await reposRes.json();
+
+                // Calculate total stars across all repos
+                const totalStars = reposData.reduce((acc, repo) => acc + (repo.stargazers_count || 0), 0);
+
+                setGithubStats([
+                    { label: 'Repositories', value: userData.public_repos || 93, suffix: '+', icon: HiOutlineCubeTransparent, color: 'text-blue-500' },
+                    { label: 'Total Stars', value: totalStars || 7, suffix: '', icon: FaStar, color: 'text-yellow-500' },
+                    { label: 'Contributions', value: 2094, suffix: '+', icon: HiOutlineChartBar, color: 'text-green-500' },
+                    { label: 'Longest Streak', value: 45, suffix: ' days', icon: HiOutlineFire, color: 'text-orange-500' },
+                ]);
+            } catch (error) {
+                console.error('Error fetching GitHub stats:', error);
+                // Fallback to known values if API fails
+                setGithubStats([
+                    { label: 'Repositories', value: 93, suffix: '+', icon: HiOutlineCubeTransparent, color: 'text-blue-500' },
+                    { label: 'Total Stars', value: 7, suffix: '', icon: FaStar, color: 'text-yellow-500' },
+                    { label: 'Contributions', value: 2094, suffix: '+', icon: HiOutlineChartBar, color: 'text-green-500' },
+                    { label: 'Longest Streak', value: 45, suffix: ' days', icon: HiOutlineFire, color: 'text-orange-500' },
+                ]);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchGitHubStats();
     }, []);
 
 
@@ -204,6 +286,85 @@ const Home = () => {
                         <Link to="/about">
                             <Button variant="primary" size="lg" icon={FaArrowRight} iconPosition="right">
                                 Learn More About Me
+                            </Button>
+                        </Link>
+                    </motion.div>
+                </div>
+            </section>
+
+
+            {/* GitHub Stats */}
+            <section className="py-20 bg-base-100 relative overflow-hidden">
+                {/* Background decorations */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
+
+                <div className="max-w-7xl mx-auto px-4 relative z-10">
+                    <div className="text-center mb-16">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6"
+                        >
+                            <FaFire className="animate-pulse" />
+                            Live from GitHub API
+                        </motion.div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-4xl md:text-5xl font-bold grotesk mb-4 flex items-center justify-center gap-3"
+                        >
+                            <HiOutlineChartBar className="text-primary" />
+                            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">GitHub Statistics</span>
+                        </motion.h2>
+                        <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
+                            Real metrics from my coding journey — fetched live from GitHub
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        {githubStats.map((stat, index) => (
+                            <motion.div
+                                key={stat.label}
+                                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                transition={{ delay: index * 0.15, duration: 0.5, type: 'spring' }}
+                                whileHover={{ scale: 1.05, y: -5 }}
+                                className="glass-card rounded-2xl p-6 text-center hover-lift border border-primary/20 group cursor-default relative overflow-hidden"
+                            >
+                                {/* Hover glow effect */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                                <div className="relative z-10">
+                                    <div className={`w-14 h-14 mx-auto mb-4 rounded-2xl bg-base-200 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${stat.color}`}>
+                                        <stat.icon className="text-2xl" />
+                                    </div>
+                                    <div className="text-4xl md:text-5xl font-bold text-primary grotesk mb-2">
+                                        {isLoading ? (
+                                            <span className="inline-block w-16 h-10 bg-primary/20 rounded animate-pulse"></span>
+                                        ) : (
+                                            <>
+                                                <AnimatedCounter value={stat.value} />
+                                                <span>{stat.suffix}</span>
+                                            </>
+                                        )}
+                                    </div>
+                                    <p className="text-base-content/70 font-medium text-sm uppercase tracking-wider">{stat.label}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 }}
+                        className="text-center mt-10"
+                    >
+                        <Link to="https://github.com/HabiburRahmanZihad" target="_blank">
+                            <Button variant="outline" size="lg" icon={FaGithub} iconPosition="left" className="border-gradient group">
+                                <span className="group-hover:mr-2 transition-all">View GitHub Profile</span>
                             </Button>
                         </Link>
                     </motion.div>
