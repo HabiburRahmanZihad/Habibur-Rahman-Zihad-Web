@@ -33,8 +33,11 @@ const About = () => {
     return (
         <div className="min-h-screen bg-base-100">
             {/* Hero Section - Details */}
-            <section id="details" className="pb-20 pt-10 md:pt-14 lg:pt-20 bg-gradient-to-br from-base-100 to-base-200">
-                <div className="max-w-7xl mx-auto px-4">
+            <section id="details" className="pb-20 pt-10 md:pt-14 lg:pt-20 bg-gradient-to-br from-base-100 to-base-200 relative overflow-hidden">
+                <div className="absolute inset-0 gradient-mesh"></div>
+                <div className="orb orb-1"></div>
+                <div className="orb orb-2"></div>
+                <div className="max-w-7xl mx-auto px-4 text-start relative z-10">
                     <motion.div
                         key={location.pathname}
                         className="flex flex-col-reverse lg:flex-row gap-12 items-center"
