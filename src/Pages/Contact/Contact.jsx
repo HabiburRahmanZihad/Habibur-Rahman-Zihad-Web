@@ -136,8 +136,11 @@ const Contact = () => {
             className="min-h-screen bg-base-100"
         >
             {/* Hero Section */}
-            <section className="py-20 bg-gradient-to-br from-base-100 to-base-200">
-                <div className="max-w-7xl mx-auto px-4 text-center">
+            <section className="py-20 bg-gradient-to-br from-base-100 to-base-200 relative overflow-hidden">
+                <div className="absolute inset-0 gradient-mesh"></div>
+                <div className="orb orb-1"></div>
+                <div className="orb orb-2"></div>
+                <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
                     <motion.div
                         variants={fadeInUp}
                         initial="hidden"
