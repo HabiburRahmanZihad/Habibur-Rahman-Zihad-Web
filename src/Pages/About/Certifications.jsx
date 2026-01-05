@@ -18,7 +18,7 @@ const achievements = [
 const Certifications = () => {
     return (
         <section className="py-20 bg-base-200">
-            <div className="max-w-6xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}

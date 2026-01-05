@@ -167,7 +167,7 @@ const Home = () => {
 
             {/* Skills Section */}
             <section className="py-20 bg-base-100">
-                <div className="max-w-6xl mx-auto px-4">
+                <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">What I Do Best</h2>
                         <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
@@ -188,7 +188,7 @@ const Home = () => {
                                     stiffness: 120,
                                     damping: 15,
                                 }}
-                                className="transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl"
+                                className="transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl border border-glow rounded-2xl "
                             >
                                 <SkillCard {...skill} />
                             </motion.div>

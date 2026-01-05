@@ -137,7 +137,7 @@ const Contact = () => {
         >
             {/* Hero Section */}
             <section className="py-20 bg-gradient-to-br from-base-100 to-base-200">
-                <div className="max-w-6xl mx-auto px-4 text-center">
+                <div className="max-w-7xl mx-auto px-4 text-center">
                     <motion.div
                         variants={fadeInUp}
                         initial="hidden"
@@ -155,7 +155,7 @@ const Contact = () => {
 
             {/* Contact Info + Form */}
             <section className="py-20 bg-base-100">
-                <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16">
                     {/* Left Column */}
                     <motion.div
                         variants={fadeInLeft}

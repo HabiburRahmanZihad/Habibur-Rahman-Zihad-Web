@@ -66,7 +66,7 @@ const Projects = () => {
         <div className="min-h-screen bg-base-100">
             {/* Hero Section */}
             <section className="py-10 md:py-14 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-base-100 to-base-200">
-                <div className="max-w-6xl mx-auto text-center">
+                <div className="max-w-7xl mx-auto text-center">
                     <motion.div
                         key={location.pathname} // ✅ force re-render on route change
                         initial={{ opacity: 0, y: 50 }}
@@ -90,7 +90,7 @@ const Projects = () => {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="max-w-6xl mx-auto space-y-12"
+                    className="max-w-7xl mx-auto space-y-12"
                 >
                     {projects.map((project, index) => (
                         <ProjectCard key={project.id} project={project} index={index} />

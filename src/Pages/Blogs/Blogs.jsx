@@ -247,7 +247,7 @@ const Blogs = () => {
         >
             {/* Header Section */}
             <section className="py-20 bg-gradient-to-br from-base-100 to-base-200">
-                <div className="max-w-6xl mx-auto px-4 text-center">
+                <div className="max-w-7xl mx-auto px-4 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -266,7 +266,7 @@ const Blogs = () => {
 
             {/* Blog Cards */}
             <section className="py-16 bg-base-100">
-                <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {blogs.map((blog) => (
                         <motion.div
                             key={blog.id}

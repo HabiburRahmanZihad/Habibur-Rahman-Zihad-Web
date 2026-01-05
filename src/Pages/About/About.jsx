@@ -34,7 +34,7 @@ const About = () => {
         <div className="min-h-screen bg-base-100">
             {/* Hero Section - Details */}
             <section id="details" className="pb-20 pt-10 md:pt-14 lg:pt-20 bg-gradient-to-br from-base-100 to-base-200">
-                <div className="max-w-6xl mx-auto px-4">
+                <div className="max-w-7xl mx-auto px-4">
                     <motion.div
                         key={location.pathname}
                         className="flex flex-col-reverse lg:flex-row gap-12 items-center"
@@ -147,7 +147,7 @@ const About = () => {
             {/* Life in Code - How I Start */}
             <section id="how-start" className="py-20 bg-base-100 border-t border-base-300">
                 <motion.div
-                    className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
+                    className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -183,7 +183,7 @@ const About = () => {
             {/* Work I Love - What I Love */}
             <section className="py-20 bg-base-100 border-t border-base-300">
                 <motion.div
-                    className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
+                    className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
