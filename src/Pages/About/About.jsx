@@ -15,7 +15,7 @@ const About = () => {
 
     const timeline = [
         {
-            year: '2024 - Present',
+            year: '2024 - Present (5th Semester)',
             title: 'Computer Communication & Engineering',
             institute: 'International Islamic University Chittagong',
             description: 'Currently pursuing a Bachelor\'s degree in Computer Communication & Engineering, focusing on software development and network systems.',
@@ -26,6 +26,13 @@ const About = () => {
             title: 'HSC / Alim',
             institute: 'Baitush Sharaf Madrasha',
             description: 'Completed Higher Secondary Certificate (HSC) with a focus on Science.',
+            icon: FaGraduationCap
+        },
+        {
+            year: '2019',
+            title: 'SSC / Dakhil',
+            institute: 'Baitush Sharaf Madrasha',
+            description: 'Completed Secondary School Certificate (SSC) with a focus on Science.',
             icon: FaGraduationCap
         }
     ];
