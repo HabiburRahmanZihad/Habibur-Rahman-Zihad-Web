@@ -24,7 +24,9 @@ This site showcases my journey, projects, and passion as a web developer.
 
 ## 📸 Preview
 
-![Portfolio Preview](https://i.ibb.co/S4kNSPW2/image.png)
+![Portfolio Preview](https://res.cloudinary.com/dc3ul4egd/image/upload/Screenshot_2026-01-05_175900_iiz7gu.png)
+![Portfolio Preview](https://res.cloudinary.com/dc3ul4egd/image/upload/Screenshot_2026-01-05_175848_u9qzl9.png)
+![Portfolio Preview](https://res.cloudinary.com/dc3ul4egd/image/upload/Screenshot_2026-01-05_175915_gy6nhm.png)
 
 ---
 
