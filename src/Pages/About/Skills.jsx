@@ -1,16 +1,24 @@
 import { motion } from 'framer-motion';
 
 const skills = [
-    { name: 'HTML5', level: 95 },
-    { name: 'CSS3', level: 90 },
-    { name: 'JavaScript', level: 95 },
-    { name: 'React', level: 90 },
-    { name: 'MongoDB', level: 90 },
-    { name: 'Firebase', level: 95 },
-    { name: 'Tailwind CSS', level: 95 },
+    { name: 'Next.js', level: 95 },
+    { name: 'TypeScript', level: 95 },
+    { name: 'React', level: 95 },
     { name: 'Node.js', level: 95 },
     { name: 'Express.js', level: 95 },
-    { name: 'Next.js', level: 75 },
+    { name: 'MongoDB', level: 90 },
+    { name: 'Mongoose', level: 85 },
+    { name: 'JavaScript', level: 95 },
+    { name: 'REST API', level: 90 },
+    { name: 'GraphQL', level: 70 },
+    { name: 'Firebase', level: 95 },
+    { name: 'Tailwind CSS', level: 95 },
+    { name: 'HTML5', level: 95 },
+    { name: 'CSS3', level: 90 },
+    { name: 'Tailwind & Bootstrap', level: 95 },
+    { name: 'Git & GitHub', level: 90 },
+    { name: 'Docker', level: 60 },
+    { name: 'Vercel & Netlify', level: 80 },
 ];
 
 const Skills = () => {
