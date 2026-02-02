@@ -4,7 +4,7 @@ import Button from '../../Components/Buttons/Button';
 import { Link, useLocation } from 'react-router';
 import ReadRackImg from '../../assets/AllPic/Projects/ReadRack.png';
 import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
-import SnapTaskerImg from '../../assets/AllPic/Projects/SnapTasker.png';
+import Healio_IMG from '../../assets/AllPic/Projects/Healio_IMG.png';
 import GradifyImg from '../../assets/AllPic/Projects/GradifyWeb.png';
 import ProjectCard from './ProjectCard';
 import { useEffect } from 'react';
@@ -28,6 +28,28 @@ const Projects = () => {
             youtube_Video: 'https://youtu.be/tRiTHMfSQL4',
         },
         {
+            id: 5,
+            title: 'Healio',
+            description: 'Healio is a full-stack healthcare web application that connects customers, pharmacies (sellers), and administrators in a single secure platform. It enables medicine browsing, ordering, inventory management, role-based access control, reviews, analytics, and robust error handling — built with real-world production standards.',
+            image: Healio_IMG, 
+            technologies: [
+                'Next.js',
+                'React',
+                'Node.js',
+                'Express',
+                'PostgreSQL',
+                'Prisma',
+                'Better Auth',
+                'Tailwind CSS',
+                'Framer Motion'
+            ],
+            duration: '8 days',
+            liveUrl: 'https://healio-web.vercel.app', 
+            githubUrl: 'https://github.com/HabiburRahmanZihad/Healio-Web',
+            youtube_Video: 'https://youtu.be/pt03-JtGeY8',
+        },
+
+        {
             id: 1,
             title: 'ReadRack',
             description: 'Digital library management system with advanced book search, user profiles, authentication, and a review/rating system.',
@@ -48,17 +70,6 @@ const Projects = () => {
             liveUrl: 'https://gradify-web.web.app',
             githubUrl: 'https://github.com/HabiburRahmanZihad/GradiFy',
             youtube_Video: 'https://www.youtube.com/watch?v=miO5nPX536o',
-        },
-        {
-            id: 2,
-            title: 'SnapTasker',
-            description: 'Task management app with real-time sync, category-based organization, and mobile-responsive UI using Firebase and React.',
-            image: SnapTaskerImg,
-            technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS', 'Firebase', 'DaisyUI', 'Vite'],
-            duration: '1 week',
-            liveUrl: 'https://snaptask-web.web.app',
-            githubUrl: 'https://github.com/HabiburRahmanZihad/SnapTasker',
-            youtube_Video: 'https://youtu.be/j5WxlTvR9pg',
         },
     ];
 
