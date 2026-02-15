@@ -18,6 +18,27 @@ const Projects = () => {
 
     const projects = [
         {
+            id: 6,
+            title: 'NagarNirman',
+            description: 'NagarNirman is a civic technology platform that connects citizens, municipal authorities, and problem solvers to report, track, and resolve urban infrastructure issues transparently and efficiently. It features location-based reporting, image/video proof submission, real-time status tracking, community voting, authority dashboards, and a verified reward system.',
+            image: NagarNirmanIMG,
+            technologies: [
+                'Next.js 16',
+                'TypeScript',
+                'React 19',
+                'Node.js',
+                'Express.js',
+                'MongoDB',
+                'JWT',
+                'Role-Based Access Control',
+                'Tailwind CSS'
+            ],
+            duration: '4 months',
+            liveUrl: 'https://nagar-nirman.vercel.app',
+            githubUrl: 'https://github.com/HabiburRahmanZihad/NagarNirman',
+            youtube_Video: 'https://www.youtube.com/watch?v=D3CX7c0Odow'
+        },
+        {
             id: 4,
             title: 'TazaRate',
             description: 'TazaRate is a local market price tracking platform for vendors, admins, and everyday users. It provides live product prices, trend charts, vendor submissions, admin moderation, and ad management — all in one fast and user-friendly web app',
@@ -32,7 +53,7 @@ const Projects = () => {
             id: 5,
             title: 'Healio',
             description: 'Healio is a full-stack healthcare web application that connects customers, pharmacies (sellers), and administrators in a single secure platform. It enables medicine browsing, ordering, inventory management, role-based access control, reviews, analytics, and robust error handling — built with real-world production standards.',
-            image: Healio_IMG, 
+            image: Healio_IMG,
             technologies: [
                 'Next.js',
                 'React',
@@ -45,7 +66,7 @@ const Projects = () => {
                 'Framer Motion'
             ],
             duration: '8 days',
-            liveUrl: 'https://healio-web.vercel.app', 
+            liveUrl: 'https://healio-web.vercel.app',
             githubUrl: 'https://github.com/HabiburRahmanZihad/Healio-Web',
             youtube_Video: 'https://youtu.be/pt03-JtGeY8',
         },
