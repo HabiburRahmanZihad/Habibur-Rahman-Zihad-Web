@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaHeart } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';

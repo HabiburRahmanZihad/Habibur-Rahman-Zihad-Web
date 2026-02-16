@@ -1,14 +1,17 @@
+/* eslint-disable no-unused-vars */
 import { Outlet } from 'react-router';
 import { motion } from 'framer-motion';
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import ScrollToTop from '../Components/Hooks/ScrollToTop';
+import CustomCursor from '../Components/Cursor/CustomCursor';
 
 const Root = () => {
 
 
     return (
         <div>
+            <CustomCursor />
             <ScrollToTop />
 
             <Navbar></Navbar>

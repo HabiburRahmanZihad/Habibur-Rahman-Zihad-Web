@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-    FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin,
+    FaEnvelope, FaMapMarkerAlt, FaLinkedin,
     FaGithub, FaTwitter, FaPaperPlane, FaCheckCircle, FaFacebook
 } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';

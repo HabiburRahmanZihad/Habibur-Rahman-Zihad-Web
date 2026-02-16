@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router';
 
 const blogs = [
     {
