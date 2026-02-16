@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router';

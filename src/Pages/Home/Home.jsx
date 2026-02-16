@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import { FaArrowRight, FaCode, FaRocket, FaHeart, FaEye, FaFire, FaStar } from 'react-icons/fa';

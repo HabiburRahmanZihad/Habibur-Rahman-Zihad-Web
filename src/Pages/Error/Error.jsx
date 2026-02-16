@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { FaHome, FaArrowLeft, FaRocket, FaCode, FaStar } from 'react-icons/fa';
