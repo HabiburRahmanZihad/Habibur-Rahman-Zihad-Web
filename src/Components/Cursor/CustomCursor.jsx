@@ -31,9 +31,14 @@ const CustomCursor = memo(() => {
         dotY = ringY = mouseY;
         initializedRef.current = true;
       }
+    };
 
-      const target = document.elementFromPoint(e.clientX, e.clientY);
-      const interactiveElement = target?.closest('a, button, [data-cursor], input, textarea, [role="button"]');
+    // More efficient hover detection using event delegation
+    const onMouseOver = (e) => {
+      const target = e.target;
+      if (!target) return;
+
+      const interactiveElement = target.closest('a, button, [data-cursor], input, textarea, [role="button"]');
 
       if (interactiveElement) {
         if (hoverTimeoutRef.current) {
@@ -60,11 +65,14 @@ const CustomCursor = memo(() => {
 
     const animate = () => {
       if (initializedRef.current) {
+        // Precise movement with lerp
         dotX += (mouseX - dotX) * 0.35;
         dotY += (mouseY - dotY) * 0.35;
         ringX += (mouseX - ringX) * 0.15;
         ringY += (mouseY - ringY) * 0.15;
 
+        // Use independent translate property to avoid transform conflicts
+        // This ensures translate and scale never overwrite each other
         dot.style.setProperty("--x", `${dotX}px`);
         dot.style.setProperty("--y", `${dotY}px`);
         ring.style.setProperty("--x", `${ringX}px`);
@@ -80,6 +88,7 @@ const CustomCursor = memo(() => {
     const handleMouseEnter = () => setIsHidden(false);
 
     window.addEventListener("mousemove", onMouseMove, { passive: true });
+    window.addEventListener("mouseover", onMouseOver, { passive: true });
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
     document.documentElement.addEventListener("mouseleave", handleMouseLeave);
@@ -91,6 +100,7 @@ const CustomCursor = memo(() => {
       cancelAnimationFrame(rafId);
       if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseover", onMouseOver);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
       document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
@@ -115,10 +125,10 @@ const CustomCursor = memo(() => {
           ${isHidden ? "opacity-0" : "opacity-100"}
         `}
         style={{
-          width: isHovering ? "60px" : "40px",
-          height: isHovering ? "60px" : "40px",
-          transform: `translate(var(--x, 0), var(--y, 0)) translate(-50%, -50%)`,
-          willChange: "transform",
+          width: isHovering ? "65px" : "40px",
+          height: isHovering ? "65px" : "40px",
+          translate: "calc(var(--x, 0px) - 50%) calc(var(--y, 0px) - 50%)",
+          willChange: "translate, width, height, opacity",
         }}
       >
         <div
@@ -129,11 +139,15 @@ const CustomCursor = memo(() => {
               ? "border-primary bg-primary/10 scale-100"
               : "border-primary/60 scale-100"
             }
-            ${isClicking ? "scale-75 border-primary bg-primary/30" : ""}
+            ${isClicking ? "scale-75 border-primary bg-primary/40" : ""}
           `}
+          style={{
+            // Specific property to prevent transform conflicts if classes use them
+            transformOrigin: "center center",
+          }}
         />
         {hoverText && isHovering && (
-          <span className="absolute text-[10px] font-bold uppercase tracking-wider text-primary">
+          <span className="absolute text-[10px] font-bold uppercase tracking-wider text-primary animate-in fade-in zoom-in duration-300">
             {hoverText}
           </span>
         )}
@@ -144,19 +158,18 @@ const CustomCursor = memo(() => {
         ref={dotRef}
         className={`
           fixed top-0 left-0 pointer-events-none z-[10000] hidden lg:block
-          transition-[opacity,transform] duration-200 ease-out
+          transition-[opacity,scale] duration-200 ease-out bg-primary
           ${isHidden ? "opacity-0" : "opacity-100"}
           ${isHovering ? "opacity-0 scale-0" : "opacity-100 scale-100"}
-          ${isClicking ? "scale-150" : ""}
-          bg-primary
+          ${isClicking ? "scale-[2]" : "scale-100"}
         `}
         style={{
           width: "8px",
           height: "8px",
           borderRadius: "50%",
-          boxShadow: "0 0 15px var(--color-primary), 0 0 30px var(--color-primary)",
-          transform: `translate(var(--x, 0), var(--y, 0)) translate(-50%, -50%)`,
-          willChange: "transform",
+          boxShadow: `0 0 15px var(--color-primary), 0 0 30px var(--color-primary)`,
+          translate: "calc(var(--x, 0px) - 50%) calc(var(--y, 0px) - 50%)",
+          willChange: "translate, opacity, scale",
         }}
       />
     </>
