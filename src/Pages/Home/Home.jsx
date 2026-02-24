@@ -174,9 +174,11 @@ const Home = () => {
                                 <span className="text-primary font-bold">
                                     <Typewriter
                                         words={[
-                                            'MERN Stack Developer',
-                                            'Creative UI/UX Designer',
-                                            'Problem Solver at heart'
+                                            'Full Stack Web Developer',
+                                            'MERN Stack Specialist',
+                                            'PERN Stack Developer',
+                                            'REST API Architect',
+                                            'Open Source Contributor'
                                         ]}
                                         loop={0}
                                         cursor
