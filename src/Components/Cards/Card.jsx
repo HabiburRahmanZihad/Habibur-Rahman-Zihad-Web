@@ -129,33 +129,70 @@ export const SkillCard = ({
     icon: Icon,
     title,
     description,
+    tags = [],
     level,
     className = ''
 }) => {
     return (
-        <Card className={`text-center ${className}`} hover={true}>
+        <div
+            className={`h-full flex flex-col bg-base-100 rounded-2xl border border-primary/20 shadow-xl p-6 text-center
+                        hover:border-primary/60 hover:shadow-primary/20 hover:shadow-2xl hover:-translate-y-1
+                        transition-all duration-300 group ${className}`}
+        >
+            {/* Icon */}
             {Icon && (
-                <div className="flex justify-center mb-4">
-                    <Icon className="w-12 h-12 text-primary" />
+                <div className="flex justify-center mb-5">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center
+                                    group-hover:bg-primary/20 transition-colors duration-300">
+                        <Icon className="text-2xl text-primary" />
+                    </div>
                 </div>
             )}
-            <h3 className="text-lg font-semibold text-primary grotesk mb-2">
+
+            {/* Title */}
+            <h3 className="text-lg font-bold text-primary grotesk mb-3">
                 {title}
             </h3>
+
+            {/* Description */}
             {description && (
-                <p className="text-base-content/70 text-sm mb-3">
+                <p className="text-base-content/60 text-sm leading-relaxed mb-5 flex-1">
                     {description}
                 </p>
             )}
-            {level && (
-                <div className="w-full bg-base-300 rounded-full h-2">
-                    <div
-                        className="bg-primary h-2 rounded-full transition-all duration-1000"
-                        style={{ width: `${level}%` }}
-                    ></div>
+
+            {/* Tech Tags */}
+            {tags.length > 0 && (
+                <div className="flex flex-wrap justify-center gap-2 mb-5">
+                    {tags.map((tag, i) => (
+                        <span
+                            key={i}
+                            className="px-3 py-1 rounded-full text-xs font-semibold
+                                       bg-primary/10 text-primary border border-primary/20
+                                       group-hover:bg-primary/20 transition-colors duration-200"
+                        >
+                            {tag}
+                        </span>
+                    ))}
                 </div>
             )}
-        </Card>
+
+            {/* Proficiency Bar */}
+            {level && (
+                <div className="mt-auto">
+                    <div className="flex justify-between items-center mb-1.5">
+                        <span className="text-xs text-base-content/50 font-medium uppercase tracking-wider">Proficiency</span>
+                        <span className="text-xs font-bold text-primary">{level}%</span>
+                    </div>
+                    <div className="w-full bg-base-300 rounded-full h-2.5">
+                        <div
+                            className="bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full transition-all duration-1000"
+                            style={{ width: `${level}%` }}
+                        />
+                    </div>
+                </div>
+            )}
+        </div>
     );
 };
 

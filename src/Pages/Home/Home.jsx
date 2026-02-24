@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { FaArrowRight, FaCode, FaRocket, FaHeart, FaEye, FaFire, FaStar } from 'react-icons/fa';
+import { FaArrowRight, FaCode, FaRocket, FaHeart, FaEye, FaFire, FaStar, FaLayerGroup, FaDatabase, FaCloud } from 'react-icons/fa';
 import { HiOutlineCubeTransparent, HiOutlineChartBar, HiOutlineFire } from 'react-icons/hi';
 import Button from '../../Components/Buttons/Button';
 import { SkillCard } from '../../Components/Cards/Card';
@@ -108,9 +108,27 @@ const Home = () => {
 
 
     const skills = [
-        { icon: FaCode, title: 'Frontend Development', description: 'React • Vue • Tailwind CSS', level: 92 },
-        { icon: FaRocket, title: 'Backend Development', description: 'Node.js • Express • MongoDB', level: 88 },
-        { icon: FaHeart, title: 'UI/UX Design', description: 'Figma • Adobe XD • Canva', level: 85 },
+        {
+            icon: FaCode,
+            title: 'Frontend Development',
+            description: 'Building responsive, high-performance UIs with modern frameworks and clean code.',
+            tags: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3'],
+            level: 95,
+        },
+        {
+            icon: FaDatabase,
+            title: 'Backend Development',
+            description: 'Designing robust server-side systems, RESTful APIs, and scalable database architectures.',
+            tags: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'REST API', 'PostgreSQL', 'MySQL', 'Prisma', 'Firebase'],
+            level: 96,
+        },
+        {
+            icon: FaCloud,
+            title: 'DevOps & Tooling',
+            description: 'Streamlining development workflows with version control, deployment, and containerisation.',
+            tags: ['Git & GitHub', 'Docker', 'Vercel', 'Netlify', 'AWS'],
+            level: 98,
+        },
     ];
 
     return (
@@ -251,27 +269,35 @@ const Home = () => {
             {/* Skills Section */}
             <section className="py-20 bg-base-100">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                        className="text-center mb-16"
+                    >
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-semibold tracking-widest uppercase mb-4">
+                            Expertise
+                        </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">What I Do Best</h2>
-                        <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-                            I work with modern web stacks, crafting top‑tier frontend, backend, and design solutions that delight users and scale with purpose.
+                        <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
+                            I build full-stack web applications using the MERN stack — delivering clean frontends, resilient backends, and smooth DevOps workflows.
                         </p>
-                    </div>
+                    </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                         {skills.map((skill, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, scale: 0.8, y: 40 }}
-                                animate={{ opacity: 1, scale: 1, y: 0 }} // ✅ changed from whileInView
+                                initial={{ opacity: 0, scale: 0.85, y: 40 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
                                 transition={{
-                                    delay: idx * 0.2,
+                                    delay: idx * 0.18,
                                     duration: 0.6,
                                     type: 'spring',
                                     stiffness: 120,
                                     damping: 15,
                                 }}
-                                className="transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl border border-glow rounded-2xl "
+                                className="h-full"
                             >
                                 <SkillCard {...skill} />
                             </motion.div>
@@ -280,9 +306,9 @@ const Home = () => {
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }} // ✅ changed from whileInView
-                        transition={{ delay: 0.5, duration: 0.6 }}
-                        className="text-center mt-12"
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6, duration: 0.6 }}
+                        className="text-center mt-14"
                     >
                         <Link to="/about">
                             <Button variant="primary" size="lg" icon={FaArrowRight} iconPosition="right">
