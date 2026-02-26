@@ -3,9 +3,10 @@ import React, { useEffect, useRef, useState, memo } from "react";
 const CustomCursor = memo(() => {
   const dotRef = useRef(null);
   const ringRef = useRef(null);
+  const [canUseCustomCursor, setCanUseCustomCursor] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
+  const [isHidden, setIsHidden] = useState(true);
   const [hoverText, setHoverText] = useState("");
 
   const hoverStateRef = useRef(false);
@@ -13,18 +14,45 @@ const CustomCursor = memo(() => {
   const initializedRef = useRef(false);
 
   useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+
+    const mediaQuery = window.matchMedia("(any-pointer: fine)");
+    const updateCursorCapability = () => {
+      setCanUseCustomCursor(mediaQuery.matches);
+    };
+
+    updateCursorCapability();
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", updateCursorCapability);
+      return () => mediaQuery.removeEventListener("change", updateCursorCapability);
+    }
+
+    mediaQuery.addListener(updateCursorCapability);
+    return () => mediaQuery.removeListener(updateCursorCapability);
+  }, []);
+
+  useEffect(() => {
+    if (!canUseCustomCursor) return;
+
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
+    initializedRef.current = false;
     let mouseX = 0, mouseY = 0;
     let dotX = 0, dotY = 0;
     let ringX = 0, ringY = 0;
     let rafId;
 
-    const onMouseMove = (e) => {
+    const isTouchPointer = (e) => e.pointerType === "touch";
+
+    const onPointerMove = (e) => {
+      if (isTouchPointer(e)) return;
+
       mouseX = e.clientX;
       mouseY = e.clientY;
+      setIsHidden(false);
 
       if (!initializedRef.current) {
         dotX = ringX = mouseX;
@@ -34,7 +62,9 @@ const CustomCursor = memo(() => {
     };
 
     // More efficient hover detection using event delegation
-    const onMouseOver = (e) => {
+    const onPointerOver = (e) => {
+      if (isTouchPointer(e)) return;
+
       const target = e.target;
       if (!target) return;
 
@@ -82,15 +112,21 @@ const CustomCursor = memo(() => {
       rafId = requestAnimationFrame(animate);
     };
 
-    const handleMouseDown = () => setIsClicking(true);
-    const handleMouseUp = () => setIsClicking(false);
+    const handlePointerDown = (e) => {
+      if (isTouchPointer(e)) return;
+      setIsClicking(true);
+    };
+    const handlePointerUp = (e) => {
+      if (isTouchPointer(e)) return;
+      setIsClicking(false);
+    };
     const handleMouseLeave = () => setIsHidden(true);
     const handleMouseEnter = () => setIsHidden(false);
 
-    window.addEventListener("mousemove", onMouseMove, { passive: true });
-    window.addEventListener("mouseover", onMouseOver, { passive: true });
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("pointerover", onPointerOver, { passive: true });
+    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("pointerup", handlePointerUp);
     document.documentElement.addEventListener("mouseleave", handleMouseLeave);
     document.documentElement.addEventListener("mouseenter", handleMouseEnter);
 
@@ -99,28 +135,28 @@ const CustomCursor = memo(() => {
     return () => {
       cancelAnimationFrame(rafId);
       if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseover", onMouseOver);
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerover", onPointerOver);
+      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("pointerup", handlePointerUp);
       document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
       document.documentElement.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, []);
+  }, [canUseCustomCursor]);
+
+  if (!canUseCustomCursor) return null;
 
   return (
     <>
       <style>{`
-        @media (min-width: 1024px) {
-          * { cursor: none !important; }
-        }
+        * { cursor: none !important; }
       `}</style>
 
       {/* Outer Ring */}
       <div
         ref={ringRef}
         className={`
-          fixed top-0 left-0 pointer-events-none z-[9999] hidden lg:flex items-center justify-center
+          fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center
           transition-[width,height,opacity] duration-300 ease-out
           ${isHidden ? "opacity-0" : "opacity-100"}
         `}
@@ -157,7 +193,7 @@ const CustomCursor = memo(() => {
       <div
         ref={dotRef}
         className={`
-          fixed top-0 left-0 pointer-events-none z-[10000] hidden lg:block
+          fixed top-0 left-0 pointer-events-none z-[10000] block
           transition-[opacity,scale] duration-200 ease-out bg-primary
           ${isHidden ? "opacity-0" : "opacity-100"}
           ${isHovering ? "opacity-0 scale-0" : "opacity-100 scale-100"}
