@@ -1,72 +1,141 @@
 /* eslint-disable no-unused-vars */
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaPlay, FaYoutube } from 'react-icons/fa';
 
-const featuredVideos = [
-    {
-        id: 1,
-        title: 'NagarNirman - Civic Tech Platform Overview',
-        description: 'A full overview of the NagarNirman smart infrastructure governance platform.',
-        youtubeUrl: 'https://www.youtube.com/watch?v=D3CX7c0Odow',
-        duration: '11:17',
-        published: '13 days ago',
-    },
-    {
-        id: 2,
-        title: 'TazaRate - Project Overview',
-        description: 'A quick walkthrough of TazaRate market price tracking system.',
-        youtubeUrl: 'https://youtu.be/tRiTHMfSQL4',
-        duration: '36:26',
-        published: '4 months ago',
-    },
-    {
-        id: 3,
-        title: 'Healio - Full Stack Healthcare Project',
-        description: 'Complete project review for the Healio healthcare platform.',
-        youtubeUrl: 'https://youtu.be/pt03-JtGeY8',
-        duration: '21:35',
-        published: '3 weeks ago',
-    },
-    {
-        id: 4,
-        title: 'ReadRack - Online Book Hub',
-        description: 'Feature showcase and architecture summary of the ReadRack project.',
-        youtubeUrl: 'https://youtu.be/39602JBF34w',
-        duration: '31:49',
-        published: '5 months ago',
-    },
-    {
-        id: 5,
-        title: 'GradiFy - Student Productivity System',
-        description: 'Project demonstration of the GradiFy student management application.',
-        youtubeUrl: 'https://www.youtube.com/watch?v=miO5nPX536o',
-        duration: '14:30',
-        published: '4 months ago',
-    },
-];
+const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
+const YOUTUBE_CHANNEL_ID = import.meta.env.VITE_YOUTUBE_CHANNEL_ID;
+const YOUTUBE_MAX_RESULTS = Number(import.meta.env.VITE_YOUTUBE_MAX_RESULTS || 6);
 
-const getYoutubeVideoId = (url) => {
-    try {
-        const parsed = new URL(url);
+const formatDuration = (isoDuration) => {
+    const match = isoDuration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+    if (!match) return '0:00';
 
-        if (parsed.hostname.includes('youtu.be')) {
-            return parsed.pathname.replace('/', '');
-        }
+    const hours = Number(match[1] || 0);
+    const minutes = Number(match[2] || 0);
+    const seconds = Number(match[3] || 0);
 
-        if (parsed.hostname.includes('youtube.com')) {
-            return parsed.searchParams.get('v');
-        }
-    } catch {
-        return null;
+    if (hours > 0) {
+        return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     }
 
-    return null;
+    return `${minutes}:${String(seconds).padStart(2, '0')}`;
+};
+
+const formatPublished = (publishedAt) => {
+    const then = new Date(publishedAt).getTime();
+    const now = Date.now();
+    const diffMs = Math.max(0, now - then);
+
+    const minute = 60 * 1000;
+    const hour = 60 * minute;
+    const day = 24 * hour;
+    const month = 30 * day;
+    const year = 365 * day;
+
+    if (diffMs >= year) return `${Math.floor(diffMs / year)} year${Math.floor(diffMs / year) > 1 ? 's' : ''} ago`;
+    if (diffMs >= month) return `${Math.floor(diffMs / month)} month${Math.floor(diffMs / month) > 1 ? 's' : ''} ago`;
+    if (diffMs >= day) return `${Math.floor(diffMs / day)} day${Math.floor(diffMs / day) > 1 ? 's' : ''} ago`;
+    if (diffMs >= hour) return `${Math.floor(diffMs / hour)} hour${Math.floor(diffMs / hour) > 1 ? 's' : ''} ago`;
+    if (diffMs >= minute) return `${Math.floor(diffMs / minute)} minute${Math.floor(diffMs / minute) > 1 ? 's' : ''} ago`;
+    return 'Just now';
+};
+
+const normalizeDescription = (description) => {
+    if (!description) return 'Watch the full project walkthrough on my YouTube channel.';
+    return description.length > 150 ? `${description.slice(0, 150)}...` : description;
 };
 
 const Videos = () => {
+    const [videos, setVideos] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState('');
+
+    const channelName = useMemo(() => {
+        if (videos.length > 0) {
+            return videos[0].channelTitle || 'Xihad Xone';
+        }
+        return 'Xihad Xone';
+    }, [videos]);
+
     useEffect(() => {
         document.title = 'Videos | Habibur Rahman Zihad';
+    }, []);
+
+    useEffect(() => {
+        const fetchVideos = async () => {
+            if (!YOUTUBE_API_KEY || !YOUTUBE_CHANNEL_ID) {
+                setError('Missing YouTube API config. Add VITE_YOUTUBE_API_KEY and VITE_YOUTUBE_CHANNEL_ID in .env.local.');
+                setIsLoading(false);
+                return;
+            }
+
+            try {
+                setIsLoading(true);
+                setError('');
+
+                const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YOUTUBE_CHANNEL_ID}&maxResults=${YOUTUBE_MAX_RESULTS}&order=date&type=video&key=${YOUTUBE_API_KEY}`;
+                const searchRes = await fetch(searchUrl);
+                if (!searchRes.ok) {
+                    throw new Error(`Search API failed (${searchRes.status})`);
+                }
+
+                const searchData = await searchRes.json();
+                const items = searchData.items || [];
+                const videoIds = items
+                    .map((item) => item?.id?.videoId)
+                    .filter(Boolean);
+
+                if (videoIds.length === 0) {
+                    setVideos([]);
+                    setIsLoading(false);
+                    return;
+                }
+
+                const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoIds.join(',')}&key=${YOUTUBE_API_KEY}`;
+                const detailsRes = await fetch(detailsUrl);
+                if (!detailsRes.ok) {
+                    throw new Error(`Video details API failed (${detailsRes.status})`);
+                }
+
+                const detailsData = await detailsRes.json();
+                const detailsMap = (detailsData.items || []).reduce((acc, item) => {
+                    acc[item.id] = item.contentDetails?.duration || 'PT0M0S';
+                    return acc;
+                }, {});
+
+                const normalizedVideos = items.map((item) => {
+                    const videoId = item.id.videoId;
+                    const snippet = item.snippet || {};
+                    const durationIso = detailsMap[videoId] || 'PT0M0S';
+
+                    return {
+                        id: videoId,
+                        title: snippet.title || 'Untitled Video',
+                        description: normalizeDescription(snippet.description),
+                        youtubeUrl: `https://www.youtube.com/watch?v=${videoId}`,
+                        duration: formatDuration(durationIso),
+                        published: formatPublished(snippet.publishedAt),
+                        publishedAt: snippet.publishedAt || '',
+                        channelTitle: snippet.channelTitle || 'Xihad Xone',
+                        thumbnail:
+                            snippet.thumbnails?.maxres?.url ||
+                            snippet.thumbnails?.high?.url ||
+                            snippet.thumbnails?.medium?.url ||
+                            snippet.thumbnails?.default?.url ||
+                            `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+                    };
+                });
+
+                setVideos(normalizedVideos);
+            } catch (err) {
+                setError(err.message || 'Failed to load videos.');
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchVideos();
     }, []);
 
     return (
@@ -89,7 +158,7 @@ const Videos = () => {
                     >
                         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-semibold tracking-widest uppercase">
                             <FaYoutube />
-                            Xihad Xone
+                            {channelName}
                         </span>
                         <h1 className="text-5xl md:text-6xl font-bold text-primary grotesk">
                             My YouTube Videos
@@ -125,25 +194,40 @@ const Videos = () => {
 
             <section className="py-10 md:py-16 px-4 sm:px-6 lg:px-8 bg-base-100">
                 <div className="max-w-7xl mx-auto">
-                    <div className="mb-10 text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-primary grotesk mb-2">
-                            Featured Uploads
-                        </h2>
-                        <p className="text-base-content/70">
-                            Handpicked project videos from the channel.
-                        </p>
-                    </div>
 
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {featuredVideos.map((video, index) => {
-                            const videoId = getYoutubeVideoId(video.youtubeUrl);
-                            if (!videoId) {
-                                return null;
-                            }
 
-                            const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+                    {isLoading && (
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {Array.from({ length: 4 }).map((_, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-base-200 rounded-2xl p-4 border border-primary/20 animate-pulse"
+                                >
+                                    <div className="aspect-video rounded-xl bg-base-300"></div>
+                                    <div className="mt-4 h-8 w-4/5 bg-base-300 rounded"></div>
+                                    <div className="mt-3 h-4 w-1/3 bg-base-300 rounded"></div>
+                                    <div className="mt-3 h-4 w-full bg-base-300 rounded"></div>
+                                    <div className="mt-2 h-4 w-2/3 bg-base-300 rounded"></div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
 
-                            return (
+                    {!isLoading && error && (
+                        <div className="max-w-3xl mx-auto text-center p-6 rounded-2xl border border-error/30 bg-error/10 text-error">
+                            {error}
+                        </div>
+                    )}
+
+                    {!isLoading && !error && videos.length === 0 && (
+                        <div className="max-w-3xl mx-auto text-center p-6 rounded-2xl border border-primary/30 bg-base-200 text-base-content/80">
+                            No videos found for this channel yet.
+                        </div>
+                    )}
+
+                    {!isLoading && !error && videos.length > 0 && (
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {videos.map((video, index) => (
                                 <motion.article
                                     key={video.id}
                                     initial={{ opacity: 0, y: 20 }}
@@ -154,7 +238,7 @@ const Videos = () => {
                                 >
                                     <div className="aspect-video overflow-hidden rounded-xl border border-base-300 relative">
                                         <img
-                                            src={thumbnail}
+                                            src={video.thumbnail}
                                             alt={`${video.title} thumbnail`}
                                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                             loading="lazy"
@@ -194,9 +278,9 @@ const Videos = () => {
                                         </a>
                                     </div>
                                 </motion.article>
-                            );
-                        })}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
         </motion.div>
