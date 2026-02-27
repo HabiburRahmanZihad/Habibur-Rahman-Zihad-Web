@@ -113,9 +113,9 @@ const Videos = () => {
                                 transition={{ delay: index * 0.08, duration: 0.5 }}
                                 className="bg-base-200 rounded-2xl p-4 border border-primary/30 shadow-md"
                             >
-                                <div className="aspect-video overflow-hidden rounded-xl border border-base-300">
+                                <div className="aspect-video overflow-hidden rounded-xl border border-base-300 relative group">
                                     <iframe
-                                        className="w-full h-full"
+                                        className="w-full h-full pointer-events-none"
                                         src={`https://www.youtube.com/embed/${videoId}`}
                                         title={video.title}
                                         loading="lazy"
@@ -123,6 +123,18 @@ const Videos = () => {
                                         referrerPolicy="strict-origin-when-cross-origin"
                                         allowFullScreen
                                     />
+                                    <a
+                                        href={video.youtubeUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        data-cursor="Watch"
+                                        aria-label={`Watch ${video.title} on YouTube`}
+                                        className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                    >
+                                        <span className="px-4 py-2 rounded-full bg-primary text-white font-semibold">
+                                            Watch on YouTube
+                                        </span>
+                                    </a>
                                 </div>
                                 <div className="mt-4 space-y-2">
                                     <h2 className="text-2xl text-primary font-bold grotesk">{video.title}</h2>
