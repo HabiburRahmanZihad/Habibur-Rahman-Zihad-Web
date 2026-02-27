@@ -161,7 +161,7 @@ const Navbar = () => {
 
                             <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
                             <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
-                            <NavLink to="/blogs" className={navLinkClass}>Blogs</NavLink>
+                            <NavLink to="/videos" className={navLinkClass}>Videos</NavLink>
                         </div>
                     </div>
 
@@ -260,11 +260,11 @@ const Navbar = () => {
                                     Contact
                                 </NavLink>
                                 <NavLink
-                                    to="/blogs"
+                                    to="/videos"
                                     className={navLinkClass}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    Blogs
+                                    Videos
                                 </NavLink>
                             </div>
                         </motion.div>

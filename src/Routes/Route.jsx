@@ -1,11 +1,11 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
 import RootLayout from '../Layout/RootLayout';
 import Home from '../Pages/Home/Home';
 import About from '../Pages/About/About';
 import Projects from '../Pages/Projects/Projects';
 import Contact from '../Pages/Contact/Contact';
 import Error from '../Pages/Error/Error';
-import Blogs from '../Pages/Blogs/Blogs';
+import Videos from '../Pages/Blogs/Blogs';
 
 export const router = createBrowserRouter([
     {
@@ -16,7 +16,8 @@ export const router = createBrowserRouter([
             { path: '/about', element: <About></About> },
             { path: '/projects', element: <Projects></Projects> },
             { path: '/contact', element: <Contact></Contact> },
-            { path: '/blogs', element: <Blogs></Blogs> },
+            { path: '/videos', element: <Videos></Videos> },
+            { path: '/blogs', element: <Navigate to="/videos" replace /> },
             { path: '*', element: <Error></Error> },
         ]
     },
