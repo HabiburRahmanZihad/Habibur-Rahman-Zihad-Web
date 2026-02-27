@@ -5,7 +5,7 @@ import About from '../Pages/About/About';
 import Projects from '../Pages/Projects/Projects';
 import Contact from '../Pages/Contact/Contact';
 import Error from '../Pages/Error/Error';
-import Videos from '../Pages/Blogs/Blogs';
+import Videos from '../Pages/Videos/Videos';
 
 export const router = createBrowserRouter([
     {
