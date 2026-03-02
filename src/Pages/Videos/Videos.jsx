@@ -198,7 +198,7 @@ const Videos = () => {
 
                     {isLoading && (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {Array.from({ length: 4 }).map((_, index) => (
+                            {Array.from({ length: 6 }).map((_, index) => (
                                 <div
                                     key={index}
                                     className="bg-base-200 rounded-2xl p-4 border border-primary/20 animate-pulse"
