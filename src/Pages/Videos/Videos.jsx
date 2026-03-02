@@ -160,10 +160,10 @@ const Videos = () => {
                             <FaYoutube />
                             {channelName}
                         </span>
-                        <h1 className="text-5xl md:text-6xl font-bold text-primary grotesk">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary grotesk">
                             My YouTube Videos
                         </h1>
-                        <p className="text-xl text-base-content/70 max-w-3xl mx-auto">
+                        <p className="text-lg md:text-xl text-base-content/70 max-w-3xl mx-auto">
                             Project reviews and practical software engineering videos from my channel.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
@@ -197,7 +197,7 @@ const Videos = () => {
 
 
                     {isLoading && (
-                        <div className="grid md:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                             {Array.from({ length: 4 }).map((_, index) => (
                                 <div
                                     key={index}
@@ -226,7 +226,7 @@ const Videos = () => {
                     )}
 
                     {!isLoading && !error && videos.length > 0 && (
-                        <div className="grid md:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                             {videos.map((video, index) => (
                                 <motion.article
                                     key={video.id}
@@ -261,11 +261,11 @@ const Videos = () => {
                                         </a>
                                     </div>
                                     <div className="mt-4 space-y-3">
-                                        <h3 className="text-2xl text-primary font-bold grotesk leading-tight">
+                                        <h3 className="text-xl md:text-2xl text-primary font-bold grotesk leading-tight line-clamp-2">
                                             {video.title}
                                         </h3>
                                         <p className="text-sm text-base-content/60">{video.published}</p>
-                                        <p className="text-base-content/70">{video.description}</p>
+                                        <p className="text-base-content/70 line-clamp-3">{video.description}</p>
                                         <a
                                             href={video.youtubeUrl}
                                             target="_blank"

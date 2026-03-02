@@ -160,8 +160,8 @@ const Navbar = () => {
                             </div>
 
                             <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
-                            <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
                             <NavLink to="/videos" className={navLinkClass}>Videos</NavLink>
+                            <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
                         </div>
                     </div>
 
@@ -253,18 +253,18 @@ const Navbar = () => {
                                     Projects
                                 </NavLink>
                                 <NavLink
-                                    to="/contact"
-                                    className={navLinkClass}
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Contact
-                                </NavLink>
-                                <NavLink
                                     to="/videos"
                                     className={navLinkClass}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     Videos
+                                </NavLink>
+                                <NavLink
+                                    to="/contact"
+                                    className={navLinkClass}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Contact
                                 </NavLink>
                             </div>
                         </motion.div>
