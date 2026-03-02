@@ -149,7 +149,9 @@ const CustomCursor = memo(() => {
   return (
     <>
       <style>{`
-        * { cursor: none !important; }
+        html:not(.no-custom-cursor) * { cursor: none !important; }
+        .no-custom-cursor * { cursor: auto !important; }
+        .no-custom-cursor .custom-cursor-element { display: none !important; }
       `}</style>
 
       {/* Outer Ring */}
@@ -157,8 +159,8 @@ const CustomCursor = memo(() => {
         ref={ringRef}
         className={`
           fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center
-          transition-[width,height,opacity] duration-300 ease-out
-          ${isHidden ? "opacity-0" : "opacity-100"}
+          transition-[width,height,opacity,visibility] duration-300 ease-out custom-cursor-element
+          ${isHidden || (typeof document !== 'undefined' && document.documentElement.classList.contains('no-custom-cursor')) ? "opacity-0 invisible" : "opacity-100 visible"}
         `}
         style={{
           width: isHovering ? "65px" : "40px",
@@ -194,9 +196,9 @@ const CustomCursor = memo(() => {
         ref={dotRef}
         className={`
           fixed top-0 left-0 pointer-events-none z-[10000] block
-          transition-[opacity,scale] duration-200 ease-out bg-primary
-          ${isHidden ? "opacity-0" : "opacity-100"}
-          ${isHovering ? "opacity-0 scale-0" : "opacity-100 scale-100"}
+          transition-[opacity,scale,visibility] duration-200 ease-out bg-primary custom-cursor-element
+          ${isHidden || (typeof document !== 'undefined' && document.documentElement.classList.contains('no-custom-cursor')) ? "opacity-0 invisible" : "opacity-100 visible"}
+          ${isHovering ? "opacity-0 scale-0 invisible" : "opacity-100 scale-100 visible"}
           ${isClicking ? "scale-[2]" : "scale-100"}
         `}
         style={{

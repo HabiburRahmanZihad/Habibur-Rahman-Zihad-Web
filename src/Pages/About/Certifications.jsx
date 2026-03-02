@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
-import { motion } from 'framer-motion';
-import { FaAward } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaAward, FaTimes, FaExpand } from 'react-icons/fa';
 
 
 
@@ -18,6 +18,17 @@ const achievements = [
 ];
 
 const Certifications = () => {
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    useEffect(() => {
+        if (selectedImage) {
+            document.documentElement.classList.add('no-custom-cursor');
+        } else {
+            document.documentElement.classList.remove('no-custom-cursor');
+        }
+        return () => document.documentElement.classList.remove('no-custom-cursor');
+    }, [selectedImage]);
+
     return (
         <section className="py-20 bg-base-200">
             <div className="max-w-7xl mx-auto px-4">
@@ -89,16 +100,35 @@ const Certifications = () => {
                                         }}
                                     />
 
-                                    {/* Image */}
-                                    <motion.img
-                                        src={achievement.image}
-                                        alt={achievement.title}
-                                        className="h-[200px] w-full rounded-xl mb-4 object-cover border border-secondary shadow-lg"
-                                        whileHover={{
-                                            scale: 1.05, brightness: 1.1,
-                                            transition: { duration: 0.3 }
-                                        }}
-                                    />
+                                    {/* Image Container with Hover Icon */}
+                                    <div className="relative group/img overflow-hidden rounded-xl mb-4 h-[200px]">
+                                        <motion.img
+                                            src={achievement.image}
+                                            alt={achievement.title}
+                                            className="h-full w-full object-cover border border-secondary shadow-lg cursor-zoom-in"
+                                            whileHover={{
+                                                scale: 1.05, brightness: 1.1,
+                                                transition: { duration: 0.3 }
+                                            }}
+                                            onClick={() => setSelectedImage(achievement.image)}
+                                        />
+                                        <motion.div
+                                            className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover/img:opacity-100 transition-all duration-500 pointer-events-none"
+                                            initial={{ opacity: 0 }}
+                                            whileHover={{ opacity: 1 }}
+                                        >
+                                            <motion.div
+                                                initial={{ y: 20, opacity: 0 }}
+                                                whileInView={{ y: 0, opacity: 1 }}
+                                                className="flex flex-col items-center gap-2"
+                                            >
+                                                <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary/30 text-primary">
+                                                    <FaExpand className="text-xl" />
+                                                </div>
+                                                <span className="text-white text-sm font-bold tracking-widest uppercase">View Certificate</span>
+                                            </motion.div>
+                                        </motion.div>
+                                    </div>
 
                                     {/* Title */}
                                     <motion.h3
@@ -170,6 +200,43 @@ const Certifications = () => {
                     ))}
                 </motion.div>
             </div>
+
+            {/* Full Screen Image Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/98 backdrop-blur-sm p-4 md:p-8 cursor-default"
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <motion.button
+                            className="absolute top-6 right-6 text-white text-3xl hover:text-primary transition-colors z-[110]"
+                            onClick={() => setSelectedImage(null)}
+                            whileHover={{ scale: 1.1, rotate: 90 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            <FaTimes />
+                        </motion.button>
+
+                        <motion.div
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                            className="relative max-w-5xl w-full h-full flex items-center justify-center"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <img
+                                src={selectedImage}
+                                alt="Certification Full Screen"
+                                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl border border-white/10"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
