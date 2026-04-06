@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router';
+import CareerBanglaIMG from '../../assets/AllPic/Projects/CareerBangla.png';
 import GradifyImg from '../../assets/AllPic/Projects/GradifyWeb.png';
 import Healio_IMG from '../../assets/AllPic/Projects/Healio_IMG.png';
 import NagarNirmanIMG from '../../assets/AllPic/Projects/NagarNirman_IMG.png';
 import ReadRackImg from '../../assets/AllPic/Projects/ReadRack.png';
 import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
-import CareerBanglaIMG from '../../assets/AllPic/Projects/CareerBangla.png';
 import Button from '../../Components/Buttons/Button';
 import ProjectCard from './ProjectCard';
 
@@ -44,9 +44,9 @@ const Projects = () => {
                 'SSLCommerz'
             ],
             duration: '3-4 months',
-            liveUrl: 'https://your-live-link.com',
-            githubUrl: 'https://github.com/your-username/careerbangla',
-            youtube_Video: 'https://www.youtube.com/watch?v=your-video-id'
+            liveUrl: 'https://career-bangla.vercel.app/',
+            githubUrl: 'https://github.com/HabiburRahmanZihad/CareerBangla',
+            youtube_Video: 'https://youtu.be/Hl50hdsVtYg'
         },
         {
             id: 6,
