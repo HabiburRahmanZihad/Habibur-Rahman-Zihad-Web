@@ -1,15 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
-import { FaGithub } from 'react-icons/fa';
-import Button from '../../Components/Buttons/Button';
-import { Link, useLocation } from 'react-router';
-import ReadRackImg from '../../assets/AllPic/Projects/ReadRack.png';
-import NagarNirmanIMG from '../../assets/AllPic/Projects/NagarNirman_IMG.png';
-import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
-import Healio_IMG from '../../assets/AllPic/Projects/Healio_IMG.png';
-import GradifyImg from '../../assets/AllPic/Projects/GradifyWeb.png';
-import ProjectCard from './ProjectCard';
 import { useEffect } from 'react';
+import { FaGithub } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router';
+import GradifyImg from '../../assets/AllPic/Projects/GradifyWeb.png';
+import Healio_IMG from '../../assets/AllPic/Projects/Healio_IMG.png';
+import NagarNirmanIMG from '../../assets/AllPic/Projects/NagarNirman_IMG.png';
+import ReadRackImg from '../../assets/AllPic/Projects/ReadRack.png';
+import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
+import CareerBanglaIMG from '../../assets/AllPic/Projects/CareerBangla.png';
+import Button from '../../Components/Buttons/Button';
+import ProjectCard from './ProjectCard';
 
 const Projects = () => {
     useEffect(() => {
@@ -18,6 +19,35 @@ const Projects = () => {
     const location = useLocation(); // ✅ new: detect route
 
     const projects = [
+        {
+            id: 7,
+            title: 'CareerBangla',
+            description: 'CareerBangla is a modern full stack job portal platform designed to connect job seekers and employers across Bangladesh. It enables users to search and apply for jobs, manage applications, and build their career efficiently. The platform includes secure authentication, role-based dashboards, job posting and application systems, cloud-based file uploads, payment integration, email notifications, and PDF generation features, ensuring a complete real-world recruitment solution.',
+            image: CareerBanglaIMG,
+            technologies: [
+                'Next.js 16',
+                'TypeScript',
+                'React 19',
+                'Node.js',
+                'Express.js',
+                'PostgreSQL',
+                'Prisma',
+                'Better Auth',
+                'JWT',
+                'Tailwind CSS',
+                'ShadCN UI',
+                'Radix UI',
+                'TanStack Query',
+                'Zod Validation',
+                'Cloudinary',
+                'Nodemailer',
+                'SSLCommerz'
+            ],
+            duration: '3-4 months',
+            liveUrl: 'https://your-live-link.com',
+            githubUrl: 'https://github.com/your-username/careerbangla',
+            youtube_Video: 'https://www.youtube.com/watch?v=your-video-id'
+        },
         {
             id: 6,
             title: 'NagarNirman',
