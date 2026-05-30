@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
 import {
-    FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaFacebook, FaArrowUp,
+    FaArrowUp,
+    FaEnvelope, FaFacebook,
+    FaGithub, FaLinkedin, FaTwitter,
 } from 'react-icons/fa';
 import { Link } from 'react-router';
 import Logo from '../../assets/AllPic/logo/withBorder.png';
@@ -42,7 +44,7 @@ const Footer = () => {
                         Habibur Rahman
                     </h3>
                     <p className="text-base-content/70 text-sm leading-relaxed">
-                        Full Stack Developer building accessible, performant, and visually engaging web applications that solve real problems.
+                        Full-Stack Software Engineer building accessible, performant, and visually engaging web applications that solve real problems.
                     </p>
                 </div>
 

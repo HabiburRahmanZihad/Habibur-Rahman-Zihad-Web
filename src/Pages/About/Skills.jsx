@@ -20,7 +20,14 @@ const skills = [
     { name: 'CSS3', level: 90 },
     { name: 'Tailwind & Bootstrap', level: 95 },
     { name: 'Git & GitHub', level: 90 },
-    { name: 'Docker', level: 60 },
+    { name: 'Python', level: 88 },
+    { name: 'C', level: 85 },
+    { name: 'C++', level: 82 },
+    { name: 'Docker', level: 82 },
+    { name: 'Nginx', level: 78 },
+    { name: 'CI/CD (GitHub Actions)', level: 80 },
+    { name: 'VPS (Linux Server)', level: 78 },
+    { name: 'RAG (Retrieval-Augmented Generation)', level: 78 },
     { name: 'Vercel & Netlify', level: 80 },
 ];
 

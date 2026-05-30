@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { FaArrowRight, FaCloud, FaCode, FaDatabase, FaEye, FaFacebook, FaFire, FaGithub, FaLinkedin, FaStar, FaTwitter } from 'react-icons/fa';
+import { HiOutlineChartBar, HiOutlineCubeTransparent, HiOutlineFire } from 'react-icons/hi';
+import { Link, useLocation } from 'react-router';
 import { Typewriter } from 'react-simple-typewriter';
-import { FaArrowRight, FaCode, FaRocket, FaHeart, FaEye, FaFire, FaStar, FaLayerGroup, FaDatabase, FaCloud } from 'react-icons/fa';
-import { HiOutlineCubeTransparent, HiOutlineChartBar, HiOutlineFire } from 'react-icons/hi';
 import Button from '../../Components/Buttons/Button';
 import { SkillCard } from '../../Components/Cards/Card';
-import { Link, useLocation } from 'react-router';
-import { FaLinkedin, FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
-import { useEffect, useState, useRef } from 'react';
 
 // Animated counter component for smooth number animation
 const AnimatedCounter = ({ value, duration = 2000 }) => {
@@ -117,16 +116,16 @@ const Home = () => {
         },
         {
             icon: FaDatabase,
-            title: 'Backend Development',
-            description: 'Designing robust server-side systems, RESTful APIs, and scalable database architectures.',
-            tags: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'REST API', 'PostgreSQL', 'MySQL', 'Prisma', 'Firebase'],
+            title: 'Backend & Programming',
+            description: 'Designing robust server-side systems, RESTful APIs, scalable databases, and writing performant code across multiple languages.',
+            tags: ['Node.js', 'Express.js', 'Python', 'C', 'C++', 'MongoDB', 'Mongoose', 'REST API', 'PostgreSQL', 'MySQL', 'Prisma', 'Firebase', 'RAG'],
             level: 96,
         },
         {
             icon: FaCloud,
-            title: 'DevOps & Tooling',
-            description: 'Streamlining development workflows with version control, deployment, and containerisation.',
-            tags: ['Git & GitHub', 'Docker', 'Vercel', 'Netlify', 'AWS'],
+            title: 'DevOps, Cloud & Deployment',
+            description: 'Streamlining workflows with containerisation, CI/CD pipelines, reverse proxies, and self-hosted Linux servers.',
+            tags: ['Git & GitHub', 'Docker', 'Nginx', 'CI/CD', 'VPS', 'Vercel', 'Netlify', 'AWS'],
             level: 98,
         },
     ];
@@ -174,10 +173,12 @@ const Home = () => {
                                 <span className="text-primary font-bold">
                                     <Typewriter
                                         words={[
-                                            'Full Stack Web Developer',
+                                            'Full-Stack Software Engineer',
                                             'MERN Stack Specialist',
                                             'PERN Stack Developer',
                                             'REST API Architect',
+                                            'DevOps & Cloud Enthusiast',
+                                            'AI / RAG Application Builder',
                                             'Open Source Contributor'
                                         ]}
                                         loop={0}
@@ -282,7 +283,7 @@ const Home = () => {
                         </span>
                         <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">What I Do Best</h2>
                         <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
-                            I build full-stack web applications using the MERN stack — delivering clean frontends, resilient backends, and smooth DevOps workflows.
+                            As a Full-Stack Software Engineer, I build production-grade web apps end-to-end — crafting clean frontends, resilient backends, and shipping them through solid DevOps workflows.
                         </p>
                     </motion.div>
 
