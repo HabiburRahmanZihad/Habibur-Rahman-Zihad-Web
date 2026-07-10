@@ -6,12 +6,14 @@ import { Link, useLocation } from 'react-router';
 import BeyondCode from './BeyondCode';
 import Certifications from './Certifications';
 import Skills from './Skills';
-import { useEffect } from 'react';
+import usePageMeta from '../../Components/Hooks/usePageMeta';
 
 const About = () => {
-    useEffect(() => {
-        document.title = 'About | Habibur Rahman Zihad';
-    }, []);
+    usePageMeta({
+        title: 'About',
+        description: 'Learn about Habibur Rahman Zihad (ZIHAD) — his journey into web development, tech skills, certifications, and what he loves to build.',
+        path: '/about',
+    });
     const location = useLocation();
 
     const timeline = [

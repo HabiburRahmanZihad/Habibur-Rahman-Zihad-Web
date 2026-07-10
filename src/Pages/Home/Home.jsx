@@ -7,6 +7,7 @@ import { Link, useLocation } from 'react-router';
 import { Typewriter } from 'react-simple-typewriter';
 import Button from '../../Components/Buttons/Button';
 import { SkillCard } from '../../Components/Cards/Card';
+import usePageMeta from '../../Components/Hooks/usePageMeta';
 
 // Animated counter component for smooth number animation
 const AnimatedCounter = ({ value, duration = 2000 }) => {
@@ -64,9 +65,13 @@ const Home = () => {
     ]);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        document.title = 'Home | Habibur Rahman Zihad';
+    usePageMeta({
+        title: 'Home',
+        description: 'Habibur Rahman Zihad — Full-Stack Software Engineer from Chattogram, Bangladesh. MERN/PERN stacks, REST APIs, DevOps. View projects, skills, and GitHub stats.',
+        path: '/',
+    });
 
+    useEffect(() => {
         // Fetch real GitHub stats
         const fetchGitHubStats = async () => {
             try {

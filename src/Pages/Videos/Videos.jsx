@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaPlay, FaYoutube } from 'react-icons/fa';
+import usePageMeta from '../../Components/Hooks/usePageMeta';
 
 const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 const YOUTUBE_CHANNEL_ID = import.meta.env.VITE_YOUTUBE_CHANNEL_ID;
@@ -58,9 +59,11 @@ const Videos = () => {
         return 'Xihad Xone';
     }, [videos]);
 
-    useEffect(() => {
-        document.title = 'Videos | Habibur Rahman Zihad';
-    }, []);
+    usePageMeta({
+        title: 'Videos',
+        description: 'Project walkthroughs and dev videos by Habibur Rahman Zihad on the Xihad Xone YouTube channel.',
+        path: '/videos',
+    });
 
     useEffect(() => {
         const fetchVideos = async () => {

@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router';
 import CareerBanglaIMG from '../../assets/AllPic/Projects/CareerBangla.png';
@@ -10,12 +9,15 @@ import NagarNirmanIMG from '../../assets/AllPic/Projects/NagarNirman_IMG.png';
 import ReadRackImg from '../../assets/AllPic/Projects/ReadRack.png';
 import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
 import Button from '../../Components/Buttons/Button';
+import usePageMeta from '../../Components/Hooks/usePageMeta';
 import ProjectCard from './ProjectCard';
 
 const Projects = () => {
-    useEffect(() => {
-        document.title = 'Projects | Habibur Rahman Zihad';
-    }, []);
+    usePageMeta({
+        title: 'Projects',
+        description: 'Full-stack projects by Habibur Rahman Zihad — CareerBangla, NagarNirman, TazaRate, Healio, ReadRack, and Gradify. Built with React, Next.js, Node.js, MongoDB, and PostgreSQL.',
+        path: '/projects',
+    });
     const location = useLocation();
 
     const projects = [

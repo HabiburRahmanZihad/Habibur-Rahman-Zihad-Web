@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
     FaEnvelope, FaMapMarkerAlt, FaLinkedin,
     FaGithub, FaTwitter, FaPaperPlane, FaCheckCircle, FaFacebook
 } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';
+import usePageMeta from '../../Components/Hooks/usePageMeta';
 import Swal from 'sweetalert2';
 import { Link, useLocation } from 'react-router';
 import emailjs from 'emailjs-com';
@@ -49,9 +50,11 @@ const staggerContainer = {
 
 const Contact = () => {
 
-    useEffect(() => {
-        document.title = 'Contact | Habibur Rahman Zihad';
-    }, []);
+    usePageMeta({
+        title: 'Contact',
+        description: 'Get in touch with Habibur Rahman Zihad for projects, collaborations, or opportunities — based in Chattogram, Bangladesh.',
+        path: '/contact',
+    });
 
     const location = useLocation();
     const [formData, setFormData] = useState({

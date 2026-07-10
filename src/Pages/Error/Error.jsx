@@ -7,7 +7,13 @@ import { Link } from 'react-router';
 const Error = () => {
 
     useEffect(() => {
-        document.title = 'Error | Habibur Rahman Zihad';
+        document.title = 'Page Not Found | Habibur Rahman Zihad';
+        // Tell search engines not to index this error page
+        const robots = document.createElement('meta');
+        robots.name = 'robots';
+        robots.content = 'noindex';
+        document.head.appendChild(robots);
+        return () => robots.remove();
     }, []);
 
     return (
