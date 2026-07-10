@@ -234,8 +234,12 @@ const Home = () => {
                                         boxShadow: '0 0 20px 5px var(--tw-ring-color)',
                                     }}
                                 >
-                                    {/* <img src={profileImage} alt="Profile" className="w-full  object-cover" /> */}
-                                    <img src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758785330/IMG-20241101-WA0192_vyojiv.jpg' alt="Profile" className="w-full  object-cover" />
+                                    <img
+                                        src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758785330/IMG-20241101-WA0192_vyojiv.jpg'
+                                        alt="Habibur Rahman Zihad"
+                                        fetchPriority="high"
+                                        className="w-full h-full object-cover"
+                                    />
                                 </div>
 
                                 {/* Social Links */}
@@ -253,7 +257,7 @@ const Home = () => {
                                                 href={social.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="p-3 rounded-lg bg-primary text-white hover:bg-base-200 hover:text-secondary transition-all duration-300"
+                                                className="p-3 rounded-lg bg-primary text-primary-content shadow-md hover:shadow-lg hover:shadow-primary/40 transition-all duration-300"
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.95 }}
                                                 aria-label={social.name}

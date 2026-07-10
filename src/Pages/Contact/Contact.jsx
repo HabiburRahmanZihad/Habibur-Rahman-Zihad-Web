@@ -231,10 +231,11 @@ const Contact = () => {
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 {['name', 'email', 'subject'].map((field, i) => (
                                     <div className="form-control" key={field}>
-                                        <label className="label">
+                                        <label className="label" htmlFor={`contact-${field}`}>
                                             <span className="label-text font-medium">{field[0].toUpperCase() + field.slice(1)}</span>
                                         </label>
                                         <input
+                                            id={`contact-${field}`}
                                             type={field === 'email' ? 'email' : 'text'}
                                             name={field}
                                             value={formData[field]}
@@ -247,10 +248,11 @@ const Contact = () => {
                                 ))}
 
                                 <div className="form-control">
-                                    <label className="label">
+                                    <label className="label" htmlFor="contact-message">
                                         <span className="label-text font-medium">Message</span>
                                     </label>
                                     <textarea
+                                        id="contact-message"
                                         name="message"
                                         value={formData.message}
                                         onChange={handleInputChange}
