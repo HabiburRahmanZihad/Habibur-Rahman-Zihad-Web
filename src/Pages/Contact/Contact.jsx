@@ -130,7 +130,7 @@ const Contact = () => {
 
     return (
         <motion.div
-            key={location.pathname} // ✅ triggers re-render animation
+            key={location.pathname} // triggers re-render animation
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -164,8 +164,7 @@ const Contact = () => {
                     <motion.div
                         variants={fadeInLeft}
                         initial="hidden"
-                        animate="visible" // ✅ changed from whileInView
-                    >
+                        animate="visible"                    >
                         <h2 className="text-3xl font-bold text-primary grotesk mb-8">Let's Start a Conversation</h2>
                         <p className="text-lg text-base-content/70 mb-8">
                             Whether you have a project in mind, want to collaborate, or just want to say hello — I'd love to hear from you.
@@ -174,8 +173,7 @@ const Contact = () => {
                         <motion.div
                             variants={staggerContainer}
                             initial="hidden"
-                            animate="visible" // ✅ changed from whileInView
-                        >
+                            animate="visible"                        >
                             {contactInfo.map((info, index) => {
                                 const Icon = info.icon;
                                 return (
@@ -224,8 +222,7 @@ const Contact = () => {
                     <motion.div
                         variants={fadeInRight}
                         initial="hidden"
-                        animate="visible" // ✅ changed from whileInView
-                    >
+                        animate="visible"                    >
                         <div className="bg-base-200 p-8 rounded-2xl shadow-xl">
                             <h2 className="text-3xl font-bold text-primary grotesk mb-6">Send Me a Message</h2>
                             <form onSubmit={handleSubmit} className="space-y-6">

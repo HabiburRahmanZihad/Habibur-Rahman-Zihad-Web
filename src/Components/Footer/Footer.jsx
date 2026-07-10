@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import {
     FaArrowUp,
     FaEnvelope, FaFacebook,
-    FaGithub, FaLinkedin, FaTwitter,
+    FaGithub, FaLinkedin, FaMapMarkerAlt, FaTwitter,
 } from 'react-icons/fa';
 import { Link } from 'react-router';
 import Logo from '../../assets/AllPic/logo/withBorder.png';
@@ -74,8 +74,12 @@ const Footer = () => {
                 <div className="text-center sm:text-left">
                     <h4 className="text-xl font-semibold text-primary mb-4">Connect With Me</h4>
                     <ul className="text-base-content/70 text-sm space-y-2 mb-4">
-                        <li>📍 Chattogram, Bangladesh</li>
-                        <li>📧 e241024@ugrad.iiuc.ac.bd</li>
+                        <li className="flex items-center justify-center sm:justify-start gap-2">
+                            <FaMapMarkerAlt className="text-primary shrink-0" /> Chattogram, Bangladesh
+                        </li>
+                        <li className="flex items-center justify-center sm:justify-start gap-2">
+                            <FaEnvelope className="text-primary shrink-0" /> e241024@ugrad.iiuc.ac.bd
+                        </li>
                     </ul>
                     <div className="flex justify-center sm:justify-start gap-3 mt-2">
                         {socialLinks.map(({ name, icon: Icon, url }) => (

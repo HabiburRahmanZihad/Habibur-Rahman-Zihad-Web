@@ -44,7 +44,7 @@
 }
 
 
-/* 🌙 Dark Theme */
+/* Dark Theme */
 @plugin "daisyui/theme" {
     name: "dark";
     default: true;

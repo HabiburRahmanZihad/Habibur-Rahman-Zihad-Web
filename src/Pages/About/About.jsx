@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaHeart } from 'react-icons/fa';
+import { FaGraduationCap, FaHeart, FaLightbulb, FaRocket } from 'react-icons/fa';
 import Button from '../../Components/Buttons/Button';
 import { Link, useLocation } from 'react-router';
 import BeyondCode from './BeyondCode';
@@ -166,7 +166,7 @@ const About = () => {
                 >
                     <div>
                         <h2 className="text-3xl font-bold text-primary flex items-center gap-3">
-                            <span className="text-4xl">💡</span> How It Started
+                            <FaLightbulb className="text-4xl" /> How It Started
                         </h2>
                         <p className="mt-6 text-lg text-base-content/70 leading-relaxed">
                             My programming journey began out of simple curiosity. I remember opening up a basic HTML file just to see what would happen if I changed a line of code.
@@ -213,7 +213,7 @@ const About = () => {
 
                     <div className="order-1 lg:order-2">
                         <h2 className="text-3xl font-bold text-primary flex items-center gap-3">
-                            <span className="text-4xl">🚀</span> What I Love to Build
+                            <FaRocket className="text-4xl" /> What I Love to Build
                         </h2>
                         <p className="mt-6 text-lg text-base-content/70 leading-relaxed">
                             I feel most in my element when working on full-stack apps — especially ones that challenge me to blend great UX with smart backend logic.

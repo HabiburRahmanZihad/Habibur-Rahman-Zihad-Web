@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-import { FaHome, FaArrowLeft, FaRocket, FaCode, FaStar } from 'react-icons/fa';
+import { FaHome, FaArrowLeft, FaRocket, FaCode, FaStar, FaBolt, FaLightbulb, FaGlobe } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const Error = () => {
@@ -101,7 +101,7 @@ const Error = () => {
                         className="absolute top-1/4 left-1/4 text-5xl"
                         style={{ color: '#F9B934', opacity: 0.15 }}
                     >
-                        ⚡
+                        <FaBolt />
                     </motion.div>
                     <motion.div
                         animate={{
@@ -116,7 +116,7 @@ const Error = () => {
                         className="absolute bottom-1/3 right-1/4 text-4xl"
                         style={{ color: '#DAA520', opacity: 0.2 }}
                     >
-                        🚀
+                        <FaRocket />
                     </motion.div>
                 </div>
 
@@ -256,7 +256,7 @@ const Error = () => {
                         </p>
                         <p className="text-lg text-neutral/60">
                             Don't worry, even the best developers get lost sometimes
-                            <span className="inline-block ml-1">🚀</span>
+                            <FaRocket className="inline-block ml-2 text-primary" />
                         </p>
                     </div>
                 </motion.div>
@@ -286,7 +286,7 @@ const Error = () => {
                         backgroundColor: 'rgba(218, 165, 32, 0.1)',
                         color: '#B88B58'
                     }}>
-                        💡 <strong>Suggestion:</strong> Try navigating to an existing page
+                        <FaLightbulb className="inline-block mr-1 -mt-0.5" /> <strong>Suggestion:</strong> Try navigating to an existing page
                     </div>
                 </motion.div>
 
@@ -449,7 +449,7 @@ const Error = () => {
                 >
                     <p className="flex items-center justify-center gap-2">
                         <span>Fun fact: 404 errors were named after room 404 at CERN where the web was born!</span>
-                        <span style={{ color: '#DAA520' }}>🌐</span>
+                        <FaGlobe style={{ color: '#DAA520' }} />
                     </p>
                 </motion.div>
             </div>

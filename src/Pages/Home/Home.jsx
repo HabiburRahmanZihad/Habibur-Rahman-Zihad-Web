@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { FaArrowRight, FaCloud, FaCode, FaDatabase, FaEye, FaFacebook, FaFire, FaGithub, FaLinkedin, FaStar, FaTwitter } from 'react-icons/fa';
-import { HiOutlineChartBar, HiOutlineCubeTransparent, HiOutlineFire } from 'react-icons/hi';
+import { HiOutlineChartBar, HiOutlineCubeTransparent, HiOutlineFire, HiSparkles } from 'react-icons/hi';
 import { Link, useLocation } from 'react-router';
 import { Typewriter } from 'react-simple-typewriter';
 import Button from '../../Components/Buttons/Button';
@@ -136,7 +136,7 @@ const Home = () => {
             <section className="bg-gradient-to-br from-base-100 to-base-200 py-8 lg:py-16">
                 <div className="container mx-auto px-4">
                     <motion.div
-                        key={location.pathname} // ✅ triggers animation reset
+                        key={location.pathname} // triggers animation reset on route change
                         className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:items-center lg:justify-between"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -148,9 +148,9 @@ const Home = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2, duration: 0.6 }}
-                                className="inline-block px-4 py-2 rounded-full glass-card text-sm font-medium text-primary mb-6"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-primary mb-6"
                             >
-                                ✨ Welcome to my portfolio
+                                <HiSparkles /> Welcome to my portfolio
                             </motion.span>
 
                             <motion.h1

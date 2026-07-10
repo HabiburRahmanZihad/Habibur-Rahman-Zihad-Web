@@ -16,7 +16,7 @@ const Projects = () => {
     useEffect(() => {
         document.title = 'Projects | Habibur Rahman Zihad';
     }, []);
-    const location = useLocation(); // ✅ new: detect route
+    const location = useLocation();
 
     const projects = [
         {
@@ -135,7 +135,7 @@ const Projects = () => {
                 <div className="orb orb-2"></div>
                 <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
                     <motion.div
-                        key={location.pathname} // ✅ force re-render on route change
+                        key={location.pathname} // force re-render on route change
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -153,7 +153,7 @@ const Projects = () => {
             {/* Projects List Section */}
             <section className="py-10 md:py-20 px-4 sm:px-6 lg:px-8 bg-base-100">
                 <motion.div
-                    key={location.key} // ✅ unique key forces motion div to re-trigger
+                    key={location.key} // unique key forces motion div to re-trigger
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
@@ -169,7 +169,7 @@ const Projects = () => {
             <section className="py-20 px-4 md:px-6 lg:px-8 bg-primary text-primary-content">
                 <div className="max-w-4xl mx-auto text-center">
                     <motion.div
-                        key={location.pathname + '-cta'} // ✅ another animation trigger
+                        key={location.pathname + '-cta'} // another animation trigger
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
