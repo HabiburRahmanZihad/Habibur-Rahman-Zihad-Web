@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaAward, FaTimes, FaExpand } from 'react-icons/fa';
+import L2PgHeroCertificate from '../../assets/AllPic/Certificate/L2-pg-hero-certificate.jpeg';
 
 
 
 const achievements = [
+    { image: L2PgHeroCertificate, title: 'Next Level AI-Driven Software Engineering Bootcamp', year: '2026', Platform: 'Programming Hero', ShortSummary: 'Successfully completed the Next Level AI-Driven Software Engineering Bootcamp by Programming Hero, gaining exposure to modern software engineering, full-stack development, cloud technologies, and AI integration for building scalable, production-ready software solutions.' },
     { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113803/pg-hero-certificate_vbiln3.png', title: 'Complete Web Development Course', year: '2025', Platform: 'Programming Hero', ShortSummary: 'Successfully completed the Complete Web Development Course with Excellence, mastering HTML, CSS, JavaScript, React, and real-world projects.' },
     { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1761200347/1761192742415_us33xu.jpg', title: 'Black Belt in Web Development', year: '2025', Platform: 'Programming Hero', ShortSummary: 'Earned the prestigious Black Belt from Programming Hero for outstanding performance and dedication throughout the Complete Web Development course, showcasing excellence in coding, projects, and problem-solving.' },
     { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/Screenshot_2026-01-18_190755_ypah1h.png', title: 'Smart Money Skills for Life', year: '2026', Platform: 'Passport to Earning Bangladesh (UNICEF)', ShortSummary: 'Successfully completed the Smart Money Skills for Life course by Passport to Earning Bangladesh in collaboration with UNICEF, gaining essential financial literacy skills including budgeting, saving, smart spending, and responsible money management.' },
@@ -41,10 +43,10 @@ const Certifications = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold text-primary grotesk mb-4">
-                        Learning & Certifications
+                        Certifications & Achievements
                     </h2>
                     <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-                        Here are some of the certified programs I've completed to expand my skills beyond just coding — including marketing, design, and strategic thinking.
+                        Certifications, courses, and achievements that mark my learning and professional growth.
                     </p>
                 </motion.div>
 

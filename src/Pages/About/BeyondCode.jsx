@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
+import { FaFacebook } from "react-icons/fa";
 import PhotoGrid from "./PhotoGrid";
+import Button from "../../Components/Buttons/Button";
 
 const BeyondCode = () => {
     return (
@@ -18,21 +20,33 @@ const BeyondCode = () => {
                     </h2>
 
                     <p className="text-base-content/80 leading-relaxed text-lg mb-5">
-                        I’ve always loved to travel. It has helped me open up with people, and for some
-                        reason, I feel more confident whenever I’m exploring new places. I’ve been to a
-                        few places inside and outside Bangladesh, and I’d love to travel even more in the
-                        future. One of the top things on my bucket list is to take a solo trip—to test my
-                        strengths and see how I handle things on my own. I believe travel not only
-                        refreshes the mind but also teaches you about yourself in ways nothing else can.
+                        I’ve always loved to travel — it’s helped me open up around people, and for some
+                        reason I feel more confident whenever I’m somewhere new. I’ve been to a few places
+                        inside and outside Bangladesh, and I’d like to travel more when I get the chance.
+                        One thing on my list is a solo trip, mostly to see how I handle things completely
+                        on my own.
                     </p>
 
                     <p className="text-base-content/80 leading-relaxed text-lg">
-                        As I continued growing, I realized that many large-scale projects were being built
-                        with the MERN stack. Driven by a desire to contribute to bigger, more complex
-                        applications, I learned the MERN stack to level up my skills further. Throughout
-                        this journey, I’ve genuinely loved the learning process and have continuously
-                        adapted to the evolving demands of the tech market.
+                        On the technical side, I got into web development through the MERN stack, and that
+                        early foundation is still where a lot of my instincts come from. It's what eventually
+                        led to the full-stack and backend work I do professionally now, including the AI
+                        and RAG-related work I’ve picked up more recently. I still enjoy learning new tools
+                        when a project actually calls for them, rather than chasing whatever’s trending.
                     </p>
+
+                    <Button
+                        href="https://www.facebook.com/habiburrahmanzihad.zihad"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="primary"
+                        size="md"
+                        icon={FaFacebook}
+                        iconPosition="left"
+                        className="mt-8"
+                    >
+                        See More on Facebook
+                    </Button>
                 </motion.div>
 
                 {/* Staggered Image Grid (Interactive Photo Gallery) */}

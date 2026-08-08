@@ -5,6 +5,7 @@ import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 import ScrollToTop from '../Components/Hooks/ScrollToTop';
 import CustomCursor from '../Components/Cursor/CustomCursor';
+import ScrollNavigator from '../Components/ScrollNavigator/ScrollNavigator';
 
 const Root = () => {
     const location = useLocation();
@@ -27,6 +28,8 @@ const Root = () => {
             </motion.div>
 
             <Footer></Footer>
+
+            <ScrollNavigator />
 
         </div>
     );

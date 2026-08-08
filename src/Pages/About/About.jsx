@@ -5,6 +5,7 @@ import Button from '../../Components/Buttons/Button';
 import { Link, useLocation } from 'react-router';
 import BeyondCode from './BeyondCode';
 import Certifications from './Certifications';
+import Experience from './Experience';
 import Skills from './Skills';
 import usePageMeta from '../../Components/Hooks/usePageMeta';
 
@@ -18,11 +19,30 @@ const About = () => {
 
     const timeline = [
         {
-            year: '2024 - Present (5th Semester)',
+            year: '2024 - Present (6th Semester)',
             title: 'Computer Communication & Engineering',
             institute: 'International Islamic University Chittagong',
-            description: 'Currently pursuing a Bachelor\'s degree in Computer Communication & Engineering, focusing on software development and network systems.',
-            icon: FaGraduationCap
+            description: 'Currently pursuing a Bachelor\'s degree in Computer Communication & Engineering, building a foundation across software development, computer systems, databases, algorithms, and communication engineering.',
+            icon: FaGraduationCap,
+            coursework: {
+                software: [
+                    'Computer Fundamentals and Programming',
+                    'Object Oriented Programming with Java',
+                    'Data Structures and Algorithms',
+                    'Python Programming',
+                    'Database Management Systems',
+                    'System Analysis, Design and Development',
+                    'Computer Architecture',
+                    'Digital Logic Design',
+                    'Microprocessor and Assembly Language',
+                ],
+                communication: [
+                    'Basic Communication Engineering',
+                    'Basic Communication Engineering Sessional',
+                    'Information Theory and Error Correction Coding',
+                    'Electromagnetic Fields and Waves',
+                ],
+            },
         },
         {
             year: '2021',
@@ -66,10 +86,10 @@ const About = () => {
                                 About Me
                             </h1>
                             <p className="text-lg sm:text-xl text-base-content/70 mb-6 leading-relaxed">
-                                Hi, I'm Habibur Rahman — but most people know me as <span className="font-semibold text-primary">'ZIHAD'</span>. I'm a passionate and curious web developer who's been learning and building for about a year now.
+                                Hi, I'm Habibur Rahman — most people just call me <span className="font-semibold text-primary">'ZIHAD'</span>. I'm a Full Stack Developer who works across frontend and backend, and I like understanding how the different parts of an application actually fit together.
                             </p>
                             <p className="text-base sm:text-lg text-base-content/60 mb-8 leading-relaxed">
-                                My journey into web development started with a simple question: "How does the internet work?" Since then, I've been diving into front-end and back-end development, creating projects that help me learn and grow. I love solving problems, experimenting with new technologies, and turning ideas into functional, user-friendly websites.
+                                I started out building websites and gradually ended up working across the whole stack. These days that means building interfaces, designing APIs, working with databases, and more recently, AI-powered features and RAG-based systems. I'm especially drawn to the backend side — figuring out how a system works underneath, tracing down bugs, and getting the pieces to talk to each other reliably.
                             </p>
                             <Link to="/contact">
                                 <Button variant="primary" size="lg" icon={FaHeart} iconPosition="right">
@@ -99,6 +119,11 @@ const About = () => {
                 </div>
             </section>
 
+            {/* Professional Experience Section */}
+            <div id="experience">
+                <Experience></Experience>
+            </div>
+
             {/* Skills Section */}
             <div id="tech-skills">
                 <Skills></Skills>
@@ -119,7 +144,7 @@ const About = () => {
                             My Learning Journey
                         </h2>
                         <p className="text-xl text-base-content/70">
-                            Highlights of the milestones that shaped my education.
+                            Academic foundations in software engineering, computer systems, and communication engineering.
                         </p>
                     </motion.div>
 
@@ -146,6 +171,44 @@ const About = () => {
                                         <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                                         <p className="text-secondary font-medium mb-2">{item.institute}</p>
                                         <p className="text-base-content/70">{item.description}</p>
+
+                                        {item.coursework && (
+                                            <div className="mt-4 pt-4 border-t border-base-300 space-y-3 text-left">
+                                                <p className="text-xs font-semibold uppercase tracking-wider text-base-content/50">
+                                                    Relevant Coursework
+                                                </p>
+                                                <div>
+                                                    <p className="text-xs font-semibold text-secondary mb-1.5">
+                                                        Software & Computer Science
+                                                    </p>
+                                                    <div className="flex flex-wrap gap-1.5">
+                                                        {item.coursework.software.map((course) => (
+                                                            <span
+                                                                key={course}
+                                                                className="px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+                                                            >
+                                                                {course}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-semibold text-secondary mb-1.5">
+                                                        Communication & Networking Foundations
+                                                    </p>
+                                                    <div className="flex flex-wrap gap-1.5">
+                                                        {item.coursework.communication.map((course) => (
+                                                            <span
+                                                                key={course}
+                                                                className="px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+                                                            >
+                                                                {course}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
 
                                     {/* Timeline Dot */}
@@ -171,9 +234,8 @@ const About = () => {
                             <FaLightbulb className="text-4xl" /> How It Started
                         </h2>
                         <p className="mt-6 text-lg text-base-content/70 leading-relaxed">
-                            My programming journey began out of simple curiosity. I remember opening up a basic HTML file just to see what would happen if I changed a line of code.
-                            That tiny spark quickly grew into something bigger — I started watching tutorials, building little websites, and experimenting late into the night.
-                            What started as a hobby turned into a passion, and now I'm focused on building full-stack applications that are clean, useful, and user-friendly.
+                            I started with web development — figuring out how websites are built and how the frontend connects to the backend. As I took on more projects, I got more interested in what happens behind the interface: APIs, databases, authentication, and the architecture that keeps an application running.
+                            That interest gradually pulled me from building individual features into working across full-stack applications, and eventually into backend-heavy systems and AI-powered functionality. Working on real products — like JobBridge BD and EcomUp AI — has been the biggest part of that shift, since it's where I actually had to make these pieces work together in production, not just in a tutorial.
                         </p>
                     </div>
                     <motion.div
@@ -182,19 +244,14 @@ const About = () => {
                         transition={{ type: 'spring', stiffness: 120 }}
                     >
                         <p className="text-lg text-base-content/80">
-                            "Most developers start by being curious. The difference is — some of us just never stop being curious."
+                            "I've learned the most by building things, breaking them, and figuring out why they broke."
                         </p>
                     </motion.div>
                 </motion.div>
             </section>
 
-            {/* Beyond Tech */}
-            <section id="what-love">
-                <BeyondCode></BeyondCode>
-            </section>
-
-            {/* Work I Love - What I Love */}
-            <section className="py-20 bg-base-100 border-t border-base-300">
+            {/* Work I Love - What I Love to Build */}
+            <section id="what-love" className="py-20 bg-base-100 border-t border-base-300">
                 <motion.div
                     className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center"
                     initial={{ opacity: 0, y: 50 }}
@@ -207,9 +264,8 @@ const About = () => {
                         whileHover={{ scale: 1.02 }}
                     >
                         <p className="text-base-content/70 text-lg leading-relaxed">
-                            I get excited about projects where I can take an idea and turn it into something real — especially if it helps people or solves a specific problem.
-                            I enjoy crafting smooth, responsive interfaces that just make sense, and I love the behind-the-scenes logic that makes everything run reliably.
-                            Clean code, clear design, and useful outcomes — that's what I aim for in every project.
+                            I enjoy building applications where the frontend is only one part of the system — APIs, databases, authentication, background processing, and increasingly AI-powered features are what keep me interested.
+                            I like understanding how those pieces connect and making them work together reliably, rather than just getting something to look right on screen.
                         </p>
                     </motion.div>
 
@@ -218,12 +274,15 @@ const About = () => {
                             <FaRocket className="text-4xl" /> What I Love to Build
                         </h2>
                         <p className="mt-6 text-lg text-base-content/70 leading-relaxed">
-                            I feel most in my element when working on full-stack apps — especially ones that challenge me to blend great UX with smart backend logic.
-                            Working with collaborative teams, or on projects with real impact, is where I thrive.
+                            Full-stack applications are where I'm most comfortable, especially when there's an interesting backend problem to solve.
+                            Lately, that's included working with AI integrations and RAG, which has gotten me more interested in building systems where backend logic and AI actually work together.
                         </p>
                     </div>
                 </motion.div>
             </section>
+
+            {/* Beyond Code */}
+            <BeyondCode></BeyondCode>
 
             {/* Certifications Section */}
             <div id="certifications">

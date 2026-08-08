@@ -62,11 +62,12 @@ const Navbar = () => {
 
     const aboutMenuItems = [
         { label: 'Details', id: 'details' },
+        { label: 'Experience', id: 'experience' },
         { label: 'Tech Skills', id: 'tech-skills' },
         { label: 'Learning Journey', id: 'learning-journey' },
-        { label: 'How I Start?', id: 'how-start' },
-        { label: 'What I Love?', id: 'what-love' },
-        { label: 'Certifications', id: 'certifications' }
+        { label: 'How I Started', id: 'how-start' },
+        { label: 'What I Love', id: 'what-love' },
+        { label: 'Certifications & Achievements', id: 'certifications' }
     ];
 
     const handleAboutClick = (sectionId) => {
@@ -179,6 +180,7 @@ const Navbar = () => {
 
                             <NavLink to="/projects" className={navLinkClass}>Projects</NavLink>
                             <NavLink to="/videos" className={navLinkClass}>Videos</NavLink>
+                            <NavLink to="/templates" className={navLinkClass}>Templates</NavLink>
                             <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
                         </div>
                     </div>
@@ -278,6 +280,13 @@ const Navbar = () => {
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     Videos
+                                </NavLink>
+                                <NavLink
+                                    to="/templates"
+                                    className={navLinkClass}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Templates
                                 </NavLink>
                                 <NavLink
                                     to="/contact"

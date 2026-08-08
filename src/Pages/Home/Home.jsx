@@ -178,13 +178,14 @@ const Home = () => {
                                 <span className="text-primary font-bold">
                                     <Typewriter
                                         words={[
-                                            'Full-Stack Software Engineer',
-                                            'MERN Stack Specialist',
-                                            'PERN Stack Developer',
-                                            'REST API Architect',
-                                            'DevOps & Cloud Enthusiast',
-                                            'AI / RAG Application Builder',
-                                            'Open Source Contributor'
+                                            'Software Engineer',
+                                            'Full-Stack Web Developer',
+                                            'MERN & PERN Stack Specialist',
+                                            'Backend-Focused Engineer',
+                                            'AI / RAG Application Developer',
+                                            'API & Backend Developer',
+                                            'Database-Driven Developer',
+                                            'DevOps & Deployment Enthusiast'
                                         ]}
                                         loop={0}
                                         cursor
@@ -243,7 +244,7 @@ const Home = () => {
                                         src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758785330/IMG-20241101-WA0192_vyojiv.jpg'
                                         alt="Habibur Rahman Zihad"
                                         fetchPriority="high"
-                                        className="w-full h-full object-cover"
+                                        className="w-full object-cover"
                                     />
                                 </div>
 
