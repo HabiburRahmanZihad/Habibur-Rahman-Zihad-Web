@@ -114,11 +114,11 @@ const Navbar = () => {
                 <div className="navbar-start flex items-center gap-3">
                     <img
                         src={BrandLogo}
-                        alt="Brand Logo"
+                        alt="Habibur Rahman Zihad logo"
                         className="h-14 w-14 rounded-full border border-primary shadow"
                     />
                     <NavLink to="/" className="text-2xl md:text-3xl text-primary grotesk font-bold">
-                        Habibur Rahman
+                        Habibur Rahman Zihad
                     </NavLink>
                 </div>
 

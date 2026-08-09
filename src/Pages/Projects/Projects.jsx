@@ -14,7 +14,7 @@ import ProjectCard from './ProjectCard';
 
 const Projects = () => {
     usePageMeta({
-        title: 'Projects',
+        title: 'Projects by Habibur Rahman Zihad | Full-Stack Software Engineer',
         description: 'Full-stack projects by Habibur Rahman Zihad — CareerBangla, NagarNirman, TazaRate, Healio, ReadRack, and Gradify. Built with React, Next.js, Node.js, MongoDB, and PostgreSQL.',
         path: '/projects',
     });

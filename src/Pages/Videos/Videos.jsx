@@ -60,7 +60,7 @@ const Videos = () => {
     }, [videos]);
 
     usePageMeta({
-        title: 'Videos',
+        title: 'Videos by Habibur Rahman Zihad',
         description: 'Project walkthroughs and dev videos by Habibur Rahman Zihad on the Xihad Xone YouTube channel.',
         path: '/videos',
     });

@@ -66,8 +66,8 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     usePageMeta({
-        title: 'Home',
-        description: 'Habibur Rahman Zihad — Full-Stack Software Engineer from Chattogram, Bangladesh. MERN/PERN stacks, REST APIs, DevOps. View projects, skills, and GitHub stats.',
+        title: 'Habibur Rahman Zihad | Full-Stack Software Engineer',
+        description: 'Habibur Rahman Zihad (ZIHAD) is a Full-Stack Software Engineer from Chattogram, Bangladesh, working across web development, backend engineering, AI-powered applications, and RAG systems.',
         path: '/',
     });
 
@@ -162,20 +162,30 @@ const Home = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4, duration: 0.6 }}
-                                className="text-4xl md:text-6xl lg:text-7xl font-bold grotesk mb-6"
+                                className="text-4xl md:text-6xl lg:text-7xl font-bold grotesk mb-4"
                             >
                                 <span className="text-primary">Hello, I'm</span>{' '}
-                                <span className="gradient-text glow-text text-primary">Habibur Rahman</span>
+                                <span className="gradient-text glow-text text-primary">Habibur Rahman Zihad</span>
                             </motion.h1>
+
+                            {/* Static, always-crawlable role text — not dependent on the typewriter below */}
+                            <motion.p
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.6 }}
+                                className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-3"
+                            >
+                                Full-Stack Software Engineer
+                            </motion.p>
 
                             <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.6, duration: 0.6 }}
-                                className="text-xl sm:text-2xl md:text-3xl text-base-content/80 mb-6"
+                                className="text-lg sm:text-xl md:text-2xl text-base-content/70 mb-6"
                             >
-                                <span className="font-medium">Passionate </span>
-                                <span className="text-primary font-bold">
+                                <span className="font-medium">Also working as a </span>
+                                <span className="text-primary font-semibold">
                                     <Typewriter
                                         words={[
                                             'Software Engineer',

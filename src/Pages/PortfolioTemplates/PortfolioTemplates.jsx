@@ -11,7 +11,7 @@ const SUPPORT_EMAIL = 'e241024@ugrad.iiuc.ac.bd';
 
 const PortfolioTemplates = () => {
     usePageMeta({
-        title: 'Portfolio Templates',
+        title: 'Portfolio Templates | Habibur Rahman Zihad',
         description: 'Explore ready-made developer portfolio templates, preview the designs, and download the source code to customize them with your own information.',
         path: '/templates',
     });

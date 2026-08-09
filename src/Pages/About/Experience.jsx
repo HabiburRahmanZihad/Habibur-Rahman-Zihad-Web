@@ -82,7 +82,7 @@ const experiences = [
 const ExperienceCard = ({ exp, index }) => {
     const Icon = exp.icon;
     return (
-        <motion.div
+        <motion.article
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: index * 0.1 }}
@@ -180,8 +180,8 @@ const ExperienceCard = ({ exp, index }) => {
                 <h4 className="relative text-sm font-semibold uppercase tracking-wider text-base-content/50 mb-4">
                     Responsibilities
                 </h4>
-                <motion.div
-                    className="relative grid sm:grid-cols-2 gap-x-6 gap-y-3"
+                <motion.ul
+                    className="relative grid sm:grid-cols-2 gap-x-6 gap-y-3 list-none"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
@@ -191,7 +191,7 @@ const ExperienceCard = ({ exp, index }) => {
                     }}
                 >
                     {exp.responsibilities.map((item) => (
-                        <motion.div
+                        <motion.li
                             key={item}
                             variants={{
                                 hidden: { opacity: 0, x: -15 },
@@ -207,11 +207,11 @@ const ExperienceCard = ({ exp, index }) => {
                             <span className="text-base-content/70 text-sm sm:text-base leading-relaxed">
                                 {highlightTech(item)}
                             </span>
-                        </motion.div>
+                        </motion.li>
                     ))}
-                </motion.div>
+                </motion.ul>
             </motion.div>
-        </motion.div>
+        </motion.article>
     );
 };
 

@@ -21,16 +21,16 @@ const achievements = [
 ];
 
 const Certifications = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedAchievement, setSelectedAchievement] = useState(null);
 
     useEffect(() => {
-        if (selectedImage) {
+        if (selectedAchievement) {
             document.documentElement.classList.add('no-custom-cursor');
         } else {
             document.documentElement.classList.remove('no-custom-cursor');
         }
         return () => document.documentElement.classList.remove('no-custom-cursor');
-    }, [selectedImage]);
+    }, [selectedAchievement]);
 
     return (
         <section className="py-20 bg-base-200">
@@ -107,13 +107,14 @@ const Certifications = () => {
                                     <div className="relative group/img overflow-hidden rounded-xl mb-4 h-[200px]">
                                         <motion.img
                                             src={achievement.image}
-                                            alt={achievement.title}
+                                            alt={`Habibur Rahman Zihad — ${achievement.title} certificate from ${achievement.Platform}`}
+                                            loading="lazy"
                                             className="h-full w-full object-cover border border-secondary shadow-lg cursor-zoom-in"
                                             whileHover={{
                                                 scale: 1.05, brightness: 1.1,
                                                 transition: { duration: 0.3 }
                                             }}
-                                            onClick={() => setSelectedImage(achievement.image)}
+                                            onClick={() => setSelectedAchievement(achievement)}
                                         />
                                         <motion.div
                                             className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover/img:opacity-100 transition-all duration-500 pointer-events-none"
@@ -206,17 +207,17 @@ const Certifications = () => {
 
             {/* Full Screen Image Modal */}
             <AnimatePresence>
-                {selectedImage && (
+                {selectedAchievement && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/98 backdrop-blur-sm p-4 md:p-8 cursor-default"
-                        onClick={() => setSelectedImage(null)}
+                        onClick={() => setSelectedAchievement(null)}
                     >
                         <motion.button
                             className="absolute top-6 right-6 text-white text-3xl hover:text-primary transition-colors z-[110]"
-                            onClick={() => setSelectedImage(null)}
+                            onClick={() => setSelectedAchievement(null)}
                             whileHover={{ scale: 1.1, rotate: 90 }}
                             whileTap={{ scale: 0.9 }}
                         >
@@ -232,8 +233,8 @@ const Certifications = () => {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <img
-                                src={selectedImage}
-                                alt="Certification Full Screen"
+                                src={selectedAchievement.image}
+                                alt={`Habibur Rahman Zihad — ${selectedAchievement.title} certificate from ${selectedAchievement.Platform}`}
                                 className="max-w-full max-h-full object-contain rounded-lg shadow-2xl border border-white/10"
                             />
                         </motion.div>

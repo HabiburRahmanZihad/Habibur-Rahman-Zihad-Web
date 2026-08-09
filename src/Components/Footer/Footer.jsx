@@ -35,13 +35,13 @@ const Footer = () => {
                 <div className="text-center sm:text-left">
                     <motion.img
                         src={Logo}
-                        alt="Habibur Rahman Logo"
+                        alt="Habibur Rahman Zihad logo"
                         className="w-20 sm:w-24 mx-auto sm:mx-0 mb-4 rounded-lg shadow glow-ring"
                         whileHover={{ scale: 1.05, rotate: 5 }}
                         transition={{ type: 'spring', stiffness: 200 }}
                     />
                     <h3 className="text-2xl sm:text-3xl font-bold gradient-text mb-2 grotesk">
-                        Habibur Rahman
+                        Habibur Rahman Zihad
                     </h3>
                     <p className="text-base-content/70 text-sm leading-relaxed">
                         Full-Stack Software Engineer building accessible, performant, and visually engaging web applications that solve real problems.
@@ -103,7 +103,7 @@ const Footer = () => {
 
             {/* Bottom Line */}
             <div className="mt-12 text-center text-sm text-base-content/60 border-t border-primary/10 pt-6 relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <span>© {new Date().getFullYear()} Habibur Rahman. All rights reserved.</span>
+                <span>© {new Date().getFullYear()} Habibur Rahman Zihad. All rights reserved.</span>
 
                 {/* Scroll to Top Button */}
                 <motion.button

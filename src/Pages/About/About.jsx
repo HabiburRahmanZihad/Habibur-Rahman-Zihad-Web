@@ -9,11 +9,24 @@ import Experience from './Experience';
 import Skills from './Skills';
 import usePageMeta from '../../Components/Hooks/usePageMeta';
 
+// Static reference — links this page's ProfilePage schema back to the single
+// Person entity declared in index.html, instead of duplicating it.
+const ABOUT_STRUCTURED_DATA = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': 'https://habibur-rahman-zihad.vercel.app/about#profilepage',
+    url: 'https://habibur-rahman-zihad.vercel.app/about',
+    name: 'About Habibur Rahman Zihad',
+    inLanguage: 'en',
+    mainEntity: { '@id': 'https://habibur-rahman-zihad.vercel.app/#person' },
+};
+
 const About = () => {
     usePageMeta({
-        title: 'About',
-        description: 'Learn about Habibur Rahman Zihad (ZIHAD) — his journey into web development, tech skills, certifications, and what he loves to build.',
+        title: 'About Habibur Rahman Zihad | Full-Stack Software Engineer',
+        description: 'Learn about Habibur Rahman Zihad (ZIHAD) — his professional experience, education in Computer Communication & Engineering, backend and AI/RAG work, tech skills, and certifications.',
         path: '/about',
+        structuredData: ABOUT_STRUCTURED_DATA,
     });
     const location = useLocation();
 
@@ -83,7 +96,7 @@ const About = () => {
                             className="w-full lg:w-1/2"
                         >
                             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary grotesk mb-6">
-                                About Me
+                                About Habibur Rahman Zihad
                             </h1>
                             <p className="text-lg sm:text-xl text-base-content/70 mb-6 leading-relaxed">
                                 Hi, I'm Habibur Rahman — most people just call me <span className="font-semibold text-primary">'ZIHAD'</span>. I'm a Full Stack Developer who works across frontend and backend, and I like understanding how the different parts of an application actually fit together.
@@ -108,7 +121,7 @@ const About = () => {
                             <div className="relative rounded-xl overflow-hidden border-4 border-primary/30 shadow-[0_10px_40px_-10px] shadow-primary animate-wowPulse">
                                 <img
                                     src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113496/photo2_shl6f1.jpg'
-                                    alt="Habibur Rahman — Web Developer"
+                                    alt="Habibur Rahman Zihad — Full-Stack Software Engineer"
                                     className="object-cover w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-[400px] rounded-md transition-transform duration-300 hover:scale-105"
                                 />
                                 {/* Optional glowing orb */}

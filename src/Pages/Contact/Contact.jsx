@@ -51,7 +51,7 @@ const staggerContainer = {
 const Contact = () => {
 
     usePageMeta({
-        title: 'Contact',
+        title: 'Contact Habibur Rahman Zihad',
         description: 'Get in touch with Habibur Rahman Zihad for projects, collaborations, or opportunities — based in Chattogram, Bangladesh.',
         path: '/contact',
     });
@@ -66,7 +66,7 @@ const Contact = () => {
         {
             icon: FaEnvelope,
             title: 'Email',
-            value: 'Habibur Rahman Zihad\'s mail',
+            value: 'e241024@ugrad.iiuc.ac.bd',
             link: 'mailto:e241024@ugrad.iiuc.ac.bd'
         },
         {
