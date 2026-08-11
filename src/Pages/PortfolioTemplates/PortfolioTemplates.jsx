@@ -6,8 +6,9 @@ import Button from '../../Components/Buttons/Button';
 import usePageMeta from '../../Components/Hooks/usePageMeta';
 import portfolioTemplates from './portfolioTemplatesData';
 import PortfolioTemplateCard from './PortfolioTemplateCard';
+import { personalIdentity } from '../../config/identity';
 
-const SUPPORT_EMAIL = 'e241024@ugrad.iiuc.ac.bd';
+const SUPPORT_EMAIL = personalIdentity.email;
 
 const PortfolioTemplates = () => {
     usePageMeta({

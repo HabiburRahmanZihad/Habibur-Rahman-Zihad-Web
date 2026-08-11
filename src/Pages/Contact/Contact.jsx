@@ -10,6 +10,7 @@ import usePageMeta from '../../Components/Hooks/usePageMeta';
 import Swal from 'sweetalert2';
 import { Link, useLocation } from 'react-router';
 import emailjs from 'emailjs-com';
+import { personalIdentity } from '../../config/identity';
 
 // Animation Variants
 const fadeInUp = {
@@ -62,12 +63,14 @@ const Contact = () => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    const { socialProfiles } = personalIdentity;
+
     const contactInfo = [
         {
             icon: FaEnvelope,
             title: 'Email',
-            value: 'e241024@ugrad.iiuc.ac.bd',
-            link: 'mailto:e241024@ugrad.iiuc.ac.bd'
+            value: personalIdentity.email,
+            link: `mailto:${personalIdentity.email}`
         },
         {
             icon: FaMapMarkerAlt,
@@ -78,10 +81,10 @@ const Contact = () => {
     ];
 
     const socialLinks = [
-        { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanzihad' },
-        { icon: FaGithub, name: 'GitHub', url: 'https://github.com/HabiburRahmanZihad' },
-        { icon: FaTwitter, name: 'Twitter', url: 'https://x.com/xihad_xihad' },
-        { icon: FaFacebook, name: 'Facebook', url: 'https://www.facebook.com/habiburrahmanzihad.zihad' }
+        { icon: FaLinkedin, name: 'LinkedIn', url: socialProfiles.linkedin },
+        { icon: FaGithub, name: 'GitHub', url: socialProfiles.github },
+        { icon: FaTwitter, name: 'Twitter', url: socialProfiles.twitter },
+        { icon: FaFacebook, name: 'Facebook', url: socialProfiles.facebook }
     ];
 
     const handleInputChange = (e) => {

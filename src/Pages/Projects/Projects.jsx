@@ -2,15 +2,16 @@
 import { motion } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router';
-import CareerBanglaIMG from '../../assets/AllPic/Projects/CareerBangla.png';
-import GradifyImg from '../../assets/AllPic/Projects/GradifyWeb.png';
-import Healio_IMG from '../../assets/AllPic/Projects/Healio_IMG.png';
-import NagarNirmanIMG from '../../assets/AllPic/Projects/NagarNirman_IMG.png';
-import ReadRackImg from '../../assets/AllPic/Projects/ReadRack.png';
-import TazaRate from '../../assets/AllPic/Projects/TazaRate.png';
+import CareerBanglaIMG from '../../assets/AllPic/Projects/careerbangla-job-portal-project.png';
+import GradifyImg from '../../assets/AllPic/Projects/gradify-student-management-project.png';
+import Healio_IMG from '../../assets/AllPic/Projects/healio-healthcare-platform-project.png';
+import NagarNirmanIMG from '../../assets/AllPic/Projects/nagarnirman-civic-tech-project.png';
+import ReadRackImg from '../../assets/AllPic/Projects/readrack-library-management-project.png';
+import TazaRate from '../../assets/AllPic/Projects/tazarate-market-price-tracker-project.png';
 import Button from '../../Components/Buttons/Button';
 import usePageMeta from '../../Components/Hooks/usePageMeta';
 import ProjectCard from './ProjectCard';
+import { personalIdentity } from '../../config/identity';
 
 const Projects = () => {
     usePageMeta({
@@ -193,7 +194,7 @@ const Projects = () => {
                                     Start a Project
                                 </Button>
                             </Link>
-                            <Link to='https://github.com/HabiburRahmanZihad' target="_blank">
+                            <Link to={personalIdentity.socialProfiles.github} target="_blank">
                                 <Button
                                     variant="ghost"
                                     size="lg"

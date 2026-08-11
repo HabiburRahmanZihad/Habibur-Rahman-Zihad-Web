@@ -19,7 +19,7 @@ const ProjectCard = ({ project, index }) => {
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} live site`}>
                     <img
                         src={project.image}
-                        alt={`${project.title} screenshot`}
+                        alt={`${project.title} project screenshot — full-stack web app built by Habibur Rahman Zihad`}
                         loading="lazy"
                         className="rounded-xl w-full h-auto object-cover aspect-video max-h-64 md:max-h-full
                                    transition-transform duration-500 ease-out group-hover:scale-[1.04]"

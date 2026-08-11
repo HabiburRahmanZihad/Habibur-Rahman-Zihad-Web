@@ -3,18 +3,21 @@ import { motion } from 'framer-motion';
 import {
     FaArrowUp,
     FaEnvelope, FaFacebook,
-    FaGithub, FaLinkedin, FaMapMarkerAlt, FaTwitter,
+    FaGithub, FaLinkedin, FaMapMarkerAlt, FaTwitter, FaYoutube,
 } from 'react-icons/fa';
 import { Link } from 'react-router';
-import Logo from '../../assets/AllPic/logo/withBorder.png';
+import Logo from '../../assets/AllPic/logo/zihad-logo-bordered.png';
+import { personalIdentity } from '../../config/identity';
 
 const Footer = () => {
+    const { socialProfiles } = personalIdentity;
     const socialLinks = [
-        { name: 'GitHub', icon: FaGithub, url: 'https://github.com/HabiburRahmanZihad' },
-        { name: 'LinkedIn', icon: FaLinkedin, url: 'https://linkedin.com/in/habiburrahmanzihad' },
-        { name: 'Twitter', icon: FaTwitter, url: 'https://x.com/xihad_xihad' },
-        { name: 'Email', icon: FaEnvelope, url: 'mailto:e241024@ugrad.iiuc.ac.bd' },
-        { name: 'Facebook', icon: FaFacebook, url: 'https://www.facebook.com/habiburrahmanzihad.zihad' },
+        { name: 'GitHub', icon: FaGithub, url: socialProfiles.github },
+        { name: 'LinkedIn', icon: FaLinkedin, url: socialProfiles.linkedin },
+        { name: 'Twitter', icon: FaTwitter, url: socialProfiles.twitter },
+        { name: 'YouTube', icon: FaYoutube, url: socialProfiles.youtube },
+        { name: 'Email', icon: FaEnvelope, url: `mailto:${personalIdentity.email}` },
+        { name: 'Facebook', icon: FaFacebook, url: socialProfiles.facebook },
     ];
 
     const scrollToTop = () => {
@@ -78,7 +81,7 @@ const Footer = () => {
                             <FaMapMarkerAlt className="text-primary shrink-0" /> Chattogram, Bangladesh
                         </li>
                         <li className="flex items-center justify-center sm:justify-start gap-2">
-                            <FaEnvelope className="text-primary shrink-0" /> e241024@ugrad.iiuc.ac.bd
+                            <FaEnvelope className="text-primary shrink-0" /> {personalIdentity.email}
                         </li>
                     </ul>
                     <div className="flex justify-center sm:justify-start gap-3 mt-2">

@@ -8,6 +8,7 @@ import { Typewriter } from 'react-simple-typewriter';
 import Button from '../../Components/Buttons/Button';
 import { SkillCard } from '../../Components/Cards/Card';
 import usePageMeta from '../../Components/Hooks/usePageMeta';
+import { personalIdentity } from '../../config/identity';
 
 // Animated counter component for smooth number animation
 const AnimatedCounter = ({ value, duration = 2000 }) => {
@@ -49,10 +50,10 @@ const AnimatedCounter = ({ value, duration = 2000 }) => {
 };
 
 const socialLinks = [
-    { icon: FaLinkedin, name: 'LinkedIn', url: 'https://linkedin.com/in/habiburrahmanzihad' },
-    { icon: FaGithub, name: 'GitHub', url: 'https://github.com/HabiburRahmanZihad' },
-    { icon: FaTwitter, name: 'Twitter', url: 'https://x.com/xihad_xihad' },
-    { icon: FaFacebook, name: 'Facebook', url: 'https://www.facebook.com/habiburrahmanzihad.zihad' },
+    { icon: FaLinkedin, name: 'LinkedIn', url: personalIdentity.socialProfiles.linkedin },
+    { icon: FaGithub, name: 'GitHub', url: personalIdentity.socialProfiles.github },
+    { icon: FaTwitter, name: 'Twitter', url: personalIdentity.socialProfiles.twitter },
+    { icon: FaFacebook, name: 'Facebook', url: personalIdentity.socialProfiles.facebook },
 ];
 
 const Home = () => {
@@ -251,9 +252,11 @@ const Home = () => {
                                     }}
                                 >
                                     <img
-                                        src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758785330/IMG-20241101-WA0192_vyojiv.jpg'
-                                        alt="Habibur Rahman Zihad"
+                                        src={personalIdentity.images[0]}
+                                        alt="Habibur Rahman Zihad, Full-Stack Software Engineer"
                                         fetchPriority="high"
+                                        width={400}
+                                        height={400}
                                         className="w-full object-cover"
                                     />
                                 </div>
@@ -412,7 +415,7 @@ const Home = () => {
                         transition={{ delay: 0.8 }}
                         className="text-center mt-10"
                     >
-                        <Link to="https://github.com/HabiburRahmanZihad" target="_blank">
+                        <Link to={personalIdentity.socialProfiles.github} target="_blank">
                             <Button variant="outline" size="lg" icon={FaGithub} iconPosition="left" className="border-gradient group">
                                 <span className="group-hover:mr-2 transition-all">View GitHub Profile</span>
                             </Button>

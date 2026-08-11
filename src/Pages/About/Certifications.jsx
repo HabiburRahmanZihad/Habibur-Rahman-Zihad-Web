@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaAward, FaTimes, FaExpand } from 'react-icons/fa';
-import L2PgHeroCertificate from '../../assets/AllPic/Certificate/L2-pg-hero-certificate.jpeg';
+import L2PgHeroCertificate from '../../assets/AllPic/Certificate/zihad-programming-hero-next-level-ai-bootcamp-certificate.jpeg';
 
 
 

@@ -1,38 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--
+  This is the pre-build baseline sitemap (served as-is by `vite dev`/`vite preview`).
+  On every `npm run build`, scripts/generate-image-sitemap.mjs regenerates
+  dist/sitemap.xml from scripts/sitemap-data.mjs, adding the locally-bundled
+  project/certificate images with their real, content-hashed production URLs.
+  Keep the Cloudinary-hosted <image:image> entries below in sync with
+  scripts/sitemap-data.mjs if you add or remove a hosted image.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://habibur-rahman-zihad.vercel.app/</loc>
-        <lastmod>2026-08-09</lastmod>
+        <lastmod>2026-08-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758785330/IMG-20241101-WA0192_vyojiv.jpg</image:loc>
+            <image:title>Habibur Rahman Zihad — Full-Stack Software Engineer</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://habibur-rahman-zihad.vercel.app/about</loc>
-        <lastmod>2026-08-09</lastmod>
+        <lastmod>2026-08-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113496/photo2_shl6f1.jpg</image:loc>
+            <image:title>Habibur Rahman Zihad — Full-Stack Software Engineer</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113803/pg-hero-certificate_vbiln3.png</image:loc>
+            <image:title>Habibur Rahman Zihad — Complete Web Development Course certificate (Programming Hero)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1761200347/1761192742415_us33xu.jpg</image:loc>
+            <image:title>Habibur Rahman Zihad — Black Belt in Web Development certificate (Programming Hero)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/Screenshot_2026-01-18_190755_ypah1h.png</image:loc>
+            <image:title>Habibur Rahman Zihad — Smart Money Skills for Life certificate (Passport to Earning Bangladesh / UNICEF)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113802/CCe-Contest_ilts7n.jpg</image:loc>
+            <image:title>Habibur Rahman Zihad — CCE Inter Semester Programming Contest-3 certificate (CCE Club, IIUC)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113803/COMMUNICATIONHACKS_atpsfd.png</image:loc>
+            <image:title>Habibur Rahman Zihad — Communication Hacks certificate (10 Minute School)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113804/PhotoContest_lteajz.jpg</image:loc>
+            <image:title>Habibur Rahman Zihad — Fundamentals Rules of Photography certificate (IIUCPS)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113810/Presentation_PublicSpeaking_s5zyxp.png</image:loc>
+            <image:title>Habibur Rahman Zihad — Presentation &amp; Public Speaking certificate (10 Minute School)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113802/cyber_xxgrcu.jpg</image:loc>
+            <image:title>Habibur Rahman Zihad — Cyber Security &amp; Ethical Hacking certificate (Ghoori Learning)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113802/10_qcmdsy.jpg</image:loc>
+            <image:title>Habibur Rahman Zihad — Facebook Marketing certificate (10 Minute School)</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113803/EMAIL_WRITING_tasy7q.png</image:loc>
+            <image:title>Habibur Rahman Zihad — Email Writing certificate (10 Minute School)</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://habibur-rahman-zihad.vercel.app/projects</loc>
-        <lastmod>2026-08-09</lastmod>
+        <lastmod>2026-08-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://habibur-rahman-zihad.vercel.app/templates</loc>
-        <lastmod>2026-08-09</lastmod>
+        <lastmod>2026-08-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175639/Portfolio_R-T_Goldish_dwaohk.png</image:loc>
+            <image:title>Portfolio R-T Goldish — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175697/Portfolio_V_Red_zqnsal.png</image:loc>
+            <image:title>Portfolio V Red — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175741/Portfolio_V_Black_Blue_f7oumw.png</image:loc>
+            <image:title>Portfolio V Black Blue — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175974/Portfolio_V_White_Blue_z7nqlq.png</image:loc>
+            <image:title>Portfolio V White Blue — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175973/Portfolio_V_Redish_Blue_yhy5nz.png</image:loc>
+            <image:title>Portfolio V Redish Blue — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175975/Portfolio_V_Bluish_gyvvna.png</image:loc>
+            <image:title>Portfolio V Bluish — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175975/Portfolio_V_Black_White_v3k7nf.png</image:loc>
+            <image:title>Portfolio V Black White — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175973/Portfolio_V_Red_Black_cohcfk.png</image:loc>
+            <image:title>Portfolio V Red Black — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://res.cloudinary.com/dvq3pcykn/image/upload/v1786175972/Portfolio_N_Classic_dyivtj.png</image:loc>
+            <image:title>Portfolio N Classic — developer portfolio template by Habibur Rahman Zihad</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://habibur-rahman-zihad.vercel.app/videos</loc>
-        <lastmod>2026-08-09</lastmod>
+        <lastmod>2026-08-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://habibur-rahman-zihad.vercel.app/contact</loc>
-        <lastmod>2026-08-09</lastmod>
+        <lastmod>2026-08-11</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
     </url>

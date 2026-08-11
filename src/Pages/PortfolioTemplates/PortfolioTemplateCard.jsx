@@ -20,7 +20,7 @@ const PortfolioTemplateCard = ({ template, index }) => {
                 {previewImage ? (
                     <img
                         src={previewImage}
-                        alt={`${title} preview`}
+                        alt={`${title} — developer portfolio template preview by Habibur Rahman Zihad`}
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
                     />

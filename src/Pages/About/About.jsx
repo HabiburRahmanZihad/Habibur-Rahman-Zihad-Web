@@ -8,17 +8,19 @@ import Certifications from './Certifications';
 import Experience from './Experience';
 import Skills from './Skills';
 import usePageMeta from '../../Components/Hooks/usePageMeta';
+import { SITE_URL, PERSON_ID, personalIdentity } from '../../config/identity';
 
-// Static reference — links this page's ProfilePage schema back to the single
-// Person entity declared in index.html, instead of duplicating it.
+// Links this page's ProfilePage schema back to the single canonical Person
+// entity from src/config/identity.js (also declared in index.html), instead
+// of duplicating a second, competing Person block.
 const ABOUT_STRUCTURED_DATA = {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
-    '@id': 'https://habibur-rahman-zihad.vercel.app/about#profilepage',
-    url: 'https://habibur-rahman-zihad.vercel.app/about',
-    name: 'About Habibur Rahman Zihad',
+    '@id': `${SITE_URL}/about#profilepage`,
+    url: `${SITE_URL}/about`,
+    name: `About ${personalIdentity.name}`,
     inLanguage: 'en',
-    mainEntity: { '@id': 'https://habibur-rahman-zihad.vercel.app/#person' },
+    mainEntity: { '@id': PERSON_ID },
 };
 
 const About = () => {
@@ -120,8 +122,10 @@ const About = () => {
                         >
                             <div className="relative rounded-xl overflow-hidden border-4 border-primary/30 shadow-[0_10px_40px_-10px] shadow-primary animate-wowPulse">
                                 <img
-                                    src='https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113496/photo2_shl6f1.jpg'
+                                    src={personalIdentity.images[1]}
                                     alt="Habibur Rahman Zihad — Full-Stack Software Engineer"
+                                    width={400}
+                                    height={400}
                                     className="object-cover w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-[400px] rounded-md transition-transform duration-300 hover:scale-105"
                                 />
                                 {/* Optional glowing orb */}

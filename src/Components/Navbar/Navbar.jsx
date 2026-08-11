@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSun, FaMoon, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
-import BrandLogo from '../../assets/AllPic/logo/withBorder.png';
+import BrandLogo from '../../assets/AllPic/logo/zihad-logo-bordered.png';
 
 const Navbar = () => {
     const [theme, setTheme] = useState(() => {

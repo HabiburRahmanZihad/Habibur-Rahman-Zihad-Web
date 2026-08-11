@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-
-const SITE_URL = 'https://habibur-rahman-zihad.vercel.app';
+import { SITE_URL } from '../../config/identity';
 
 const setMetaTag = (attr, key, content) => {
     let el = document.head.querySelector(`meta[${attr}="${key}"]`);

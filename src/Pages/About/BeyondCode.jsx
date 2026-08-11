@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaFacebook } from "react-icons/fa";
 import PhotoGrid from "./PhotoGrid";
 import Button from "../../Components/Buttons/Button";
+import { personalIdentity } from "../../config/identity";
 
 const BeyondCode = () => {
     return (
@@ -36,7 +37,7 @@ const BeyondCode = () => {
                     </p>
 
                     <Button
-                        href="https://www.facebook.com/habiburrahmanzihad.zihad"
+                        href={personalIdentity.socialProfiles.facebook}
                         target="_blank"
                         rel="noopener noreferrer"
                         variant="primary"

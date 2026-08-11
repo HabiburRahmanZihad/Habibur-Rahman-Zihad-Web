@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaPlay, FaYoutube } from 'react-icons/fa';
 import usePageMeta from '../../Components/Hooks/usePageMeta';
+import { personalIdentity } from '../../config/identity';
 
 const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 const YOUTUBE_CHANNEL_ID = import.meta.env.VITE_YOUTUBE_CHANNEL_ID;
@@ -171,7 +172,7 @@ const Videos = () => {
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <a
-                                href="https://www.youtube.com/@XihadXone/videos"
+                                href={`${personalIdentity.socialProfiles.youtube}/videos`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn-primary gap-2"
@@ -181,7 +182,7 @@ const Videos = () => {
                                 Visit Full Channel
                             </a>
                             <a
-                                href="https://www.youtube.com/@XihadXone?sub_confirmation=1"
+                                href={`${personalIdentity.socialProfiles.youtube}?sub_confirmation=1`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn-outline border-primary text-primary hover:bg-primary hover:text-white gap-2"
