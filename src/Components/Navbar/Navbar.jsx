@@ -205,15 +205,8 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Navigation Menu */}
-                <AnimatePresence>
-                    {isMenuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.3 }}
-                            className="absolute top-full left-0 w-full bg-base-100/95 backdrop-blur-xl border-t border-base-300 shadow-lg lg:hidden"
-                        >
+                {isMenuOpen && (
+                    <div className="absolute top-full left-0 w-full bg-base-100/95 backdrop-blur-xl border-t border-base-300 shadow-lg lg:hidden">
                             <div className="flex flex-col gap-2 p-4">
                                 <NavLink
                                     to="/"
@@ -296,9 +289,8 @@ const Navbar = () => {
                                     Contact
                                 </NavLink>
                             </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                    </div>
+                )}
             </div>
         </nav>
     );
