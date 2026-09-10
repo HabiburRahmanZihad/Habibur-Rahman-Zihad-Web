@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://habibur-rahman-zihad.vercel.app/sitemap.xml
+Sitemap: https://www.habiburrahmanzihad.me/sitemap.xml

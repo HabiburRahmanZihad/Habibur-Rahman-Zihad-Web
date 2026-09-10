@@ -7,7 +7,7 @@ This site showcases my journey, projects, and passion as a web developer.
 
 ## 🔗 Live Website
 
-👉 [https://habibur-rahman-zihad.vercel.app](https://habibur-rahman-zihad.vercel.app)
+👉 [https://www.habiburrahmanzihad.me](https://www.habiburrahmanzihad.me)
 
 ---
 

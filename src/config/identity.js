@@ -14,7 +14,7 @@
 // isn't listed below, it was not verified — don't add it without proof.
 // ─────────────────────────────────────────────────────────────────────────
 
-export const SITE_URL = 'https://habibur-rahman-zihad.vercel.app';
+export const SITE_URL = 'https://www.habiburrahmanzihad.me';
 export const PERSON_ID = `${SITE_URL}/#person`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 

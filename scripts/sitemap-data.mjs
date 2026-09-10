@@ -6,7 +6,7 @@
 // certificates, project screenshots, template previews), never decorative
 // icons/logos or duplicates, per Google's image-sitemap guidance.
 
-export const SITE_URL = 'https://habibur-rahman-zihad.vercel.app';
+export const SITE_URL = 'https://www.habiburrahmanzihad.me';
 
 export const pages = [
     {
