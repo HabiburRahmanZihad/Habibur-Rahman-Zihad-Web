@@ -1,41 +1,24 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, useScroll, useSpring, useTransform, useMotionValueEvent } from 'framer-motion';
 import { FaRocket } from 'react-icons/fa';
+import { scrollTo } from '../../utils/smoothScroll';
 
 const NEAR_TOP_THRESHOLD = 100;
 
 const ScrollNavigator = () => {
     const [isNearTop, setIsNearTop] = useState(true);
-    const [scrollPercent, setScrollPercent] = useState(0);
+    const { scrollY, scrollYProgress } = useScroll();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const scrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    // Motion values drive the rail directly (no re-render per scroll event);
+    // the spring makes it glide instead of stepping on keyboard/touch scrolls
+    const progress = useSpring(scrollYProgress, { stiffness: 300, damping: 40, restDelta: 0.001 });
+    const thumbTop = useTransform(progress, (value) => `${value * 100}%`);
 
-            setIsNearTop(scrollY <= NEAR_TOP_THRESHOLD);
-            setScrollPercent(scrollable > 0 ? Math.min(100, Math.max(0, (scrollY / scrollable) * 100)) : 0);
-        };
-
-        handleScroll();
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        window.addEventListener('resize', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', handleScroll);
-        };
-    }, []);
+    useMotionValueEvent(scrollY, 'change', (y) => setIsNearTop(y <= NEAR_TOP_THRESHOLD));
 
     const handleClick = () => {
-        if (isNearTop) {
-            window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: 'smooth',
-            });
-        } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        scrollTo(isNearTop ? 'bottom' : 0);
     };
 
     return (
@@ -44,17 +27,16 @@ const ScrollNavigator = () => {
                        justify-between py-20 sm:py-24 pointer-events-none"
         >
             {/* Progress rail — visually part of the scrollbar area */}
-            <div className="relative w-1 flex-1 rounded-full bg-base-300/70 overflow-hidden">
-                <motion.div
-                    className="absolute bottom-0 left-0 w-full rounded-full bg-gradient-to-t from-primary to-secondary"
-                    animate={{ height: `${scrollPercent}%` }}
-                    transition={{ duration: 0.15, ease: 'linear' }}
-                />
+            <div className="relative w-1 flex-1">
+                <div className="absolute inset-0 rounded-full bg-base-300/70 overflow-hidden">
+                    <motion.div
+                        className="absolute inset-0 rounded-full bg-gradient-to-t from-primary to-secondary"
+                        style={{ scaleY: progress, originY: 1 }}
+                    />
+                </div>
                 <motion.div
                     className="absolute left-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_-1px] shadow-primary"
-                    animate={{ top: `${scrollPercent}%` }}
-                    transition={{ duration: 0.15, ease: 'linear' }}
-                    style={{ transform: 'translate(-50%, -50%)' }}
+                    style={{ top: thumbTop, x: '-50%', y: '-50%' }}
                 />
             </div>
 

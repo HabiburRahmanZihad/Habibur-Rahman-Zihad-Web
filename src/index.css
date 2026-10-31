@@ -74,6 +74,15 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Theme toggle crossfade (View Transitions API) */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.35s;
+    animation-timing-function: ease-out;
 }
 
 h1, h2, h3, h4, h5, h6 {
