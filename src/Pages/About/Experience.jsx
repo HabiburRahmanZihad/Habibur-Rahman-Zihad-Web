@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt, FaCheckCircle, FaRobot } from 'react-icons/fa';
+import { FaBriefcase, FaCalendarAlt, FaCheckCircle, FaRobot, FaUsers } from 'react-icons/fa';
 
 // Tech terms called out inline within the responsibility text, longest first so
 // e.g. "GitHub" is matched whole instead of being split as "Git" + "Hub", and
@@ -30,16 +30,34 @@ const highlightTech = (text) =>
 
 const experiences = [
     {
-        icon: FaBriefcase,
-        company: 'JobBridge BD',
-        companyUrl: 'https://jobbridgebd.com/',
-        role: 'Full Stack Developer',
+        icon: FaUsers,
+        company: 'Half Coders',
+        companyUrl: 'https://half-coders.tech/',
+        role: 'CPO & Mentor',
         project: null,
         period: '2026 - Present',
         isCurrent: true,
         summary:
-            'I currently work as a Full Stack Developer at JobBridge BD, contributing to the development and maintenance of a real-world job platform across frontend, backend, database, infrastructure, and AI-powered functionality.',
+            'I serve as Chief Product Officer and mentor at Half Coders, helping guide product direction while supporting team members through mentorship.',
         responsibilities: [
+            'Guiding product direction and helping shape the product roadmap',
+            'Mentoring team members and supporting their professional growth',
+            'Collaborating with the team to turn ideas into clear, user-focused product requirements',
+            'Helping guide product development from planning through delivery',
+        ],
+    },
+    {
+        icon: FaBriefcase,
+        company: 'JobBridge BD',
+        companyUrl: 'https://jobbridgebd.com/',
+        role: 'CTO & Software Engineer',
+        project: null,
+        period: '2026 - Present',
+        isCurrent: true,
+        summary:
+            'I serve as CTO and Software Engineer at JobBridge BD, guiding technical direction while building and maintaining a real-world job platform across frontend, backend, database, infrastructure, and AI-powered functionality.',
+        responsibilities: [
+            'Guiding technical strategy, architecture, and engineering priorities',
             'Developing and maintaining full-stack web application features',
             'Building responsive frontend interfaces using React, Next.js, and Tailwind CSS',
             'Developing backend APIs and server-side functionality using Node.js and Express.js',
@@ -231,7 +249,7 @@ const Experience = () => {
                         Professional Experience
                     </h2>
                     <p className="text-xl text-base-content/70">
-                        Building real-world products across full-stack development and AI-powered backend systems.
+                        Building products, guiding teams, and delivering full-stack and AI-powered solutions.
                     </p>
                 </motion.div>
 

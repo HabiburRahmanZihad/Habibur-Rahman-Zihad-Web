@@ -7,9 +7,10 @@ import L2PgHeroCertificate from '../../assets/AllPic/Certificate/zihad-programmi
 
 
 const achievements = [
-    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1787729499/success_poster_v3glym.jpg', title: 'Full-Time Junior Software Developer', year: '2026', Platform: 'Digital Aid IT', ShortSummary: 'Successfully started my professional journey as a Junior Software Developer at Digital Aid IT. This achievement represents my dedication, continuous learning, and growth in software development. Grateful to Programming Hero and Jhankar Mahbub Sir for their guidance and support throughout my learning journey.' },
     { image: L2PgHeroCertificate, title: 'Next Level AI-Driven Software Engineering Bootcamp', year: '2026', Platform: 'Programming Hero', ShortSummary: 'Successfully completed the Next Level AI-Driven Software Engineering Bootcamp by Programming Hero, gaining exposure to modern software engineering, full-stack development, cloud technologies, and AI integration for building scalable, production-ready software solutions.' },
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1793449660/Md_Habibur_Rahman_CPO_2x_giywmn.png', title: 'Chief Product Officer & Mentor', year: '2026', Platform: 'Half Coders', ShortSummary: 'Serving as Chief Product Officer and mentor at Half Coders, contributing to product direction and supporting team members through mentorship.' },
     { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113803/pg-hero-certificate_vbiln3.png', title: 'Complete Web Development Course', year: '2025', Platform: 'Programming Hero', ShortSummary: 'Successfully completed the Complete Web Development Course with Excellence, mastering HTML, CSS, JavaScript, React, and real-world projects.' },
+    { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1787729499/success_poster_v3glym.jpg', title: 'Full-Time Junior Software Developer', year: '2026', Platform: 'Digital Aid IT', ShortSummary: 'Successfully started my professional journey as a Junior Software Developer at Digital Aid IT. This achievement represents my dedication, continuous learning, and growth in software development. Grateful to Programming Hero and Jhankar Mahbub Sir for their guidance and support throughout my learning journey.' },
     { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1761200347/1761192742415_us33xu.jpg', title: 'Black Belt in Web Development', year: '2025', Platform: 'Programming Hero', ShortSummary: 'Earned the prestigious Black Belt from Programming Hero for outstanding performance and dedication throughout the Complete Web Development course, showcasing excellence in coding, projects, and problem-solving.' },
     { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/Screenshot_2026-01-18_190755_ypah1h.png', title: 'Smart Money Skills for Life', year: '2026', Platform: 'Passport to Earning Bangladesh (UNICEF)', ShortSummary: 'Successfully completed the Smart Money Skills for Life course by Passport to Earning Bangladesh in collaboration with UNICEF, gaining essential financial literacy skills including budgeting, saving, smart spending, and responsible money management.' },
     { image: 'https://res.cloudinary.com/dvq3pcykn/image/upload/v1758113802/CCe-Contest_ilts7n.jpg', title: 'CCE Inter Semester Programming Contest-3', year: '2025', Platform: 'CCE Club, IIUC', ShortSummary: 'Participated in the CCE Inter Semester Programming Contest-3, enhancing problem-solving skills and coding expertise through competitive programming.' },
@@ -108,7 +109,7 @@ const Certifications = () => {
                                     <div className="relative group/img overflow-hidden rounded-xl mb-4 h-[200px]">
                                         <motion.img
                                             src={achievement.image}
-                                            alt={`Habibur Rahman Zihad — ${achievement.title} certificate from ${achievement.Platform}`}
+                                            alt={`Habibur Rahman Zihad — ${achievement.title} at ${achievement.Platform}`}
                                             loading="lazy"
                                             className="h-full w-full object-cover border border-secondary shadow-lg cursor-zoom-in"
                                             whileHover={{
@@ -130,7 +131,7 @@ const Certifications = () => {
                                                 <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary/30 text-primary">
                                                     <FaExpand className="text-xl" />
                                                 </div>
-                                                <span className="text-white text-sm font-bold tracking-widest uppercase">View Certificate</span>
+                                                <span className="text-white text-sm font-bold tracking-widest uppercase">View Achievement</span>
                                             </motion.div>
                                         </motion.div>
                                     </div>
