@@ -8,6 +8,7 @@ import {
 import { Link } from 'react-router';
 import Logo from '../../assets/AllPic/logo/zihad-logo-bordered.png';
 import { personalIdentity } from '../../config/identity';
+import { scrollTo } from '../../utils/smoothScroll';
 
 const Footer = () => {
     const { socialProfiles } = personalIdentity;
@@ -21,7 +22,7 @@ const Footer = () => {
     ];
 
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollTo(0);
     };
 
     return (

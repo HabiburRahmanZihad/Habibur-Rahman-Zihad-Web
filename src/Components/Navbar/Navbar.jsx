@@ -4,6 +4,7 @@ import { NavLink, useNavigate, useLocation } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSun, FaMoon, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import BrandLogo from '../../assets/AllPic/logo/zihad-logo-bordered.png';
+import { scrollTo } from '../../utils/smoothScroll';
 
 const Navbar = () => {
     const [theme, setTheme] = useState(() => {
@@ -51,7 +52,18 @@ const Navbar = () => {
     }, [location.pathname]);
 
     const toggleTheme = () => {
-        setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+        const nextTheme = theme === 'dark' ? 'light' : 'dark';
+        const applyTheme = () => {
+            document.documentElement.setAttribute('data-theme', nextTheme);
+            setTheme(nextTheme);
+        };
+
+        // Crossfade between themes where the View Transitions API is available
+        if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.startViewTransition(applyTheme);
+        } else {
+            applyTheme();
+        }
     };
 
     const navLinkClass = ({ isActive }) =>
@@ -70,38 +82,21 @@ const Navbar = () => {
         { label: 'Certifications & Achievements', id: 'certifications' }
     ];
 
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) scrollTo(element, { offset: -100 });
+    };
+
     const handleAboutClick = (sectionId) => {
         setIsAboutDropdownOpen(false);
         setIsMenuOpen(false);
         setIsMobileAboutOpen(false);
 
         if (location.pathname === '/about') {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                const offset = 100;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
+            scrollToSection(sectionId);
         } else {
             navigate('/about');
-            setTimeout(() => {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    const offset = 100;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }, 300);
+            setTimeout(() => scrollToSection(sectionId), 300);
         }
     };
 
@@ -205,8 +200,15 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Navigation Menu */}
+                <AnimatePresence>
                 {isMenuOpen && (
-                    <div className="absolute top-full left-0 w-full bg-base-100/95 backdrop-blur-xl border-t border-base-300 shadow-lg lg:hidden">
+                    <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute top-full left-0 w-full bg-base-100/95 backdrop-blur-xl border-t border-base-300 shadow-lg lg:hidden"
+                    >
                             <div className="flex flex-col gap-2 p-4">
                                 <NavLink
                                     to="/"
@@ -289,8 +291,9 @@ const Navbar = () => {
                                     Contact
                                 </NavLink>
                             </div>
-                    </div>
+                    </motion.div>
                 )}
+                </AnimatePresence>
             </div>
         </nav>
     );
